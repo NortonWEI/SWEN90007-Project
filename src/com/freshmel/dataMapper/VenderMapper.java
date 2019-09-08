@@ -32,4 +32,18 @@ public class VenderMapper {
         }
         return vender;
     }
+
+    public boolean insert(Vender vender) throws SQLException {
+        String sql = "INSERT INTO vender(password,photo,email,phoneNumber,lastLoginDate,firstname,lastname) VALUES (?,?,?,?,?,?,?)" ;
+        pstmt = conn.prepareStatement(sql) ;
+        pstmt.setString(1, vender.getPassword());
+        pstmt.setString(2, vender.getPhoto());
+        pstmt.setString(3, vender.getEmail());
+        pstmt.setString(4, vender.getPhoneNumber());
+        pstmt.setTimestamp(5, vender.getRegisterDate());
+        pstmt.setString(6, vender.getFirstName());
+        pstmt.setString(7, vender.getLasteName());
+        return pstmt.executeUpdate() > 0;
+    }
+
 }
