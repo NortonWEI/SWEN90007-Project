@@ -8946,7 +8946,10 @@ h1, h2, h3, h4, h5,
     border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important; }
     .table tbody tr td.product-remove a {
       bordeR: 1px solid rgba(0, 0, 0, 0.1);
-      padding: 4px 10px;
+      width: 200px;
+      height: 200px;
+      padding: 5px 5px;
+      align-content: center;
       color: #000000; }
       .table tbody tr td.product-remove a:hover {
         border: 1px solid #82ae46;
