@@ -59,7 +59,7 @@
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="navbar-avatar" src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar"></a>
                     <div class="dropdown-menu" aria-labelledby="dropdown04">
                         <a class="dropdown-item" href="#" data-toggle="modal" data-target="#profileModal">My Profile</a>
-                        <a class="dropdown-item" href="#">Logout</a>
+                        <a class="dropdown-item" href="/logout">Logout</a>
                     </div>
                 <%
                     } else {
