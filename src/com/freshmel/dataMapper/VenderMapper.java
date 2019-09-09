@@ -35,7 +35,7 @@ public class VenderMapper {
     }
 
     public boolean insert(Vender vender) throws SQLException {
-        String sql = "INSERT INTO vender(password,photo,email,phoneNumber,lastLoginDate,firstname,lastname) VALUES (?,?,?,?,?,?,?)" ;
+        String sql = "INSERT INTO vender(password,photo,email,phoneNumber,registerDate,firstname,lastname) VALUES (?,?,?,?,?,?,?)" ;
         pstmt = conn.prepareStatement(sql) ;
         pstmt.setString(1, vender.getPassword());
         pstmt.setString(2, vender.getPhoto());
