@@ -1,6 +1,8 @@
 package com.freshmel.servlet;
 
+import com.freshmel.model.Customer;
 import com.freshmel.model.Vender;
+import com.freshmel.service.CustomerService;
 import com.freshmel.service.VenderService;
 
 import javax.servlet.ServletException;
@@ -66,6 +68,33 @@ public class Register extends HttpServlet {
         }
         // do customer register
         else if(type.equals("customer")) {
+            CustomerService customerService = new CustomerService();
+            Customer customer = new Customer();
+            customer.setEmail(email);
+            customer.setPassword(password);
+            try {
+                if (customerService.register(customer)){
+                    // register success
+                    req.setAttribute("info", "Register successfully!");
+                    req.setAttribute("redirectURL", "index.jsp");
+                    req.getRequestDispatcher("redirect.jsp").forward(req, resp);
+                }else {
+                    req.setAttribute("info", "Register failed: Email exist!");
+                    req.setAttribute("redirectURL", "index.jsp");
+                    req.getRequestDispatcher("redirect.jsp").forward(req, resp);
+                }
+            }catch (SQLIntegrityConstraintViolationException e){
+                req.setAttribute("info", "Register failed: Email exist!");
+                req.setAttribute("redirectURL", "index.jsp");
+                req.getRequestDispatcher("redirect.jsp").forward(req, resp);
+            }
+            catch (SQLException e) {
+                // SQL error
+                e.printStackTrace();
+                req.setAttribute("info", "Database error!");
+                req.setAttribute("redirectURL", "index.jsp");
+                req.getRequestDispatcher("redirect.jsp").forward(req, resp);
+            }
         }
     }
 }
