@@ -12,25 +12,26 @@ public class VenderMapper {
     public Connection conn = new DataBaseConnection().getConnection();
     public PreparedStatement pstmt;
 
-    public Vender findByEmail(String email) throws SQLException {
-        Vender vender = null;
-        String sql = "SELECT id,password,photo,email,phoneNumber,registerDate,lastLoginDate,firstname,lastname FROM vender WHERE email=?";
+    public Vender findByEmailANDPassword(Vender vender) throws SQLException {
+        Vender result = null;
+        String sql = "SELECT id,password,photo,email,phoneNumber,registerDate,lastLoginDate,firstname,lastname FROM vender WHERE email=? AND password=?";
         pstmt = conn.prepareStatement(sql) ;
-        pstmt.setString(1, email);
+        pstmt.setString(1, vender.getEmail());
+        pstmt.setString(2, vender.getPassword());
         ResultSet rs = pstmt.executeQuery() ;
         if (rs.next()) {
-            vender = new Vender();
-            vender.setId(rs.getLong(1));
-            vender.setPassword(rs.getString(2));
-            vender.setPhoto(rs.getString(3));
-            vender.setEmail(rs.getString(4));
-            vender.setPhoneNumber(rs.getString(5));
-            vender.setRegisterDate(rs.getTimestamp(6));
-            vender.setLastLoginDate(rs.getTimestamp(7));
-            vender.setFirstName(rs.getString(8));
-            vender.setLasteName(rs.getString(9));
+            result = new Vender();
+            result.setId(rs.getLong(1));
+            result.setPassword(rs.getString(2));
+            result.setPhoto(rs.getString(3));
+            result.setEmail(rs.getString(4));
+            result.setPhoneNumber(rs.getString(5));
+            result.setRegisterDate(rs.getTimestamp(6));
+            result.setLastLoginDate(rs.getTimestamp(7));
+            result.setFirstName(rs.getString(8));
+            result.setLasteName(rs.getString(9));
         }
-        return vender;
+        return result;
     }
 
     public boolean insert(Vender vender) throws SQLException {
@@ -44,6 +45,10 @@ public class VenderMapper {
         pstmt.setString(6, vender.getFirstName());
         pstmt.setString(7, vender.getLasteName());
         return pstmt.executeUpdate() > 0;
+    }
+
+    public boolean update(Vender vender){
+        return false;
     }
 
 }
