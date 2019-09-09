@@ -8953,8 +8953,9 @@ h1, h2, h3, h4, h5,
         background: #82ae46; }
         .table tbody tr td.product-remove a:hover span {
           color: #fff; }
-    .table tbody tr td.quantity {
-      width: 20%; }
+    .table tbody tr td.inventory {
+      width: 20%;
+      color: #000000}
     .table tbody tr td.image-prod .img {
       display: block;
       width: 100px;
@@ -8964,7 +8965,7 @@ h1, h2, h3, h4, h5,
       width: 30%; }
       .table tbody tr td.product-name h3 {
         font-size: 16px; }
-    .table tbody tr td.total, .table tbody tr td.price {
+    .table tbody tr td.state, .table tbody tr td.price {
       color: #000000; }
 
 .cart-wrap .btn-primary {
