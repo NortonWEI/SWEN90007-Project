@@ -109,26 +109,26 @@
                             </div>
                         </form>
 
-                        <form class="form-horizontal">
+                        <form action="/updateInfo" method="post" class="form-horizontal">
                             <fieldset class="fieldset">
                                 <h3 class="fieldset-title">Personal Info</h3>
 
                                 <div class="form-group">
                                     <label class="col-md-2 col-sm-3 col-xs-12 control-label">First Name</label>
                                     <div class="col-md-10 col-sm-9 col-xs-12">
-                                        <input type="text" class="form-control" value="<%= user.getFirstName()%>">
+                                        <input name="firstName" type="text" class="form-control" value="<%= user.getFirstName()%>">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-2 col-sm-3 col-xs-12 control-label">Last Name</label>
                                     <div class="col-md-10 col-sm-9 col-xs-12">
-                                        <input type="text" class="form-control" value="<%= user.getLasteName()%>">
+                                        <input name="lastName" type="text" class="form-control" value="<%= user.getLasteName()%>">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-2 col-sm-3 col-xs-12">Phone</label>
                                     <div class="col-md-10 col-sm-9 col-xs-12">
-                                        <input type="text" class="form-control" value="<%= user.getPhoneNumber()%>">
+                                        <input name="phoneNumber" type="text" class="form-control" value="<%= user.getPhoneNumber()%>">
                                     </div>
                                 </div>
                             </fieldset>
@@ -137,7 +137,7 @@
                                 <div class="form-group">
                                     <label class="col-md-2  col-sm-3 col-xs-12 control-label">Email</label>
                                     <div class="col-md-10 col-sm-9 col-xs-12">
-                                        <input type="email" class="form-control" value="<%= user.getEmail()%>" readonly="">
+                                        <input disabled="disabled" type="email" class="form-control" value="<%= user.getEmail()%>" readonly="">
                                         <p class="help-block">The email is not changeable.</p>
                                     </div>
                                 </div>

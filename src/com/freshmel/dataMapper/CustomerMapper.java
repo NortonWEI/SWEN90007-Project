@@ -56,4 +56,14 @@ public class CustomerMapper {
         return pstmt.executeUpdate() > 0 ;
     }
 
+    public boolean updateInfo(Customer customer) throws SQLException {
+        String sql = "UPDATE customer SET firstname=?,lastname=?,phoneNumber=? WHERE email=?" ;
+        pstmt = conn.prepareStatement(sql) ;
+        pstmt.setString(1, customer.getFirstName());
+        pstmt.setString(2, customer.getFirstName());
+        pstmt.setString(3, customer.getPhoneNumber());
+        pstmt.setString(4, customer.getEmail());
+        return pstmt.executeUpdate() > 0;
+    }
+
 }

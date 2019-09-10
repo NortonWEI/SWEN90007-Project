@@ -29,4 +29,9 @@ public class CustomerService {
         CustomerMapper customerMapper = new CustomerMapper();
         return customerMapper.updatePhoto(customer);
     }
+
+    public boolean updateInfo(Customer customer) throws SQLException {
+        CustomerMapper customerMapper = new CustomerMapper();
+        return customerMapper.updateInfo(customer);
+    }
 }
