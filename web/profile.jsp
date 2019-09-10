@@ -77,7 +77,7 @@
             <div class="module-inner">
                 <div class="side-bar">
                     <div class="user-info">
-                        <img class="img-profile img-circle img-responsive center-block" src="<%= user.getPhoto()%>" alt="">
+                        <img class="img-profile img-circle img-responsive center-block" src="/upload/<%= user.getPhoto()%>" alt="">
                         <ul class="meta list list-unstyled">
                             <li class="name"><%= user.getFirstName()%> <%= user.getLasteName()%></li>
                             <li class="email"></i><%= user.getEmail()%></li>
@@ -91,22 +91,27 @@
                         </ul>
                     </nav>
                 </div>
+
                 <!-- profile update -->
                 <div id="profile" class="content-panel">
+
                     <h2 class="title">Profile</h2>
                     <div class="container">
+                        <form action="/updatePhoto" method="post" enctype="multipart/form-data" class="form-horizontal">
+                            <div class="form-group avatar">
+                                <figure class="figure col-md-2 col-sm-3 col-xs-12">
+                                    <img class="img-rounded img-responsive" src="/upload/<%= user.getPhoto()%>" alt="">
+                                </figure>
+                                <div class="form-inline col-md-10 col-sm-9 col-xs-12">
+                                    <input name="file" type="file" class="file-uploader pull-left">
+                                    <button type="submit" class="btn btn-secondary">Update Image</button>
+                                </div>
+                            </div>
+                        </form>
+
                         <form class="form-horizontal">
                             <fieldset class="fieldset">
                                 <h3 class="fieldset-title">Personal Info</h3>
-                                <div class="form-group avatar">
-                                    <figure class="figure col-md-2 col-sm-3 col-xs-12">
-                                        <img class="img-rounded img-responsive" src="https://www.w3schools.com/howto/img_avatar.png" alt="">
-                                    </figure>
-                                    <div class="form-inline col-md-10 col-sm-9 col-xs-12">
-                                        <input type="file" class="file-uploader pull-left">
-                                        <button type="submit" class="btn btn-secondary">Update Image</button>
-                                    </div>
-                                </div>
 
                                 <div class="form-group">
                                     <label class="col-md-2 col-sm-3 col-xs-12 control-label">First Name</label>
