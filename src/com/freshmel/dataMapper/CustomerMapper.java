@@ -47,4 +47,13 @@ public class CustomerMapper {
         }
         return result;
     }
+
+    public boolean updatePhoto(Customer customer) throws SQLException {
+        String sql = "UPDATE customer SET photo=? WHERE email=?" ;
+        pstmt = conn.prepareStatement(sql) ;
+        pstmt.setString(1, customer.getPhoto());
+        pstmt.setString(2, customer.getEmail());
+        return pstmt.executeUpdate() > 0 ;
+    }
+
 }

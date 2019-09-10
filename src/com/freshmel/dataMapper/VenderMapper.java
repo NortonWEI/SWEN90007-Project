@@ -1,6 +1,7 @@
 package com.freshmel.dataMapper;
 
 import com.freshmel.dbc.DataBaseConnection;
+import com.freshmel.model.Customer;
 import com.freshmel.model.Vender;
 
 import java.sql.Connection;
@@ -47,8 +48,12 @@ public class VenderMapper {
         return pstmt.executeUpdate() > 0;
     }
 
-    public boolean update(Vender vender){
-        return false;
+    public boolean updatePhoto(Vender vender) throws SQLException {
+        String sql = "UPDATE vender SET photo=? WHERE email=?" ;
+        pstmt = conn.prepareStatement(sql) ;
+        pstmt.setString(1, vender.getPhoto());
+        pstmt.setString(2, vender.getEmail());
+        return pstmt.executeUpdate() > 0 ;
     }
 
 }

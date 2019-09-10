@@ -10,7 +10,10 @@ public class CustomerService {
         // 1 check is the email in database
         // 2 if not in database then insert to database
         // 2 else return false
-
+        customer.setPhoto("default.png");
+        customer.setPhoneNumber(" ");
+        customer.setFirstName(" ");
+        customer.setLasteName(" ");
         CustomerMapper customerMapper = new CustomerMapper();
         return customerMapper.insert(customer);
     }
@@ -20,5 +23,10 @@ public class CustomerService {
         // 2 else return false
         CustomerMapper customerMapper = new CustomerMapper();
         return customerMapper.findByEmailANDPassword(customer);
+    }
+
+    public boolean updatePhoto(Customer customer) throws SQLException {
+        CustomerMapper customerMapper = new CustomerMapper();
+        return customerMapper.updatePhoto(customer);
     }
 }
