@@ -1,7 +1,9 @@
 package com.freshmel.servlet;
 
 import com.freshmel.model.Customer;
+import com.freshmel.model.Vender;
 import com.freshmel.service.CustomerService;
+import com.freshmel.service.VenderService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,6 +33,26 @@ public class UpdateInfo extends HttpServlet {
             CustomerService customerService = new CustomerService();
             try {
                 if (customerService.updateInfo(customer)){
+                    req.getRequestDispatcher("profile.jsp").forward(req, resp);
+                }else{
+                    req.setAttribute("info", "update Info faile");
+                    req.setAttribute("redirectURL", "profile.jsp");
+                    req.getRequestDispatcher("redirect.jsp").forward(req, resp);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+                req.setAttribute("info", "Database error!");
+                req.setAttribute("redirectURL", "index.jsp");
+                req.getRequestDispatcher("redirect.jsp").forward(req, resp);
+            }
+        }else if (type.equals("vender")){
+            Vender vender = (Vender) session.getAttribute("vender");
+            vender.setFirstName(firstName);
+            vender.setLasteName(lastName);
+            vender.setPhoneNumber(phoneNumber);
+            VenderService venderService = new VenderService();
+            try {
+                if (venderService.updateInfo(vender)){
                     req.getRequestDispatcher("profile.jsp").forward(req, resp);
                 }else{
                     req.setAttribute("info", "update Info faile");

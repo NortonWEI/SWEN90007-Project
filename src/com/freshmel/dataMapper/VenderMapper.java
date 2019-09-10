@@ -56,4 +56,14 @@ public class VenderMapper {
         return pstmt.executeUpdate() > 0 ;
     }
 
+    public boolean updateInfo(Vender vender) throws SQLException {
+        String sql = "UPDATE vender SET firstname=?,lastname=?,phoneNumber=? WHERE email=?" ;
+        pstmt = conn.prepareStatement(sql) ;
+        pstmt.setString(1, vender.getFirstName());
+        pstmt.setString(2, vender.getFirstName());
+        pstmt.setString(3, vender.getPhoneNumber());
+        pstmt.setString(4, vender.getEmail());
+        return pstmt.executeUpdate() > 0;
+    }
+
 }

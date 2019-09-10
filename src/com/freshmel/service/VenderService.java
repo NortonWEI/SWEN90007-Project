@@ -31,4 +31,9 @@ public class VenderService {
         VenderMapper venderMapper  = new VenderMapper();
         return venderMapper.updatePhoto(vender);
     }
+
+    public boolean updateInfo(Vender vender) throws SQLException {
+        VenderMapper venderMapper = new VenderMapper();
+        return venderMapper.updateInfo(vender);
+    }
 }
