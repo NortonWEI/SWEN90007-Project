@@ -33,7 +33,7 @@
                 <%
                     if (type == "vender"){
                 %>
-                <li class="nav-item"><a href="shop.html" class="nav-link">MyProducts</a></li>
+                <li class="nav-item"><a href="shop.html" class="nav-link">My Products</a></li>
                 <%
                     } else{
                 %>
@@ -41,9 +41,15 @@
                 <%
                     }
                 %>
+                <%
+                    if (type != null){
+                %>
+                <li class="nav-item"><a href="order.html" class="nav-link">Order</a></li>
+                <%
+                    }
+                %>
                 <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-                <!-- To be hide when not login -->
                 <%
                     if (type == "customer"){
                 %>
