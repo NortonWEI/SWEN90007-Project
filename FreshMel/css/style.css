@@ -9055,6 +9055,19 @@ h1, h2, h3, h4, h5,
 .billing-form textarea.form-control {
   height: inherit !important; }
 
+.product-form textarea.form-control {
+  height: 300px !important; }
+
+.product-form img.img-rounded {
+  height: 200px !important; }
+
+.product-form .btn {
+  margin: 10px; }
+
+.product-form .form-group .avatar {
+  align-content: center;
+align-items: center}
+
 .cart-detail {
   width: 100%;
   display: block;
