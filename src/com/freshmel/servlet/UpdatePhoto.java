@@ -93,8 +93,8 @@ public class UpdatePhoto extends HttpServlet {
                     req.getRequestDispatcher("redirect.jsp").forward(req, resp);
                 }
             }
+        }else{
+            req.getRequestDispatcher("profile.jsp").forward(req, resp);
         }
-
-
     }
 }

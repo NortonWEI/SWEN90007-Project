@@ -1,6 +1,7 @@
 <%@ page import="com.freshmel.model.Vender" %>
 <%@ page import="com.freshmel.model.Customer" %>
-<%@ page import="com.freshmel.model.User" %><%--
+<%@ page import="com.freshmel.model.User" %>
+<%@ page import="com.freshmel.model.Address" %><%--
   Created by IntelliJ IDEA.
   User: Shawn
   Date: 9/9/19
@@ -87,7 +88,13 @@
                     <nav class="side-menu">
                         <ul class="nav">
                             <li class="nav-tab active" onclick="openItem(event, 'profile')"><a href="#" ><span class="fa fa-user"></span> Profile</a></li>
+                            <%
+                                if (type.equals("customer")) {
+                            %>
                             <li class="nav-tab" onclick="openItem(event, 'address')"><a href="#"><span class="fa fa-location-arrow"></span> Address</a></li>
+                            <%
+                                }
+                            %>
                         </ul>
                     </nav>
                 </div>
@@ -152,71 +159,70 @@
                     </div>
                 </div>
                 <!-- address update -->
+                <%
+                    if (type.equals("customer")){
+                        Address address = customer.getAddresses();
+                %>
                 <div id="address" class="content-panel" style="display: none;">
                     <div class="container">
                         <h2 class="title">Delivery Address Details</h2>
-                        <form class="form-horizontal">
+                        <form action="/updateAddress" method="post" class="form-horizontal">
                             <fieldset class="fieldset">
                                 <h3 class="fieldset-title">Address Info</h3>
                                 <div class="row col-md-12">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label">First Name</label>
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input name="firstName" type="text" class="form-control" placeholder="<%=address.getFirstName()%>">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label">Last Name</label>
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input name="lastName" type="text" class="form-control" placeholder="<%=address.getLastName()%>">
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="control-label">Phone</label>
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input name="phone" type="text" class="form-control" placeholder="<%=address.getPhone()%>">
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="control-label">Street Address</label>
-                                            <input type="text" class="form-control" placeholder="Line 1">
+                                            <label class="control-label">Line1</label>
+                                            <input name="line1" type="text" class="form-control" placeholder="<%=address.getLine1()%>">
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Line 2">
+                                            <label class="control-label">Line2</label>
+                                            <input name="line2" type="text" class="form-control" placeholder="<%=address.getLine2()%>">
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Line 3">
+                                            <label class="control-label">Line3</label>
+                                            <input name="line3" type="text" class="form-control" placeholder="<%=address.getLine3()%>">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="towncity">Suburb</label>
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input name="suburb" type="text" class="form-control" placeholder="<%=address.getSuburb()%>">
                                         </div>
                                     </div>
-                                    <div class="col-md-6 form-group">
-                                        <label for="state">State</label>
-                                        <select name="" id="" class="form-control">
-                                            <option value="">ACT</option>
-                                            <option value="">NSW</option>
-                                            <option value="">QLD</option>
-                                            <option value="">VIC</option>
-                                            <option value="">NT</option>
-                                            <option value="">SA</option>
-                                            <option value="">WA</option>
-                                            <option value="">TAS</option>
-                                            <option value="">OTHER</option>
-                                        </select>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="towncity">State</label>
+                                            <input name="state" type="text" class="form-control" placeholder="<%=address.getState()%>">
+                                        </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="postcodezip">Postcode / ZIP</label>
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input name="postCode" type="text" class="form-control" placeholder="<%=address.getPostCode()%>">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -235,6 +241,10 @@
                         </form>
                     </div>
                 </div>
+                <%
+                    }
+                %>
+
         </section>
     </div>
 </div>

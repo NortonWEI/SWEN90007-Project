@@ -23,7 +23,13 @@ public class CustomerMapper {
         pstmt.setTimestamp(5, customer.getRegisterDate());
         pstmt.setString(6, customer.getFirstName());
         pstmt.setString(7, customer.getLasteName());
-        return pstmt.executeUpdate() > 0;
+        if (pstmt.executeUpdate() > 0){
+            customer = findByEmailANDPassword(customer);
+            pstmt = conn.prepareStatement("INSERT INTO address(customer_id) VALUES (?)") ;
+            pstmt.setLong(1, customer.getId());
+            return pstmt.executeUpdate() > 0;
+        }
+        return false;
     }
 
     public Customer findByEmailANDPassword(Customer customer) throws SQLException {

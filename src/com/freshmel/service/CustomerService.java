@@ -1,6 +1,8 @@
 package com.freshmel.service;
 
+import com.freshmel.dataMapper.AddressMapper;
 import com.freshmel.dataMapper.CustomerMapper;
+import com.freshmel.model.Address;
 import com.freshmel.model.Customer;
 
 import java.sql.SQLException;
@@ -22,7 +24,11 @@ public class CustomerService {
         // 2 if correct return true
         // 2 else return false
         CustomerMapper customerMapper = new CustomerMapper();
-        return customerMapper.findByEmailANDPassword(customer);
+        AddressMapper addressMapper = new AddressMapper();
+        customer = customerMapper.findByEmailANDPassword(customer);
+        Address address = addressMapper.findByCustomerId(customer);
+        customer.setAddresses(address);
+        return customer;
     }
 
     public boolean updatePhoto(Customer customer) throws SQLException {
@@ -33,5 +39,10 @@ public class CustomerService {
     public boolean updateInfo(Customer customer) throws SQLException {
         CustomerMapper customerMapper = new CustomerMapper();
         return customerMapper.updateInfo(customer);
+    }
+
+    public boolean updateAddress(Address address) throws SQLException {
+        AddressMapper addressMapper = new AddressMapper();
+        return  addressMapper.update(address);
     }
 }
