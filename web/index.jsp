@@ -50,7 +50,7 @@
                     <div class="col-md-12 ftco-animate text-center">
                         <h1 class="mb-2">We serve Fresh Vegestables &amp; Fruits</h1>
                         <h2 class="subheading mb-4">We deliver organic vegetables &amp; fruits</h2>
-                        <p><a href="shop.html" class="btn btn-primary">View Details</a></p>
+                        <p><a href="shop.jsp" class="btn btn-primary">View Details</a></p>
                     </div>
 
                 </div>
@@ -65,7 +65,7 @@
                     <div class="col-sm-12 ftco-animate text-center">
                         <h1 class="mb-2">100% Fresh &amp; Organic Foods</h1>
                         <h2 class="subheading mb-4">We deliver organic vegetables &amp; fruits</h2>
-                        <p><a href="shop.html" class="btn btn-primary">View Details</a></p>
+                        <p><a href="shop.jsp" class="btn btn-primary">View Details</a></p>
                     </div>
 
                 </div>
@@ -135,7 +135,7 @@
                             <div class="text text-center">
                                 <h2>Vegetables</h2>
                                 <p>Protect the health of every home</p>
-                                <p><a href="shop.html" class="btn btn-primary">Shop now</a></p>
+                                <p><a href="shop.jsp" class="btn btn-primary">Shop now</a></p>
                             </div>
                         </div>
                     </div>

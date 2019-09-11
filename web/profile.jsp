@@ -65,7 +65,7 @@
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-9 ftco-animate text-center">
-                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>My Profile</span></p>
+                <p class="breadcrumbs"><span class="mr-2"><a href="index.jsp">Home</a></span> <span>My Profile</span></p>
                 <h1 class="mb-0 bread">View Profile</h1>
             </div>
         </div>
@@ -274,9 +274,9 @@
                 <div class="ftco-footer-widget mb-4 ml-md-5">
                     <h2 class="ftco-heading-2">Menu</h2>
                     <ul class="list-unstyled">
-                        <li><a href="shop.html" class="py-2 d-block">Shop</a></li>
-                        <li><a href="about.html" class="py-2 d-block">About</a></li>
-                        <li><a href="contact.html" class="py-2 d-block">Contact Us</a></li>
+                        <li><a href="shop.jsp" class="py-2 d-block">Shop</a></li>
+                        <li><a href="about.jsp" class="py-2 d-block">About</a></li>
+                        <li><a href="contact.jsp" class="py-2 d-block">Contact Us</a></li>
                     </ul>
                 </div>
             </div>
@@ -292,7 +292,7 @@
                         </ul>
                         <ul class="list-unstyled">
                             <li><a href="#" class="py-2 d-block">FAQs</a></li>
-                            <li><a href="contact.html" class="py-2 d-block">Contact</a></li>
+                            <li><a href="contact.jsp" class="py-2 d-block">Contact</a></li>
                         </ul>
                     </div>
                 </div>
