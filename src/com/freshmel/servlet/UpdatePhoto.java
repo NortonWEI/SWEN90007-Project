@@ -45,8 +45,8 @@ public class UpdatePhoto extends HttpServlet {
         Date date = new Date();
         if(smart.getFiles().getSize()>0) {
             photoname = ra.nextInt(2000000) + date.getTime() + "."+ smart.getFiles().getFile(0).getFileExt();
-            filePath = super.getServletContext().getRealPath("/upload/photo/") + photoname;
-            photo = "photo" + photoname;
+            filePath = super.getServletContext().getRealPath("/upload/photo/") + "/" + photoname;
+            photo =  photoname;
             try {
                 System.out.println(filePath);
                 smart.getFiles().getFile(0).saveAs(filePath);
