@@ -98,7 +98,7 @@
             </div>
             <div class="modal-body">
                 <div class="col-md-12 order-md-last">
-                    <form action="/login" method="post" class="bg-white p-5 contact-form">
+                    <form action="./login" method="post" class="bg-white p-5 contact-form">
                         <div class="form-group">
                             <label class="control-label">Your User Type</label>
                             <select name="type" class="form-control">
