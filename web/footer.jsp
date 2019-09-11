@@ -31,9 +31,9 @@
                 <div class="ftco-footer-widget mb-4 ml-md-5">
                     <h2 class="ftco-heading-2">Menu</h2>
                     <ul class="list-unstyled">
-                        <li><a href="shop.html" class="py-2 d-block">Shop</a></li>
-                        <li><a href="about.html" class="py-2 d-block">About</a></li>
-                        <li><a href="contact.html" class="py-2 d-block">Contact Us</a></li>
+                        <li><a href="shop.jsp" class="py-2 d-block">Shop</a></li>
+                        <li><a href="about.jsp" class="py-2 d-block">About</a></li>
+                        <li><a href="contact.jsp" class="py-2 d-block">Contact Us</a></li>
                     </ul>
                 </div>
             </div>
@@ -49,7 +49,7 @@
                         </ul>
                         <ul class="list-unstyled">
                             <li><a href="#" class="py-2 d-block">FAQs</a></li>
-                            <li><a href="contact.html" class="py-2 d-block">Contact</a></li>
+                            <li><a href="contact.jsp" class="py-2 d-block">Contact</a></li>
                         </ul>
                     </div>
                 </div>

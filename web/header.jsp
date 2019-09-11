@@ -33,27 +33,27 @@
                 <%
                     if (type == "vender"){
                 %>
-                <li class="nav-item"><a href="shop.html" class="nav-link">My Products</a></li>
+                <li class="nav-item"><a href="shop.jsp" class="nav-link">My Products</a></li>
                 <%
                     } else{
                 %>
-                <li class="nav-item"><a href="shop.html" class="nav-link">Shop</a></li>
+                <li class="nav-item"><a href="shop.jsp" class="nav-link">Shop</a></li>
                 <%
                     }
                 %>
                 <%
                     if (type != null){
                 %>
-                <li class="nav-item"><a href="order.html" class="nav-link">Order</a></li>
+                <li class="nav-item"><a href="order.jsp" class="nav-link">Order</a></li>
                 <%
                     }
                 %>
-                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="about.jsp" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="contact.jsp" class="nav-link">Contact</a></li>
                 <%
                     if (type == "customer"){
                 %>
-                <li class="nav-item cta cta-colored"><a href="cart.html" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
+                <li class="nav-item cta cta-colored"><a href="cart.jsp" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
                 <%
                     }
                 %>
@@ -98,7 +98,7 @@
             </div>
             <div class="modal-body">
                 <div class="col-md-12 order-md-last">
-                    <form action="/login" method="post" class="bg-white p-5 contact-form">
+                    <form action="./login" method="post" class="bg-white p-5 contact-form">
                         <div class="form-group">
                             <label class="control-label">Your User Type</label>
                             <select name="type" class="form-control">
