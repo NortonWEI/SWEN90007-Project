@@ -59,11 +59,17 @@ public class ProductMapper {
         return pstmt.executeUpdate() > 0;
     }
 
-    public boolean updatePhoto(Product product) throws SQLException {
-        String sql = "UPDATE product SET state=? WHERE id=?" ;
+    public boolean updateProduct(Product product) throws SQLException {
+        String sql = "UPDATE product SET name=?,photo=?,description=?,price=?,state=?,type=?,inventory=? WHERE id=?" ;
         pstmt = conn.prepareStatement(sql) ;
-        pstmt.setInt(1, product.getState());
-        pstmt.setLong(2, product.getId());
+        pstmt.setString(1, product.getName());
+        pstmt.setString(2, product.getPhoto());
+        pstmt.setString(3, product.getDescription());
+        pstmt.setFloat(4, product.getPrice());
+        pstmt.setInt(5,product.getState());
+        pstmt.setString(6, product.getType());
+        pstmt.setInt(7, product.getInventory());
+        pstmt.setLong(8, product.getId());
         return pstmt.executeUpdate() > 0 ;
     }
     
