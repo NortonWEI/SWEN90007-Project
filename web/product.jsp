@@ -1,4 +1,13 @@
+<%@ page import="java.util.List" %>
+<%@ page import="com.freshmel.model.Product" %>
+<%@ page import="com.freshmel.model.Vender" %>
+<%@ page import="com.freshmel.dataMapper.ProductMapper" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+	Vender vender = (Vender) session.getAttribute("vender");
+	ProductMapper productMapper = new ProductMapper();
+	vender.setProducts(productMapper.findByVenderID(vender.getId()));
+%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -66,29 +75,43 @@
 									<span class="form-group">All</span>
 								</td>
 							</tr>
-						      <tr class="text-center">
-						        <td class="product-remove">
-									<a href="#">
+							<%
+								List<Product> products = vender.getProducts();
+								for (int i=0;i<products.size();i++){
+								    Product product = products.get(i);
+								    String state = null;
+								    if (product.getState() == 1){
+								        state = "On Sale";
+									}else if (product.getState() == 2){
+										state = "Unavailable";
+									}
+							%>
+							<tr class="text-center">
+								<td class="product-remove">
+									<a href="/deleteProduct?id=<%=product.getId()%>">
 										<span class="fa fa-trash"></span>
 									</a>
-									<a href="#" data-toggle="modal" data-target="#prodModal">
+									<a href="#" data-toggle="modal" data-target="#prodModal<%=i%>">
 										<span class="fa fa-edit"></span>
 									</a>
 								</td>
-						        
-						        <td class="image-prod"><div class="img" style="background-image:url(images/product-1.jpg);"></div></td>
-						        
-						        <td class="product-name">
-						        	<h3>Bell Pepper</h3>
-						        	<p>Far far away, behind the word mountains, far from the countries</p>
-						        </td>
-						        
-						        <td class="price">$4.90</td>
-						        
-						        <td class="inventory">100</td>
-						        
-						        <td class="state">On Sale</td>
-						      </tr><!-- END TR-->
+
+								<td class="image-prod"><div class="img" style="background-image:url(./upload/photo/<%=product.getPhoto()%>);"></div></td>
+
+								<td class="product-name">
+									<h3><%=product.getName()%></h3>
+									<p><%=product.getDescription()%></p>
+								</td>
+
+								<td class="price">$<%=product.getPrice()%></td>
+
+								<td class="inventory"><%=product.getInventory()%></td>
+
+								<td class="state"><%=state%></td>
+							</tr><!-- END TR-->
+							<%
+								}
+							%>
 						    </tbody>
 						  </table>
 					  </div>
@@ -122,7 +145,7 @@
 										<input type="hidden" id="photo_id" name="photo" value="">
 									</div>
 									<div class="form-group">
-										<button type="button" id="upload_btn" onclick='upload()' class="btn btn-secondary">Update Image</button>
+										<button type="button" id="upload_btn" onclick='upload("upload_btn","pic_img","show_img","photo_id")' class="btn btn-secondary">Update Image</button>
 									</div>
 								</div>
 								<div class="form-group">
@@ -170,6 +193,101 @@
 				</div>
 			</div>
 		</div>
+
+  		<%
+			for (int i=0;i<products.size();i++) {
+				Product product = products.get(i);
+				String state = null;
+				if (product.getState() == 1) {
+					state = "On Sale";
+				} else if (product.getState() == 2) {
+					state = "Unavailable";
+				}
+		%>
+  		<div class="modal fade" id="prodModal<%=i%>" tabindex="-1" role="dialog" aria-labelledby="prodModalCenterTitle" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+		  <div class="modal-content">
+			  <div class="modal-header">
+				  <h4 class="modal-title" id="prodModalLongTitle">Update product</h4>
+				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					  <span aria-hidden="true">&times;</span>
+				  </button>
+			  </div>
+			  <div class="modal-body">
+				  <div class="col-md-12 order-md-last">
+					  <form action="/updateProduct" method="post" class="bg-white p-5 product-form">
+						  <input type="hidden" name="productId" value="<%=product.getId()%>">
+						  <div class="form-group avatar" align="center">
+							  <figure class="figure">
+								  <img class="img-rounded" id='show_img<%=i%>' src="./upload/photo/<%=product.getPhoto()%>" alt="">
+							  </figure>
+							  <div class="form-group">
+								  <input type="file" id='pic_img<%=i%>' class="file-uploader pull-left">
+								  <input type="hidden" id="photo_id<%=i%>" name="photo" value="<%=product.getPhoto()%>">
+							  </div>
+							  <div class="form-group">
+								  <button type="button" id="upload_btn<%=i%>" onclick='upload("upload_btn<%=i%>","pic_img<%=i%>","show_img<%=i%>","photo_id<%=i%>")' class="btn btn-secondary">Update Image</button>
+							  </div>
+						  </div>
+						  <div class="form-group">
+							  <label class="control-label">Name</label>
+							  <input type="text" name="name" class="form-control" value="<%=product.getName()%>" required>
+						  </div>
+						  <div class="form-group">
+							  <label class="control-label">Price</label>
+							  <input type="text" name="price" class="form-control" value="<%=product.getPrice()%>" required>
+						  </div>
+						  <div class="form-group">
+							  <label class="control-label">Inventory</label>
+							  <input type="text" name="inventory" class="form-control" value="<%=product.getInventory()%>" required>
+						  </div>
+						  <div class="form-group">
+							  <label class="control-label">Description</label>
+							  <textarea type="text" name="description" class="form-control" value="<%=product.getDescription()%>"  placeholder="<%=product.getDescription()%>" required></textarea>
+						  </div>
+						  <div class="form-group">
+							  <label class="form-group">Type</label>
+							  <select name="type" class="form-control" value="<%=product.getType()%>">
+								  <option value="Fruit">Fruit</option>
+								  <option value="Vegetable">Vegetable</option>
+								  <option value="Poultry">Poultry</option>
+								  <option value="Seafood">Seafood</option>
+								  <option value="Dairy">Dairy</option>
+							  </select>
+						  </div>
+						  <div class="form-group">
+							  <label class="form-group">State</label>
+							  <select name="state" class="form-control">
+								  <%
+								  	if (product.getState() == 1){
+								  %>
+								  <option value="1" selected="selected">On Sale</option>
+								  <option value="2">Unavailable</option>
+								  <%
+									}else if (product.getState() == 2){
+								  %>
+								  <option value="1">On Sale</option>
+								  <option value="2" selected="selected">Unavailable</option>
+								  <%
+									}
+								  %>
+							  </select>
+						  </div>
+				  </div>
+			  </div>
+			  <div class="modal-footer" align="end">
+				  <div>
+					  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					  <button type="submit" class="btn btn-primary">Update</button>
+				  </div>
+			  </div>
+			  </form>
+		  </div>
+	  </div>
+  </div>
+  		<%
+			}
+		%>
 
 		<section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
       <div class="container py-4">
@@ -250,11 +368,11 @@
 		    
 		});
 
-        function upload(){
-            var button = document.getElementById("upload_btn");
+        function upload(btn,pic_img,show_img,photo_id){
+            var button = document.getElementById(btn);
             button.disabled=true;
             var formData = new FormData();
-            formData.append('file', $('#pic_img')[0].files[0]);
+            formData.append('file', $("#"+pic_img)[0].files[0]);
             $.ajax({
                 url: '/productPhotoUpload',
                 data: formData,
@@ -265,8 +383,8 @@
                 processData: false,
                 success: function(data) {
                 console.log(data);
-                document.getElementById("show_img").src = "/upload/photo/" + data;
-                document.getElementById("photo_id").value = data;
+                document.getElementById(show_img).src = "/upload/photo/" + data;
+                document.getElementById(photo_id).value = data;
                 button.disabled=false;
             },
             error: function() {

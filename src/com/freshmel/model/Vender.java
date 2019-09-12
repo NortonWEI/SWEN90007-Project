@@ -4,13 +4,13 @@ import java.sql.Timestamp;
 import java.util.List;
 
 public class Vender extends User {
-    private List<Product> list;
+    private List<Product> products;
 
-    public List<Product> getList() {
-        return list;
+    public List<Product> getProducts() {
+        return products;
     }
 
-    public void setList(List<Product> list) {
-        this.list = list;
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 }

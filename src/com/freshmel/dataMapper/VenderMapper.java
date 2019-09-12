@@ -2,12 +2,14 @@ package com.freshmel.dataMapper;
 
 import com.freshmel.dbc.DataBaseConnection;
 import com.freshmel.model.Customer;
+import com.freshmel.model.Product;
 import com.freshmel.model.Vender;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 public class VenderMapper {
     public Connection conn = new DataBaseConnection().getConnection();
@@ -31,6 +33,10 @@ public class VenderMapper {
             result.setLastLoginDate(rs.getTimestamp(7));
             result.setFirstName(rs.getString(8));
             result.setLasteName(rs.getString(9));
+
+            ProductMapper productMapper = new ProductMapper();
+            List<Product> products = productMapper.findByVenderID(result.getId());
+            result.setProducts(products);
         }
         return result;
     }

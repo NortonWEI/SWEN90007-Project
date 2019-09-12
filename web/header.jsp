@@ -47,7 +47,7 @@
                 <%
                         } else {
                 %>
-                <li class="nav-item"><a href="shop.jsp" class="nav-link">My Products</a></li>
+                <li class="nav-item"><a href="product.jsp" class="nav-link">My Products</a></li>
                 <%
                         }
                     } else {
@@ -57,7 +57,7 @@
                 <%
                         } else {
                 %>
-                <li class="nav-item"><a href="shop.jsp" class="nav-link">Shop</a></li>
+                <li class="nav-item"><a href="/shop" class="nav-link">Shop</a></li>
                 <%
                         }
                     }

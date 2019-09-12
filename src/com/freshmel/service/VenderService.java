@@ -37,4 +37,14 @@ public class VenderService {
         ProductMapper productMapper = new ProductMapper();
         return productMapper.insert(product);
     }
+
+    public boolean updateProduct(Product product) throws SQLException {
+        ProductMapper productMapper = new ProductMapper();
+        return productMapper.updateProduct(product);
+    }
+
+    public boolean deleteProduct(Product product) throws SQLException {
+        ProductMapper productMapper = new ProductMapper();
+        return productMapper.deleteByProductId(product);
+    }
 }
