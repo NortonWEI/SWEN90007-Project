@@ -73,7 +73,7 @@
 									totalPrice += singleTotalPrice;
 							%>
 							<tr class="text-center">
-								<td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
+								<td class="product-remove"><a href="/deleteItemInCart?productId=<%=cart.getProduct().getId()%>"><span class="ion-ios-close"></span></a></td>
 
 								<td class="image-prod"><div class="img" style="background-image:url(/upload/photo/<%=cart.getProduct().getPhoto()%>);"></div></td>
 

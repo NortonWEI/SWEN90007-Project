@@ -24,10 +24,11 @@ public class CartMapper {
         return pstmt.executeUpdate() > 0;
     }
 
-    public boolean deleteByProductId(Long productId) throws SQLException {
-        String sql = "DELETE FROM cart WHERE product_id=?";
+    public boolean deleteByProductIdAndCustomerId(Long productId, Long customerId) throws SQLException {
+        String sql = "DELETE FROM cart WHERE product_id=? AND customer_id=?";
         pstmt = conn.prepareStatement(sql) ;
         pstmt.setLong(1, productId);
+        pstmt.setLong(2, customerId);
         return pstmt.executeUpdate() > 0;
     }
 

@@ -52,4 +52,9 @@ public class CustomerService {
         CartMapper cartMapper = new CartMapper();
         return cartMapper.findByCustomerId(customerId);
     }
+
+    public boolean deleteCartItem(Long productId, Long customerId) throws SQLException {
+        CartMapper cartMapper = new CartMapper();
+        return cartMapper.deleteByProductIdAndCustomerId(productId,customerId);
+    }
 }
