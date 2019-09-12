@@ -9,6 +9,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String type = (String)session.getAttribute("type");
+    String currPage = request.getRequestURL().toString();
+    currPage = currPage.substring(currPage.lastIndexOf("/")+1);
+
     Vender vender = null;
     Customer customer = null;
     if (type != null){
@@ -18,6 +21,8 @@
             customer = (Customer) session.getAttribute("customer");
         }
     }
+
+
 %>
 
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
@@ -29,27 +34,68 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
+                <% if (currPage.equals("") || currPage.equals("index.jsp")) { %>
                 <li class="nav-item active"><a href="index.jsp" class="nav-link">Home</a></li>
+                <% } else {%>
+                <li class="nav-item"><a href="index.jsp" class="nav-link">Home</a></li>
+                <% } %>
                 <%
                     if (type == "vender"){
+                        if (currPage.equals("shop.jsp")) {
+                %>
+                <li class="nav-item active"><a href="shop.jsp" class="nav-link">My Products</a></li>
+                <%
+                        } else {
                 %>
                 <li class="nav-item"><a href="shop.jsp" class="nav-link">My Products</a></li>
                 <%
-                    } else{
+                        }
+                    } else {
+                        if (currPage.equals("shop.jsp")) {
+                %>
+                <li class="nav-item active"><a href="shop.jsp" class="nav-link">Shop</a></li>
+                <%
+                        } else {
                 %>
                 <li class="nav-item"><a href="shop.jsp" class="nav-link">Shop</a></li>
                 <%
+                        }
                     }
                 %>
+
                 <%
                     if (type != null){
+                        if (currPage.equals("order.jsp")) {
+                %>
+                <li class="nav-item active"><a href="order.jsp" class="nav-link">Order</a></li>
+                <%
+                        } else {
                 %>
                 <li class="nav-item"><a href="order.jsp" class="nav-link">Order</a></li>
                 <%
+                        }
                     }
                 %>
+                <%
+                    if (currPage.equals("about.jsp")) {
+                %>
+                <li class="nav-item active"><a href="about.jsp" class="nav-link">About</a></li>
+                <%
+                    } else {
+                %>
                 <li class="nav-item"><a href="about.jsp" class="nav-link">About</a></li>
+                <%
+                    }
+                    if (currPage.equals("contact.jsp")) {
+                %>
+                <li class="nav-item active"><a href="contact.jsp" class="nav-link">Contact</a></li>
+                <%
+                    } else {
+                %>
                 <li class="nav-item"><a href="contact.jsp" class="nav-link">Contact</a></li>
+                <%
+                    }
+                %>
                 <%
                     if (type == "customer"){
                 %>
