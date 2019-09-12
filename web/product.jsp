@@ -63,7 +63,7 @@
 						    <tbody>
 							<tr class="text-left">
 								<td class="product-remove">
-									<span class="form-group">Fruit</span>
+									<span class="form-group">All</span>
 								</td>
 							</tr>
 						      <tr class="text-center">
@@ -89,184 +89,7 @@
 						        
 						        <td class="state">On Sale</td>
 						      </tr><!-- END TR-->
-
-						      <tr class="text-center">
-						        <td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
-						        
-						        <td class="image-prod"><div class="img" style="background-image:url(images/product-2.jpg);"></div></td>
-						        
-						        <td class="product-name">
-						        	<h3>Bell Pepper</h3>
-						        	<p>Far far away, behind the word mountains, far from the countries</p>
-						        </td>
-						        
-						        <td class="price">$15.70</td>
-						        
-						        <td class="quantity">
-						        	<div class="input-group mb-3">
-					             	<input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
-					          	</div>
-					          </td>
-						        
-						        <td class="total">$15.70</td>
-						      </tr><!-- END TR-->
-
-						      <tr class="text-center">
-						        <td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
-						        
-						        <td class="image-prod"><div class="img" style="background-image:url(images/product-3.jpg);"></div></td>
-						        
-						        <td class="product-name">
-						        	<h3>Bell Pepper</h3>
-						        	<p>Far far away, behind the word mountains, far from the countries</p>
-						        </td>
-						        
-						        <td class="price">$15.70</td>
-						        
-						        <td class="quantity">
-						        	<div class="input-group mb-3">
-					             	<input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
-					          	</div>
-					          </td>
-						        
-						        <td class="total">$15.70</td>
-						      </tr><!-- END TR-->
 						    </tbody>
-							<tbody>
-							<tr class="text-left">
-								<td class="product-remove">
-									<span class="form-group">Vegetable</span>
-								</td>
-							</tr>
-							<tr class="text-center">
-								<td class="product-remove">
-									<a href="#">
-										<span class="fa fa-trash"></span>
-									</a>
-									<a href="#" data-toggle="modal" data-target="#prodModal">
-										<span class="fa fa-edit"></span>
-									</a>
-								</td>
-
-								<td class="image-prod"><div class="img" style="background-image:url(images/product-1.jpg);"></div></td>
-
-								<td class="product-name">
-									<h3>Bell Pepper</h3>
-									<p>Far far away, behind the word mountains, far from the countries</p>
-								</td>
-
-								<td class="price">$4.90</td>
-
-								<td class="inventory">100</td>
-
-								<td class="state">On Sale</td>
-							</tr><!-- END TR-->
-
-							<tr class="text-center">
-								<td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
-
-								<td class="image-prod"><div class="img" style="background-image:url(images/product-2.jpg);"></div></td>
-
-								<td class="product-name">
-									<h3>Bell Pepper</h3>
-									<p>Far far away, behind the word mountains, far from the countries</p>
-								</td>
-
-								<td class="price">$15.70</td>
-
-								<td class="quantity">
-									<div class="input-group mb-3">
-										<input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
-									</div>
-								</td>
-
-								<td class="total">$15.70</td>
-							</tr><!-- END TR-->
-
-							<tr class="text-center">
-								<td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
-
-								<td class="image-prod"><div class="img" style="background-image:url(images/product-3.jpg);"></div></td>
-
-								<td class="product-name">
-									<h3>Bell Pepper</h3>
-									<p>Far far away, behind the word mountains, far from the countries</p>
-								</td>
-
-								<td class="price">$15.70</td>
-
-								<td class="quantity">
-									<div class="input-group mb-3">
-										<input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
-									</div>
-								</td>
-
-								<td class="total">$15.70</td>
-							</tr><!-- END TR-->
-
-							<tr class="text-center">
-								<td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
-
-								<td class="image-prod"><div class="img" style="background-image:url(images/product-4.jpg);"></div></td>
-
-								<td class="product-name">
-									<h3>Bell Pepper</h3>
-									<p>Far far away, behind the word mountains, far from the countries</p>
-								</td>
-
-								<td class="price">$15.70</td>
-
-								<td class="quantity">
-									<div class="input-group mb-3">
-										<input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
-									</div>
-								</td>
-
-								<td class="total">$15.70</td>
-							</tr><!-- END TR-->
-
-							<tr class="text-center">
-								<td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
-
-								<td class="image-prod"><div class="img" style="background-image:url(images/product-5.jpg);"></div></td>
-
-								<td class="product-name">
-									<h3>Bell Pepper</h3>
-									<p>Far far away, behind the word mountains, far from the countries</p>
-								</td>
-
-								<td class="price">$15.70</td>
-
-								<td class="quantity">
-									<div class="input-group mb-3">
-										<input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
-									</div>
-								</td>
-
-								<td class="total">$15.70</td>
-							</tr><!-- END TR-->
-
-							<tr class="text-center">
-								<td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
-
-								<td class="image-prod"><div class="img" style="background-image:url(images/product-6.jpg);"></div></td>
-
-								<td class="product-name">
-									<h3>Bell Pepper</h3>
-									<p>Far far away, behind the word mountains, far from the countries</p>
-								</td>
-
-								<td class="price">$15.70</td>
-
-								<td class="quantity">
-									<div class="input-group mb-3">
-										<input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
-									</div>
-								</td>
-
-								<td class="total">$15.70</td>
-							</tr><!-- END TR-->
-							</tbody>
 						  </table>
 					  </div>
     			</div>
@@ -274,76 +97,65 @@
 				<div class="col-md-12 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0" align="center">
 					<input class="btn btn-primary" type="submit" value="Add Product" data-toggle="modal" data-target="#prodModal">
 				</div>
-				<div class="row mt-5">
-					<div class="col text-center">
-						<div class="block-27">
-							<ul>
-								<li><a href="#">&lt;</a></li>
-								<li class="active"><span>1</span></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-								<li><a href="#">&gt;</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
 			</div>
 		</section>
 
-		<!-- Product Modal -->
+		<!-- Add Product Modal -->
 		<div class="modal fade" id="prodModal" tabindex="-1" role="dialog" aria-labelledby="prodModalCenterTitle" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h4 class="modal-title" id="prodModalLongTitle">Bell Pepper</h4>
+						<h4 class="modal-title" id="prodModalLongTitle">Add new product</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
 					<div class="modal-body">
 						<div class="col-md-12 order-md-last">
-							<form action="#" class="bg-white p-5 product-form">
+							<form action="/addProduct" method="post" class="bg-white p-5 product-form">
 								<div class="form-group avatar" align="center">
 									<figure class="figure">
-										<img class="img-rounded" src="https://www.w3schools.com/howto/img_avatar.png" alt="">
+										<img class="img-rounded" id='show_img' src="https://www.w3schools.com/howto/img_avatar.png" alt="">
 									</figure>
 									<div class="form-group">
-										<input type="file" class="file-uploader pull-left">
+										<input type="file" id='pic_img' class="file-uploader pull-left">
+										<input type="hidden" id="photo_id" name="photo" value="">
 									</div>
 									<div class="form-group">
-										<button type="button" class="btn btn-secondary">Update Image</button>
+										<button type="button" id="upload_btn" onclick='upload()' class="btn btn-secondary">Update Image</button>
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="control-label">Name</label>
-									<input type="text" class="form-control" required>
+									<input type="text" name="name" class="form-control" required>
 								</div>
 								<div class="form-group">
 									<label class="control-label">Price</label>
-									<input type="text" class="form-control" required>
+									<input type="text" name="price" class="form-control" required>
+								</div>
+								<div class="form-group">
+									<label class="control-label">Inventory</label>
+									<input type="text" name="inventory" class="form-control" required>
 								</div>
 								<div class="form-group">
 									<label class="control-label">Description</label>
-									<textarea type="text" class="form-control" required></textarea>
+									<textarea type="text" name="description" class="form-control" required></textarea>
 								</div>
 								<div class="form-group">
 									<label class="form-group">Type</label>
-									<select name="" id="" class="form-control">
-										<option value="">Fruit</option>
-										<option value="">Vegetable</option>
-										<option value="">Poultry & Egg</option>
-										<option value="">Seafood</option>
-										<option value="">Dairy</option>
+									<select name="type" id="" class="form-control">
+										<option value="Fruit">Fruit</option>
+										<option value="Vegetable">Vegetable</option>
+										<option value="Poultry">Poultry</option>
+										<option value="Seafood">Seafood</option>
+										<option value="Dairy">Dairy</option>
 									</select>
 								</div>
 								<div class="form-group">
 									<label class="form-group">State</label>
-									<select name="" id="" class="form-control">
-										<option value="">On Sale</option>
-										<option value="">For Sale</option>
-										<option value="">Sold Out</option>
+									<select name="state" class="form-control">
+										<option value="1">On Sale</option>
+										<option value="2">Unavailable</option>
 									</select>
 								</div>
 						</div>
@@ -351,7 +163,7 @@
 					<div class="modal-footer" align="end">
 						<div>
 							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-							<button type="submit" class="btn btn-primary">Confirm</button>
+							<button type="submit" class="btn btn-primary">Add</button>
 						</div>
 					</div>
 					</form>
@@ -437,7 +249,32 @@
 		    });
 		    
 		});
+
+        function upload(){
+            var button = document.getElementById("upload_btn");
+            button.disabled=true;
+            var formData = new FormData();
+            formData.append('file', $('#pic_img')[0].files[0]);
+            $.ajax({
+                url: '/productPhotoUpload',
+                data: formData,
+                type: "POST",
+                async: false,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function(data) {
+                console.log(data);
+                document.getElementById("show_img").src = "/upload/photo/" + data;
+                document.getElementById("photo_id").value = data;
+                button.disabled=false;
+            },
+            error: function() {
+                alert("file upload system is died! please try later!")
+            }
+        })
+        }
 	</script>
-    
+
   </body>
 </html>

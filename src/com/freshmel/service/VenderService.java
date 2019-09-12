@@ -1,8 +1,10 @@
 package com.freshmel.service;
 
 import com.freshmel.dataMapper.CustomerMapper;
+import com.freshmel.dataMapper.ProductMapper;
 import com.freshmel.dataMapper.VenderMapper;
 import com.freshmel.model.Customer;
+import com.freshmel.model.Product;
 import com.freshmel.model.Vender;
 
 import java.sql.SQLException;
@@ -29,5 +31,10 @@ public class VenderService {
     public boolean updateInfo(Vender vender) throws SQLException {
         VenderMapper venderMapper = new VenderMapper();
         return venderMapper.updateInfo(vender);
+    }
+
+    public boolean addNewProduct(Product product) throws SQLException {
+        ProductMapper productMapper = new ProductMapper();
+        return productMapper.insert(product);
     }
 }
