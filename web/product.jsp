@@ -248,7 +248,7 @@
 						  <div class="form-group">
 							  <label class="form-group">Type</label>
 							  <select name="type" class="form-control" value="<%=product.getType()%>">
-								  <option value="Fruit" selected="selected">Fruit</option>
+								  <option value="Fruit">Fruit</option>
 								  <option value="Vegetable">Vegetable</option>
 								  <option value="Poultry">Poultry</option>
 								  <option value="Seafood">Seafood</option>
