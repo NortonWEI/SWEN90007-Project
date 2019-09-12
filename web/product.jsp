@@ -5,8 +5,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
 	Vender vender = (Vender) session.getAttribute("vender");
-//	ProductMapper productMapper = new ProductMapper();
-//	vender.setProducts(productMapper.findByVenderID(vender.getId()));
+	ProductMapper productMapper = new ProductMapper();
+	vender.setProducts(productMapper.findByVenderID(vender.getId()));
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -88,7 +88,7 @@
 							%>
 							<tr class="text-center">
 								<td class="product-remove">
-									<a href="#">
+									<a href="/deleteProduct?id=<%=product.getId()%>">
 										<span class="fa fa-trash"></span>
 									</a>
 									<a href="#" data-toggle="modal" data-target="#prodModal<%=i%>">

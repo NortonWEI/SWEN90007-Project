@@ -47,7 +47,7 @@ public class UpdateProduct extends HttpServlet {
                 req.getRequestDispatcher("product.jsp").forward(req, resp);
             }else{
                 req.setAttribute("info", "update product fail");
-                req.setAttribute("redirectURL", "profile.jsp");
+                req.setAttribute("redirectURL", "product.jsp");
                 req.getRequestDispatcher("redirect.jsp").forward(req, resp);
             }
         } catch (SQLException e) {
