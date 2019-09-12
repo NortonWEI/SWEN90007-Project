@@ -1,11 +1,14 @@
 package com.freshmel.service;
 
 import com.freshmel.dataMapper.AddressMapper;
+import com.freshmel.dataMapper.CartMapper;
 import com.freshmel.dataMapper.CustomerMapper;
 import com.freshmel.model.Address;
+import com.freshmel.model.Cart;
 import com.freshmel.model.Customer;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public class CustomerService {
     public boolean register(Customer customer) throws SQLException {
@@ -38,5 +41,15 @@ public class CustomerService {
     public boolean updateAddress(Address address) throws SQLException {
         AddressMapper addressMapper = new AddressMapper();
         return  addressMapper.update(address);
+    }
+
+    public boolean addToCart (Cart cart) throws SQLException {
+        CartMapper cartMapper = new CartMapper();
+        return cartMapper.safeInsert(cart);
+    }
+
+    public List<Cart> getCarts(Long customerId) throws SQLException {
+        CartMapper cartMapper = new CartMapper();
+        return cartMapper.findByCustomerId(customerId);
     }
 }
