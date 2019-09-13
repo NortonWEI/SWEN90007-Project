@@ -1,5 +1,6 @@
 <%@ page import="com.freshmel.model.Vender" %>
-<%@ page import="com.freshmel.model.Customer" %><%--
+<%@ page import="com.freshmel.model.Customer" %>
+<%@ page import="com.freshmel.model.User" %><%--
   Created by IntelliJ IDEA.
   User: Shawn
   Date: 9/9/19
@@ -14,11 +15,14 @@
 
     Vender vender = null;
     Customer customer = null;
+    User user = null;
     if (type != null){
         if (type.equals("vender")){
             vender = (Vender)session.getAttribute("vender");
+            user = (User) vender;
         }else if(type.equals("customer")){
             customer = (Customer) session.getAttribute("customer");
+            user = (User) customer;
         }
     }
 
@@ -43,7 +47,7 @@
                     if (type == "vender"){
                         if (currPage.equals("shop.jsp")) {
                 %>
-                <li class="nav-item active"><a href="shop.jsp" class="nav-link">My Products</a></li>
+                <li class="nav-item active"><a href="/shop" class="nav-link">My Products</a></li>
                 <%
                         } else {
                 %>
@@ -99,7 +103,7 @@
                 <%
                     if (type == "customer"){
                 %>
-                <li class="nav-item cta cta-colored"><a href="cart.jsp" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
+                <li class="nav-item cta cta-colored"><a href="/cart" class="nav-link"><span class="icon-shopping_cart"></span>[<%=customer.getCarts().size()%>]</a></li>
                 <%
                     }
                 %>
@@ -108,7 +112,7 @@
                     if (type != null){
                 %>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="navbar-avatar" src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar"></a>
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="navbar-avatar" src="/upload/photo/<%=user.getPhoto()%>" alt="Avatar"></a>
                     <div class="dropdown-menu" aria-labelledby="dropdown04">
                         <a class="dropdown-item" href="/profile.jsp">My Profile</a>
                         <a class="dropdown-item" href="/logout">Logout</a>

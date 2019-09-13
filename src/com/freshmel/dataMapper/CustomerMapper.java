@@ -50,6 +50,8 @@ public class CustomerMapper {
             result.setLastLoginDate(rs.getTimestamp(7));
             result.setFirstName(rs.getString(8));
             result.setLasteName(rs.getString(9));
+            CartMapper cartMapper = new CartMapper();
+            result.setCarts(cartMapper.findByCustomerId(result.getId()));
         }
         return result;
     }
@@ -66,7 +68,7 @@ public class CustomerMapper {
         String sql = "UPDATE customer SET firstname=?,lastname=?,phoneNumber=? WHERE email=?" ;
         pstmt = conn.prepareStatement(sql) ;
         pstmt.setString(1, customer.getFirstName());
-        pstmt.setString(2, customer.getFirstName());
+        pstmt.setString(2, customer.getLasteName());
         pstmt.setString(3, customer.getPhoneNumber());
         pstmt.setString(4, customer.getEmail());
         return pstmt.executeUpdate() > 0;

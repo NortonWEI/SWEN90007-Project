@@ -16,4 +16,9 @@ public class ProductService {
         ProductMapper productMapper = new ProductMapper();
         return productMapper.getByType(type);
     }
+
+    public Product getByProductId(Long id) throws SQLException {
+        ProductMapper productMapper = new ProductMapper();
+        return productMapper.findByProductID(id);
+    }
 }

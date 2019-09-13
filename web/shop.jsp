@@ -71,12 +71,12 @@
 				%>
 				<div class="col-md-6 col-lg-3 ftco-animate">
 					<div class="product">
-						<a href="#" class="img-prod"><img class="img-fluid" src="./upload/photo/<%=product.getPhoto()%>" alt="Colorlib Template">
+						<a href="/singleProduct?id=<%=product.getId()%>" class="img-prod"><img class="img-fluid" src="./upload/photo/<%=product.getPhoto()%>" alt="Colorlib Template">
 							<%--<span class="status">10%</span>--%>
 							<div class="overlay"></div>
 						</a>
 						<div class="text py-3 pb-4 px-3 text-center">
-							<h3><a href="#"><%=product.getName()%></a></h3>
+							<h3><a href="/singleProduct?id=<%=product.getId()%>"><%=product.getName()%></a></h3>
 							<div class="d-flex">
 								<div class="pricing">
 									<p class="price">

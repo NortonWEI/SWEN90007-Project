@@ -50,7 +50,7 @@
                     <div class="col-md-12 ftco-animate text-center">
                         <h1 class="mb-2">We serve Fresh Vegestables &amp; Fruits</h1>
                         <h2 class="subheading mb-4">We deliver organic vegetables &amp; fruits</h2>
-                        <p><a href="shop.jsp" class="btn btn-primary">View Details</a></p>
+                        <p><a href="/shop" class="btn btn-primary">View Details</a></p>
                     </div>
 
                 </div>

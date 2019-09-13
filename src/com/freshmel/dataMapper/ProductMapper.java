@@ -52,6 +52,28 @@ public class ProductMapper {
         return products;
     }
 
+    public Product findByProductID(Long productId) throws SQLException {
+        String sql = "SELECT id,name,photo,description,price,createDate,state,type,vender_id,inventory FROM product WHERE id=?";
+        pstmt = conn.prepareStatement(sql) ;
+        pstmt.setLong(1, productId);
+        ResultSet rs = pstmt.executeQuery();
+        Product product = null;
+        if (rs.next()){
+            product = new Product();
+            product.setId(rs.getLong(1));
+            product.setName(rs.getString(2));
+            product.setPhoto(rs.getString(3));
+            product.setDescription(rs.getString(4));
+            product.setPrice(rs.getFloat(5));
+            product.setCreatDate(rs.getTimestamp(6));
+            product.setState(rs.getInt(7));
+            product.setType(rs.getString(8));
+            product.setVenderId(rs.getLong(9));
+            product.setInventory(rs.getInt(10));
+        }
+        return product;
+    }
+
     public boolean deleteByProductId(Product product) throws SQLException {
         String sql = "DELETE FROM product WHERE id=?";
         pstmt = conn.prepareStatement(sql) ;
