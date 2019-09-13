@@ -154,7 +154,7 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label">Email</label>
-                            <input name="email" type="text" class="form-control" required>
+                            <input name="email" type="text" class="form-control" pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$" title="Please input a valid email." required>
                         </div>
                         <div class="form-group">
                             <label class="control-label">Password</label>
@@ -214,15 +214,15 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label">Your Email</label>
-                            <input name="email" type="text" class="form-control" placeholder="" required>
+                            <input name="email" type="text" class="form-control" placeholder="" pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$" title="Please input a valid email." required>
                         </div>
                         <div class="form-group">
                             <label class="control-label">Your Password</label>
-                            <input name="password" type="password" class="form-control" placeholder="" required>
+                            <input name="password" type="password" class="form-control" id="psw1-reg" placeholder="" required>
                         </div>
                         <div class="form-group">
                             <label class="control-label">Retype Your Password</label>
-                            <input name="password2" type="password" class="form-control" placeholder="" required>
+                            <input name="password2" type="password" class="form-control" id="psw2-reg" placeholder="" required>
                         </div>
                         <div class="text-center">
 					<span class="txt1">
@@ -235,10 +235,24 @@
             <div class="modal-footer">
                 <div>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                    <button type="submit" class="btn btn-primary" id="checkReg">Sign Up</button>
                 </div>
             </div>
             </form>
+<%--            check password --%>
+            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+            <script>
+                document.getElementById("checkReg").onclick = function () {
+                    var psw1 = document.getElementById("psw1-reg").value;
+                    var psw2 = document.getElementById("psw2-reg").value;
+                    if (psw1 != psw2) {
+                        swal("Info", "Please ensure the 2 password are the same!").then((value) => {});
+                        document.getElementById("psw1-reg").value = "";
+                        document.getElementById("psw2-reg").value = "";
+                        return false;
+                    }
+                }
+            </script>
         </div>
     </div>
 </div>
@@ -258,7 +272,7 @@
                     <form action="#" class="bg-white p-5 contact-form">
                         <div class="form-group">
                             <label class="control-label">Your Email</label>
-                            <input type="text" class="form-control" placeholder="" required>
+                            <input type="text" class="form-control" placeholder="" pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$" title="Please input a valid email." required>
                         </div>
                         <div class="text-center">
 					<span class="txt1">
