@@ -55,12 +55,12 @@
     			<div class="col-md-10 mb-5 text-center">
     				<ul class="product-category">
     					<%--<li><a href="./shop" class="active">All</a></li>--%>
-						<li><a href="./shop">All</a></li>
-    					<li><a href="./shop?type=Vegetable">Vegetable</a></li>
-    					<li><a href="./shop?type=Fruit">Fruit</a></li>
-    					<li><a href="./shop?type=Seafood">Seafood</a></li>
-    					<li><a href="./shop?type=Dairy">Dairy</a></li>
-						<li><a href="./shop?type=Poultry">Poultry</a></li>
+						<li><a href="./shop" id="All" name="tab">All</a></li>
+    					<li><a href="./shop?type=Vegetable" id="Vegetable" name="tab">Vegetable</a></li>
+    					<li><a href="./shop?type=Fruit" id="Fruit" name="tab">Fruit</a></li>
+    					<li><a href="./shop?type=Seafood" id="Seafood" name="tab">Seafood</a></li>
+    					<li><a href="./shop?type=Dairy" id="Dairy" name="tab">Dairy</a></li>
+						<li><a href="./shop?type=Poultry" id="Poultry" name="tab">Poultry</a></li>
     				</ul>
     			</div>
     		</div>
@@ -163,6 +163,22 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="js/google-map.js"></script>
   <script src="js/main.js"></script>
+  
+  <script>
+      $(function () {
+          var anchor = window.location.href;
+          var tab;
+
+          if (anchor.includes("=")) {
+            anchor = anchor.substring(anchor.indexOf("=")+1);
+          } else {
+            anchor = "All";
+          }
+
+          tab = document.getElementById(anchor);
+          tab.className += "active";
+      })
+  </script>
     
   </body>
 </html>
