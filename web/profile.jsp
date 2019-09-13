@@ -123,19 +123,19 @@
                                 <div class="form-group">
                                     <label class="col-md-2 col-sm-3 col-xs-12 control-label">First Name</label>
                                     <div class="col-md-10 col-sm-9 col-xs-12">
-                                        <input name="firstName" type="text" class="form-control" value="<%= user.getFirstName()%>">
+                                        <input name="firstName" type="text" class="form-control" value="<%= user.getFirstName()%>" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-2 col-sm-3 col-xs-12 control-label">Last Name</label>
                                     <div class="col-md-10 col-sm-9 col-xs-12">
-                                        <input name="lastName" type="text" class="form-control" value="<%= user.getLasteName()%>">
+                                        <input name="lastName" type="text" class="form-control" value="<%= user.getLasteName()%>" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-2 col-sm-3 col-xs-12">Phone</label>
                                     <div class="col-md-10 col-sm-9 col-xs-12">
-                                        <input name="phoneNumber" type="text" class="form-control" value="<%= user.getPhoneNumber()%>">
+                                        <input name="phoneNumber" type="text" class="form-control" pattern="^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$" title="Please input a valid phone." value="<%= user.getPhoneNumber()%>" required>
                                     </div>
                                 </div>
                             </fieldset>
@@ -144,7 +144,7 @@
                                 <div class="form-group">
                                     <label class="col-md-2  col-sm-3 col-xs-12 control-label">Email</label>
                                     <div class="col-md-10 col-sm-9 col-xs-12">
-                                        <input disabled="disabled" type="email" class="form-control" value="<%= user.getEmail()%>" readonly="">
+                                        <input disabled="disabled" type="email" class="form-control" value="<%= user.getEmail()%>" readonly>
                                         <p class="help-block">The email is not changeable.</p>
                                     </div>
                                 </div>
@@ -173,56 +173,56 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label">First Name</label>
-                                            <input name="firstName" type="text" class="form-control" placeholder="<%=address.getFirstName()%>">
+                                            <input name="firstName" type="text" class="form-control" value="<%=address.getFirstName()%>" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label">Last Name</label>
-                                            <input name="lastName" type="text" class="form-control" placeholder="<%=address.getLastName()%>">
+                                            <input name="lastName" type="text" class="form-control" value="<%=address.getLastName()%>" required>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="control-label">Phone</label>
-                                            <input name="phone" type="text" class="form-control" placeholder="<%=address.getPhone()%>">
+                                            <input name="phone" type="text" class="form-control" placeholder="<%=address.getPhone()%>" pattern="^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$" title="Please input a valid phone." required>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="control-label">Street Address</label>
                                             <label class="control-label">Line1</label>
-                                            <input name="line1" type="text" class="form-control" placeholder="<%=address.getLine1()%>">
+                                            <input name="line1" type="text" class="form-control" value="<%=address.getLine1()%>" required>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="control-label">Line2</label>
-                                            <input name="line2" type="text" class="form-control" placeholder="<%=address.getLine2()%>">
+                                            <input name="line2" type="text" class="form-control" value="<%=address.getLine2()%>">
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="control-label">Line3</label>
-                                            <input name="line3" type="text" class="form-control" placeholder="<%=address.getLine3()%>">
+                                            <input name="line3" type="text" class="form-control" value="<%=address.getLine3()%>">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="towncity">Suburb</label>
-                                            <input name="suburb" type="text" class="form-control" placeholder="<%=address.getSuburb()%>">
+                                            <input name="suburb" type="text" class="form-control" value="<%=address.getSuburb()%>" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="towncity">State</label>
-                                            <input name="state" type="text" class="form-control" placeholder="<%=address.getState()%>">
+                                            <label for="towncity">State / Territory</label>
+                                            <input name="state" type="text" class="form-control" value="<%=address.getState()%>" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="postcodezip">Postcode / ZIP</label>
-                                            <input name="postCode" type="text" class="form-control" placeholder="<%=address.getPostCode()%>">
+                                            <input name="postCode" type="text" class="form-control" value="<%=address.getPostCode()%>" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
