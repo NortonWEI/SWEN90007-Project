@@ -170,10 +170,9 @@
                             <fieldset class="fieldset">
                                 <h3 class="fieldset-title">Address Info</h3>
                                 <div class="row col-md-12">
-                                    
+
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label class="control-label">Street Address</label>
                                             <label class="control-label">Line1</label>
                                             <input name="line1" type="text" class="form-control" value="<%=address.getLine1()%>" required>
                                         </div>
