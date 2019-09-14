@@ -1,6 +1,7 @@
 package com.freshmel.dataMapper;
 
 import com.freshmel.dbc.DataBaseConnection;
+import com.freshmel.model.Address;
 import com.freshmel.model.Customer;
 import com.freshmel.model.Vender;
 
@@ -14,7 +15,7 @@ public class CustomerMapper {
     public PreparedStatement pstmt;
 
     public boolean insert(Customer customer) throws SQLException {
-        String sql = "INSERT INTO customer(password,photo,email,phoneNumber,registerDate,firstname,lastname) VALUES (?,?,?,?,?,?,?)" ;
+        String sql = "INSERT INTO customer(password,photo,email,phoneNumber,registerDate,firstname,lastname,line1,line2,line3,suburb,state,postCode) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)" ;
         pstmt = conn.prepareStatement(sql) ;
         pstmt.setString(1, customer.getPassword());
         pstmt.setString(2, customer.getPhoto());
@@ -23,6 +24,12 @@ public class CustomerMapper {
         pstmt.setTimestamp(5, customer.getRegisterDate());
         pstmt.setString(6, customer.getFirstName());
         pstmt.setString(7, customer.getLasteName());
+        pstmt.setString(8, customer.getAddresses().getLine1());
+        pstmt.setString(9, customer.getAddresses().getLine2());
+        pstmt.setString(10, customer.getAddresses().getLine3());
+        pstmt.setString(11, customer.getAddresses().getSuburb());
+        pstmt.setString(12, customer.getAddresses().getState());
+        pstmt.setString(13, customer.getAddresses().getPostCode());
         if (pstmt.executeUpdate() > 0){
             customer = findByEmailANDPassword(customer);
             pstmt = conn.prepareStatement("INSERT INTO address(customer_id) VALUES (?)") ;
@@ -34,7 +41,7 @@ public class CustomerMapper {
 
     public Customer findByEmailANDPassword(Customer customer) throws SQLException {
         Customer result = null;
-        String sql = "SELECT id,password,photo,email,phoneNumber,registerDate,lastLoginDate,firstname,lastname FROM customer WHERE email=? AND password=?";
+        String sql = "SELECT id,password,photo,email,phoneNumber,registerDate,lastLoginDate,firstname,lastname,line1,line2,line3,suburb,state,postCode FROM customer WHERE email=? AND password=?";
         pstmt = conn.prepareStatement(sql) ;
         pstmt.setString(1, customer.getEmail());
         pstmt.setString(2, customer.getPassword());
@@ -50,10 +57,31 @@ public class CustomerMapper {
             result.setLastLoginDate(rs.getTimestamp(7));
             result.setFirstName(rs.getString(8));
             result.setLasteName(rs.getString(9));
+            Address address = new Address();
+            address.setLine1(rs.getString(10));
+            address.setLine2(rs.getString(11));
+            address.setLine3(rs.getString(12));
+            address.setSuburb(rs.getString(13));
+            address.setState(rs.getString(14));
+            address.setPostCode(rs.getString(15));
+            result.setAddresses(address);
             CartMapper cartMapper = new CartMapper();
             result.setCarts(cartMapper.findByCustomerId(result.getId()));
         }
         return result;
+    }
+
+    public boolean updateAddress(Customer customer) throws SQLException {
+        String sql = "UPDATE customer SET line1=?,line2=?,line3=?,suburb=?,state=?,postCode=? WHERE id=?" ;
+        pstmt = conn.prepareStatement(sql) ;
+        pstmt.setString(1, customer.getAddresses().getLine1());
+        pstmt.setString(2, customer.getAddresses().getLine2());
+        pstmt.setString(3, customer.getAddresses().getLine3());
+        pstmt.setString(4, customer.getAddresses().getSuburb());
+        pstmt.setString(5, customer.getAddresses().getState());
+        pstmt.setString(6, customer.getAddresses().getPostCode());
+        pstmt.setLong(7, customer.getId());
+        return pstmt.executeUpdate() > 0;
     }
 
     public boolean updatePhoto(Customer customer) throws SQLException {
