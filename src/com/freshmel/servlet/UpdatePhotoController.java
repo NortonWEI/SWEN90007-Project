@@ -24,7 +24,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 @WebServlet("/updatePhoto")
-public class UpdatePhoto extends HttpServlet {
+public class UpdatePhotoController extends HttpServlet {
     public String photoname;
     public String filePath;
     public String photo;

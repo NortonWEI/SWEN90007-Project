@@ -16,7 +16,7 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 
 @WebServlet("/login")
-public class Login extends HttpServlet {
+public class LoginController extends HttpServlet {
     @Override
     public void init() throws ServletException {
     }

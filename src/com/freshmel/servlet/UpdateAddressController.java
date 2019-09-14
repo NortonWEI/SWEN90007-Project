@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 @WebServlet("/updateAddress")
-public class UpdateAddress extends HttpServlet {
+public class UpdateAddressController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String firstName = req.getParameter("firstName");

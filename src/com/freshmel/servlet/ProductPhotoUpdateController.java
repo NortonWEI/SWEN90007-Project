@@ -15,7 +15,7 @@ import java.util.Date;
 import java.util.Random;
 
 @WebServlet("/productPhotoUpload")
-public class ProductPhotoUpdate extends HttpServlet {
+public class ProductPhotoUpdateController extends HttpServlet {
     public String photoname;
     public String filePath;
     public String photo;

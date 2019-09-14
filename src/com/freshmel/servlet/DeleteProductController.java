@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 @WebServlet("/deleteProduct")
-public class DeleteProduct extends HttpServlet {
+public class DeleteProductController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String idString = req.getParameter("id");

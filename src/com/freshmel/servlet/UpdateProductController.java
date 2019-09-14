@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 @WebServlet("/updateProduct")
-public class UpdateProduct extends HttpServlet {
+public class UpdateProductController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String productIdString = req.getParameter("productId");

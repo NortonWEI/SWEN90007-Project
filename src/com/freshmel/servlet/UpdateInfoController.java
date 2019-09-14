@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 @WebServlet("/updateInfo")
-public class UpdateInfo extends HttpServlet {
+public class UpdateInfoController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -1,8 +1,6 @@
 package com.freshmel.servlet;
 
-import com.freshmel.model.Cart;
 import com.freshmel.model.Customer;
-import com.freshmel.model.Product;
 import com.freshmel.service.CustomerService;
 
 import javax.servlet.ServletException;
@@ -14,29 +12,20 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet("/addCart")
-public class AddCart extends HttpServlet {
+@WebServlet("/deleteItemInCart")
+public class DeleteItemInCartController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String productIdString = req.getParameter("productId");
-        String quantityString = req.getParameter("quantity");
         Long productId = Long.parseLong(productIdString);
-        Integer quantity = Integer.parseInt(quantityString);
+        CustomerService customerService = new CustomerService();
         HttpSession session = req.getSession();
         Customer customer = (Customer) session.getAttribute("customer");
-        Product product = new Product();
-        product.setId(productId);
-        Cart cart = new Cart();
-        cart.setProduct(product);
-        cart.setQuantity(quantity);
-        cart.setCustomerId(customer.getId());
-        CustomerService customerService = new CustomerService();
         try {
-            if (customerService.addToCart(cart)){
+            if (customerService.deleteCartItem(productId,customer.getId())){
                 resp.sendRedirect("/cart");
-//                req.getRequestDispatcher("/cart").forward(req, resp);
             }else{
-                req.setAttribute("info", "add cart fail");
-                req.setAttribute("redirectURL", "/shop");
+                req.setAttribute("info", "delete fail");
+                req.setAttribute("redirectURL", "/cart");
                 req.getRequestDispatcher("redirect.jsp").forward(req, resp);
             }
         } catch (SQLException e) {

@@ -15,7 +15,7 @@ import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 
 @WebServlet("/register")
-public class Register extends HttpServlet {
+public class RegisterController extends HttpServlet {
     @Override
     public void init() throws ServletException {
     }

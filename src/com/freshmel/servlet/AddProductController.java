@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 @WebServlet("/addProduct")
-public class AddProduct extends HttpServlet {
+public class AddProductController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String photo = req.getParameter("photo");
