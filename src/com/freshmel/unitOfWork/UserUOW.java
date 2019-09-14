@@ -27,33 +27,33 @@ public class UserUOW {
     }
 
     public void registerNew(User user) {
-//        Assert.assertNot(user.getId(), "id is null");
-//        Assert.isTrue(!dirtyUsers.contains(user), "object is dirty");
-//        Assert.isTrue(!deletedUsers.contains(user), "object is deleted");
-//        Assert.isTrue(!newUsers.contains(user), "object is new");
-//        newUsers.add(user);
+        Assert.assertNotNull ("id is null", user.getId());
+        Assert.assertFalse("object is dirty", dirtyUsers.contains(user));
+        Assert.assertFalse("object is deleted", deletedUsers.contains(user));
+        Assert.assertFalse("object is new", newUsers.contains(user));
+        newUsers.add(user);
     }
 
     public void registerDirty(User user) {
-//        Assert.notNull(user.getId(), "id is null");
-//
-//        Assert.isTrue(!deletedUsers.contains(user), "object is deleted");
-//        if (!dirtyUsers.contains(user) && !newUsers.contains(user)) {
-//            dirtyUsers.add(user);
-//        }
+        Assert.assertNotNull("id is null", user.getId());
+
+        Assert.assertFalse("object is deleted", deletedUsers.contains(user));
+        if (!dirtyUsers.contains(user) && !newUsers.contains(user)) {
+            dirtyUsers.add(user);
+        }
     }
 
-    public void registerDeleted(User obj) {
-//        Assert.notNull(obj.getId(), "id is null");
-//        if (newUsers.remove(obj)) return;
-//        dirtyUsers.remove(obj);
-//        if (!deletedUsers.contains(obj)) {
-//            deletedUsers.add(obj);
-//        }
+    public void registerDeleted(User user) {
+        Assert.assertNotNull("id is null", user.getId());
+        if (newUsers.remove(user)) return;
+        dirtyUsers.remove(user);
+        if (!deletedUsers.contains(user)) {
+            deletedUsers.add(user);
+        }
     }
 
     public void registerClean(User user) {
-//        Assert.notNull(user.getId(), "id is null");
+        Assert.assertNotNull("id is null", user.getId());
     }
 
     public void commit() {
