@@ -30,13 +30,7 @@ public class CustomerMapper {
         pstmt.setString(11, customer.getAddresses().getSuburb());
         pstmt.setString(12, customer.getAddresses().getState());
         pstmt.setString(13, customer.getAddresses().getPostCode());
-        if (pstmt.executeUpdate() > 0){
-            customer = findByEmailANDPassword(customer);
-            pstmt = conn.prepareStatement("INSERT INTO address(customer_id) VALUES (?)") ;
-            pstmt.setLong(1, customer.getId());
-            return pstmt.executeUpdate() > 0;
-        }
-        return false;
+        return pstmt.executeUpdate() > 0;
     }
 
     public Customer findByEmailANDPassword(Customer customer) throws SQLException {
