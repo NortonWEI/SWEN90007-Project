@@ -84,10 +84,8 @@
 
 								<td class="price">$<%=cart.getProduct().getPrice()%></td>
 
-								<td class="quantity">
-									<div class="input-group mb-3">
-										<input type="text" name="quantity" class="quantity form-control input-number" value="<%=cart.getQuantity()%>">
-									</div>
+								<td class="inventory">
+									<p><%=cart.getQuantity()%></>
 								</td>
 
 								<td class="total">$<%=singleTotalPrice%></td>

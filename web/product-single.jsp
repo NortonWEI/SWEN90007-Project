@@ -1,7 +1,29 @@
-<%@ page import="com.freshmel.model.Product" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.freshmel.model.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
 	Product product = (Product) request.getAttribute("product");
+	String type = (String)session.getAttribute("type");
+
+	Vender vender = null;
+	Customer customer = null;
+	User user = null;
+	List<Cart> carts = null;
+	List<Product> products = null;
+	if (type != null){
+		if (type.equals("vender")){
+			vender = (Vender)session.getAttribute("vender");
+			user = (User) vender;
+		}else if(type.equals("customer")){
+			customer = (Customer) session.getAttribute("customer");
+			user = (User) customer;
+			carts = customer.getCarts();
+		}
+	}
+
+	for (Cart cart : carts) {
+		products.add(cart.getProduct());
+	}
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -322,7 +344,17 @@
 
 		document.getElementById('add_cart').onclick = function () {
 		    var quantity = document.getElementById("quantity").value;
-            window.location.href="/addCart?productId=<%=product.getId()%>&quantity="+quantity
+		    var cookies = document.cookie.split(';');
+            <%--window.location.href="/addCart?productId=<%=product.getId()%>&quantity="+quantity--%>
+
+			var products = <%=products%>;
+
+			if (!products.includes(<%=product%>)) {
+				quantity++;
+			}
+			document.cookie = "cart_quantity=" + value;
+
+			window.location.href = "/shop";
 		}
 	</script>
     

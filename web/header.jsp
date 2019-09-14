@@ -102,9 +102,33 @@
                 %>
                 <%
                     if (type == "customer"){
+                        Cookie cookie;
+                        Cookie[] cookies;
+                        boolean isCookieFound = false;
+
+                        cookies = request.getCookies();
+
+                        if (cookies != null) {
+                            for (int i = 0; i < cookies.length; i++) {
+                                cookie = cookies[i];
+                                if (cookie.getName().equals("cart_quantity")) {
+                %>
+                <li class="nav-item cta cta-colored"><a href="/cart" class="nav-link"><span class="icon-shopping_cart"></span>[<%=cookie.getValue()%>]</a></li>
+                <%
+                                    isCookieFound = true;
+                                    break;
+                                }
+                            }
+                            if (!isCookieFound) {
                 %>
                 <li class="nav-item cta cta-colored"><a href="/cart" class="nav-link"><span class="icon-shopping_cart"></span>[<%=customer.getCarts().size()%>]</a></li>
                 <%
+                            }
+                        } else {
+                %>
+                <li class="nav-item cta cta-colored"><a href="/cart" class="nav-link"><span class="icon-shopping_cart"></span>[<%=customer.getCarts().size()%>]</a></li>
+                <%
+                        }
                     }
                 %>
 
