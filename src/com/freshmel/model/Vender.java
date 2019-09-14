@@ -1,6 +1,5 @@
 package com.freshmel.model;
 
-import java.sql.Timestamp;
 import java.util.List;
 
 public class Vender extends User {
