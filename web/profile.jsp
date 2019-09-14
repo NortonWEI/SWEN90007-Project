@@ -170,27 +170,9 @@
                             <fieldset class="fieldset">
                                 <h3 class="fieldset-title">Address Info</h3>
                                 <div class="row col-md-12">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="control-label">First Name</label>
-                                            <input name="firstName" type="text" class="form-control" value="<%=address.getFirstName()%>" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="control-label">Last Name</label>
-                                            <input name="lastName" type="text" class="form-control" value="<%=address.getLastName()%>" required>
-                                        </div>
-                                    </div>
+
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label class="control-label">Phone</label>
-                                            <input name="phone" type="text" class="form-control" placeholder="<%=address.getPhone()%>" pattern="^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$" title="Please input a valid phone." required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label class="control-label">Street Address</label>
                                             <label class="control-label">Line1</label>
                                             <input name="line1" type="text" class="form-control" value="<%=address.getLine1()%>" required>
                                         </div>

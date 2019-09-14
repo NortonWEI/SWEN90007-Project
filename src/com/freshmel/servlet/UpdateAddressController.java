@@ -16,9 +16,6 @@ import java.sql.SQLException;
 public class UpdateAddressController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String firstName = req.getParameter("firstName");
-        String lastName = req.getParameter("lastName");
-        String phone = req.getParameter("phone");
         String line1 = req.getParameter("line1");
         String line2 = req.getParameter("line2");
         String line3 = req.getParameter("line3");
@@ -27,9 +24,6 @@ public class UpdateAddressController extends HttpServlet {
         String postCode = req.getParameter("postCode");
         HttpSession session = req.getSession();
         Customer customer = (Customer) session.getAttribute("customer");
-        customer.getAddresses().setFirstName(firstName);
-        customer.getAddresses().setLastName(lastName);
-        customer.getAddresses().setPhone(phone);
         customer.getAddresses().setLine1(line1);
         customer.getAddresses().setLine2(line2);
         customer.getAddresses().setLine3(line3);
@@ -39,7 +33,7 @@ public class UpdateAddressController extends HttpServlet {
 
         CustomerService customerService = new CustomerService();
         try {
-            if (customerService.updateAddress(customer.getAddresses())){
+            if (customerService.updateAddress(customer)){
                 req.getRequestDispatcher("profile.jsp").forward(req, resp);
             }else {
                 req.setAttribute("info", "update fail");
