@@ -33,8 +33,7 @@ public class AddCartController extends HttpServlet {
         try {
             if (customerService.addToCart(cart)){
                 resp.sendRedirect("/cart");
-//                req.getRequestDispatcher("/cart").forward(req, resp);
-            }else{
+            } else {
                 req.setAttribute("info", "add cart fail");
                 req.setAttribute("redirectURL", "/shop");
                 req.getRequestDispatcher("redirect.jsp").forward(req, resp);

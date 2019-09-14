@@ -2,7 +2,7 @@ package com.freshmel.model;
 
 import java.sql.Timestamp;
 
-public abstract class User {
+public abstract class Product {
     private Long id;
     private String email;
     private String password;
