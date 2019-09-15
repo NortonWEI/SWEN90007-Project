@@ -136,7 +136,7 @@
                     if (type != null){
                 %>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="navbar-avatar" src="/upload/photo/<%=user.getPhoto()%>" alt="Avatar"></a>
+                    <div class="nav-link dropdown-toggle" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="navbar-avatar" src="/upload/photo/<%=user.getPhoto()%>" alt="Avatar"></div>
                     <div class="dropdown-menu" aria-labelledby="dropdown04">
                         <a class="dropdown-item" href="/profile.jsp">My Profile</a>
                         <a class="dropdown-item" href="/logout">Logout</a>
@@ -145,7 +145,7 @@
                     } else {
                 %>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="navbar-avatar" src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar"></a>
+                    <div class="nav-link dropdown-toggle" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="navbar-avatar" src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar"></div>
                     <div class="dropdown-menu" aria-labelledby="dropdown04">
                         <a class="dropdown-item" href="#" data-toggle="modal" data-target="#loginModal">Login</a>
                         <a class="dropdown-item" href="#" data-toggle="modal" data-target="#regModal">Register</a>

@@ -63,13 +63,17 @@ public class CartUOW {
     }
 
     /**
-     *
-     * @param cart
+     * register clean object (not to be used)
+     * @param cart the cart that has not been changed
      */
     public void registerClean(Cart cart) {
 
     }
 
+    /**
+     * @return commit the carts in the 3 lists to the database, implementing Unit of Work
+     * @throws SQLException
+     */
     public boolean commit() throws SQLException {
         boolean success = true;
         for (Cart cart : newCarts) {

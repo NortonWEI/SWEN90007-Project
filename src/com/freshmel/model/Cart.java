@@ -15,6 +15,12 @@ public class Cart {
     // the quantity if a product in the cart
     private Integer quantity;
 
+    /*
+    * There are 2 sets of setters, one with parameter and "token" and the other takes the parameter only.
+    * This aims to distinguish the object instantiation only (with token) and
+    * the object to be written to Database by Unit of Work (without token).
+    * */
+
     public Cart(String token) {}
 
     public Cart() {
