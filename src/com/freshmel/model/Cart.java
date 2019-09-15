@@ -7,6 +7,8 @@ public class Cart {
     private Product product;
     private Integer quantity;
 
+    public Cart(String token) {}
+
     public Cart() {
         CartUOW.getCurrent().registerNew(this);
     }
@@ -20,6 +22,10 @@ public class Cart {
         CartUOW.getCurrent().registerDirty(this);
     }
 
+    public void setProduct(Product product, String token) {
+        this.product = product;
+    }
+
     public Long getCustomerId() {
         return customerId;
     }
@@ -29,6 +35,10 @@ public class Cart {
         CartUOW.getCurrent().registerDirty(this);
     }
 
+    public void setCustomerId(Long customerId, String token) {
+        this.customerId = customerId;
+    }
+
     public Integer getQuantity() {
         return quantity;
     }
@@ -36,5 +46,9 @@ public class Cart {
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
         CartUOW.getCurrent().registerDirty(this);
+    }
+
+    public void setQuantity(Integer quantity, String token) {
+        this.quantity = quantity;
     }
 }

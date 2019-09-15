@@ -48,11 +48,14 @@ public class CustomerService {
         return  customerMapper.updateAddress(customer);
     }
 
-    public boolean addToCart (Cart cart) throws SQLException {
-        CartUOW.getCurrent();
-        CartMapper cartMapper = new CartMapper();
-        CartUOW.getCurrent().commit();
-//        return cartMapper.safeInsert(cart);
+    public boolean addToCart() throws SQLException {
+//        boolean result;
+//        if (Customer.ADD_CART == 0) {
+//            result = true;
+//        } else {
+//            result = CartUOW.getCurrent().commit();
+//        }
+//        return result;
         return true;
     }
 

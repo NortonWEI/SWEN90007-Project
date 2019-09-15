@@ -28,7 +28,7 @@ public class CartUOW {
     }
 
     public void registerNew(Cart cart) {
-        Assert.assertNotNull ("id is null", cart.getCustomerId());
+//        Assert.assertNotNull ("id is null", cart.getCustomerId());
         Assert.assertFalse("object is dirty", dirtyCarts.contains(cart));
         Assert.assertFalse("object is deleted", deletedCarts.contains(cart));
         Assert.assertFalse("object is new", newCarts.contains(cart));
@@ -36,7 +36,7 @@ public class CartUOW {
     }
 
     public void registerDirty(Cart cart) {
-        Assert.assertNotNull("id is null", cart.getCustomerId());
+//        Assert.assertNotNull("id is null", cart.getCustomerId());
 
         Assert.assertFalse("object is deleted", deletedCarts.contains(cart));
         if (!dirtyCarts.contains(cart) && !newCarts.contains(cart)) {
@@ -45,7 +45,7 @@ public class CartUOW {
     }
 
     public void registerDeleted(Cart cart) {
-        Assert.assertNotNull("id is null", cart.getCustomerId());
+//        Assert.assertNotNull("id is null", cart.getCustomerId());
         if (newCarts.remove(cart)) return;
         dirtyCarts.remove(cart);
         if (!deletedCarts.contains(cart)) {
@@ -57,18 +57,23 @@ public class CartUOW {
         Assert.assertNotNull("id is null", cart.getCustomerId());
     }
 
-    public void commit() throws SQLException {
+    public boolean commit() throws SQLException {
+        boolean success = true;
         for (Cart cart : newCarts) {
             CartMapper cartMapper = new CartMapper();
-            cartMapper.safeInsert(cart);
+            success = cartMapper.safeInsert(cart);
+            if (!success) return success;
         }
         for (Cart cart : dirtyCarts) {
             CartMapper cartMapper = new CartMapper();
-            cartMapper.safeInsert(cart);
+            success = cartMapper.safeInsert(cart);
+            if (!success) return success;
         }
         for (Cart cart : deletedCarts) {
             CartMapper cartMapper = new CartMapper();
-            cartMapper.deleteByProductIdAndCustomerId(cart.getProduct().getId(), cart.getCustomerId());
+            success = cartMapper.deleteByProductIdAndCustomerId(cart.getProduct().getId(), cart.getCustomerId());
+            if (!success) return success;
         }
+        return success;
     }
 }

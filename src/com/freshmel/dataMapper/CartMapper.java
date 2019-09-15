@@ -39,17 +39,17 @@ public class CartMapper {
         ResultSet rs = pstmt.executeQuery();
         List<Cart> carts = new ArrayList<Cart>();
         while (rs.next()){
-            Cart cart = new Cart();
-            cart.setProduct(new Product());
+            Cart cart = new Cart("findByCustId");
+            cart.setProduct(new Product(), "findByCustId");
             cart.getProduct().setId(rs.getLong(1));
-            cart.setCustomerId(rs.getLong(2));
-            cart.setQuantity(rs.getInt(3));
+            cart.setCustomerId(rs.getLong(2), "findByCustId");
+            cart.setQuantity(rs.getInt(3), "findByCustId");
             carts.add(cart);
         }
         ProductMapper productMapper = new ProductMapper();
         for (int i=0;i<carts.size();i++){
             Product product = productMapper.findByProductID(carts.get(i).getProduct().getId());
-            carts.get(i).setProduct(product);
+            carts.get(i).setProduct(product, "findByCustId");
         }
         return carts;
     }
