@@ -8,6 +8,20 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class ProductService {
+
+    public Product getByProductId(Long id) throws SQLException {
+        // identity map
+        // before query database, it look up at ProductIdentityMap first
+        Product product = ProductIdentityMap.getProduct(id);
+        // if it is not in ProductIdentityMap, then query database and put the result into ProductIdentityMap
+        if (product == null){
+            ProductMapper productMapper = new ProductMapper();
+            product = productMapper.findByProductID(id);
+            ProductIdentityMap.putProduct(product);
+        }
+        return product;
+    }
+
     public List<Product> getAllProducts() throws SQLException {
         ProductMapper productMapper = new ProductMapper();
         List<Product> products = productMapper.getAllProduct();
@@ -24,15 +38,5 @@ public class ProductService {
             ProductIdentityMap.putProduct(products.get(i));
         }
         return products;
-    }
-
-    public Product getByProductId(Long id) throws SQLException {
-        Product product = ProductIdentityMap.getProduct(id);
-        if (product == null){
-            ProductMapper productMapper = new ProductMapper();
-            product = productMapper.findByProductID(id);
-            ProductIdentityMap.putProduct(product);
-        }
-        return product;
     }
 }
