@@ -43,30 +43,30 @@
       </div>
     </div>
 
-    <section class="ftco-section ftco-no-pb ftco-no-pt bg-light">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/about.jpg);">
-						<a href="https://vimeo.com/45830194" class="icon popup-vimeo d-flex justify-content-center align-items-center">
-							<span class="icon-play"></span>
-						</a>
-					</div>
-					<div class="col-md-7 py-5 wrap-about pb-md-5 ftco-animate">
-	          <div class="heading-section-bold mb-4 mt-md-5">
-	          	<div class="ml-md-0">
-		            <h2 class="mb-4">Welcome to FreshMel</h2>
-                <h5 class="mb-4">Your Carry-on Supermarket</h5>
-	            </div>
-	          </div>
-	          <div class="pb-md-5">
-	          	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-							<p><a href="shop.jsp" class="btn btn-primary">Shop now</a></p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+<%--    <section class="ftco-section ftco-no-pb ftco-no-pt bg-light">--%>
+<%--			<div class="container">--%>
+<%--				<div class="row">--%>
+<%--					<div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/about.jpg);">--%>
+<%--						<a href="javascript:void(0)" class="icon popup-vimeo d-flex justify-content-center align-items-center">--%>
+<%--							<span class="icon-play"></span>--%>
+<%--						</a>--%>
+<%--					</div>--%>
+<%--					<div class="col-md-7 py-5 wrap-about pb-md-5 ftco-animate">--%>
+<%--	          <div class="heading-section-bold mb-4 mt-md-5">--%>
+<%--	          	<div class="ml-md-0">--%>
+<%--		            <h2 class="mb-4">Welcome to FreshMel</h2>--%>
+<%--                <h5 class="mb-4">Your Carry-on Supermarket</h5>--%>
+<%--	            </div>--%>
+<%--	          </div>--%>
+<%--	          <div class="pb-md-5">--%>
+<%--	          	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>--%>
+<%--							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>--%>
+<%--							<p><a href="shop" class="btn btn-primary">Shop now</a></p>--%>
+<%--						</div>--%>
+<%--					</div>--%>
+<%--				</div>--%>
+<%--			</div>--%>
+<%--		</section>--%>
 
 <%--		<section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">--%>
 <%--      <div class="container py-4">--%>
