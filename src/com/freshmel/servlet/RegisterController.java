@@ -14,6 +14,10 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 
+/**
+ * Controller responsible for handling user register action
+ * */
+
 @WebServlet("/register")
 public class RegisterController extends HttpServlet {
     @Override

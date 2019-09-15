@@ -370,7 +370,7 @@
 
         function upload(btn,pic_img,show_img,photo_id){
             var button = document.getElementById(btn);
-            button.attr("disabled",true);
+            button.disabled=true;
             var formData = new FormData();
             formData.append('file', $("#"+pic_img)[0].files[0]);
             $.ajax({
@@ -385,7 +385,7 @@
                 console.log(data);
                 document.getElementById(show_img).src = "/upload/photo/" + data;
                 document.getElementById(photo_id).value = data;
-                button.attr("disabled",false);
+                button.disabled=false;
             },
             error: function() {
                 alert("file upload system is died! please try later!")

@@ -6,10 +6,6 @@ import com.freshmel.service.CustomerService;
 import com.freshmel.service.VenderService;
 import com.jspsmart.upload.SmartUpload;
 import com.jspsmart.upload.SmartUploadException;
-import com.microsoft.azure.storage.CloudStorageAccount;
-import com.microsoft.azure.storage.OperationContext;
-import com.microsoft.azure.storage.StorageException;
-import com.microsoft.azure.storage.blob.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,7 +17,10 @@ import java.io.*;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.Random;
-import java.util.Scanner;
+
+/**
+ * Controller responsible for saving photo to server and returning the updated photo to frontend
+ * */
 
 @WebServlet("/updatePhoto")
 public class UpdatePhotoController extends HttpServlet {

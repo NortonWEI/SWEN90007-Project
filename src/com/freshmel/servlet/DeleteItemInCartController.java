@@ -12,6 +12,10 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 
+/**
+ * Controller responsible for customer deleting item from cart action
+ * */
+
 @WebServlet("/deleteItemInCart")
 public class DeleteItemInCartController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

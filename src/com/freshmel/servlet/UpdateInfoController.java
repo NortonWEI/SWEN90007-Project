@@ -14,6 +14,10 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 
+/**
+ * Controller responsible for updating user information action
+ * */
+
 @WebServlet("/updateInfo")
 public class UpdateInfoController extends HttpServlet {
 

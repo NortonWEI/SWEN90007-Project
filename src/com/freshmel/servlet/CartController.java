@@ -9,6 +9,9 @@ import javax.servlet.http.*;
 import java.io.IOException;
 import java.sql.SQLException;
 
+/**
+ * Controller responsible for acquiring customer history cart items after login action
+ * */
 
 @WebServlet("/cart")
 public class CartController extends HttpServlet {

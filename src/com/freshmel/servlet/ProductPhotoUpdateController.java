@@ -14,6 +14,10 @@ import java.io.PrintWriter;
 import java.util.Date;
 import java.util.Random;
 
+/**
+ * Controller responsible for save product photo to server and return the path to front-end
+ * */
+
 @WebServlet("/productPhotoUpload")
 public class ProductPhotoUpdateController extends HttpServlet {
     public String photoname;

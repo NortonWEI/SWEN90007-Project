@@ -12,6 +12,10 @@ import javax.servlet.http.*;
 import java.io.IOException;
 import java.sql.SQLException;
 
+/**
+ * Controller responsible for customer adding single product to cart action
+ * */
+
 @WebServlet("/addCart")
 public class AddCartController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

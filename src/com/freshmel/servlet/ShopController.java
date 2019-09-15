@@ -10,6 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
+/**
+ * Controller responsible for getting all products or products by type for product page
+ * */
+
 @WebServlet("/shop")
 public class ShopController extends HttpServlet {
     @Override

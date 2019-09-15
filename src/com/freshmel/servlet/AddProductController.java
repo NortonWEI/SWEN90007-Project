@@ -13,6 +13,10 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 
+/**
+ * Controller responsible for vender adding new product to system personal space action
+ * */
+
 @WebServlet("/addProduct")
 public class AddProductController extends HttpServlet {
     @Override

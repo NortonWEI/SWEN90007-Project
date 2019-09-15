@@ -1,7 +1,6 @@
 package com.freshmel.servlet;
 
 import com.freshmel.model.Product;
-import com.freshmel.model.Vender;
 import com.freshmel.service.VenderService;
 
 import javax.servlet.ServletException;
@@ -9,9 +8,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
+
+/**
+ * Controller responsible for updating vender product information action
+ * */
 
 @WebServlet("/updateProduct")
 public class UpdateProductController extends HttpServlet {

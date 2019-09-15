@@ -8,6 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * Controller responsible for handling user logout action
+ * */
+
 @WebServlet("/logout")
 public class LogoutController extends HttpServlet {
     @Override

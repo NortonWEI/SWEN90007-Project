@@ -12,6 +12,10 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 
+/**
+ * Controller responsible for updating customer address action
+ * */
+
 @WebServlet("/updateAddress")
 public class UpdateAddressController extends HttpServlet {
     @Override
