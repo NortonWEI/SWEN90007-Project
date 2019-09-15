@@ -154,11 +154,11 @@
 								</div>
 								<div class="form-group">
 									<label class="control-label">Price</label>
-									<input type="text" name="price" class="form-control" required>
+									<input type="text" name="price" class="form-control" pattern="^\d+(\.\d{1,2})?$" title="Please input a valid price!" required>
 								</div>
 								<div class="form-group">
 									<label class="control-label">Inventory</label>
-									<input type="text" name="inventory" class="form-control" required>
+									<input type="text" name="inventory" class="form-control" pattern="^[1-9]\d*$" title="Please input a valid inventory!" required>
 								</div>
 								<div class="form-group">
 									<label class="control-label">Description</label>
@@ -243,7 +243,7 @@
 						  </div>
 						  <div class="form-group">
 							  <label class="control-label">Description</label>
-							  <textarea type="text" name="description" class="form-control" value="<%=product.getDescription()%>"  placeholder="<%=product.getDescription()%>" required></textarea>
+							  <textarea type="text" name="description" class="form-control" placeholder="<%=product.getDescription()%>" required><%=product.getDescription()%></textarea>
 						  </div>
 						  <div class="form-group">
 							  <label class="form-group">Type</label>
