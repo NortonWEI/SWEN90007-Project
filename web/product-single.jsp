@@ -20,7 +20,7 @@
 			carts = customer.getCarts();
 		}
 	}
-
+//
 	for (Cart cart : carts) {
 		products.add(cart.getProduct());
 	}
@@ -351,8 +351,11 @@
 
 			if (!products.includes(<%=product%>)) {
 				quantity++;
+			<%
+//			customer.
+			%>
 			}
-			document.cookie = "cart_quantity=" + value;
+			document.cookie = "cart_quantity=" + quantity;
 
 			window.location.href = "/shop";
 		}
