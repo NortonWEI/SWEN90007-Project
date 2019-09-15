@@ -9,6 +9,10 @@ import java.util.List;
 
 public class ProductService {
 
+    /**
+     * get product by product id and using identity map pattern
+     * @param id
+     * */
     public Product getByProductId(Long id) throws SQLException {
         // identity map
         // before query database, it look up at ProductIdentityMap first
@@ -22,6 +26,10 @@ public class ProductService {
         return product;
     }
 
+    /**
+     * get all products
+     * @return all product which are on sale
+     * */
     public List<Product> getAllProducts() throws SQLException {
         ProductMapper productMapper = new ProductMapper();
         List<Product> products = productMapper.getAllProduct();
@@ -31,6 +39,11 @@ public class ProductService {
         return products;
     }
 
+    /**
+     * get products by type
+     * @param type
+     * @return a type of products
+     * */
     public List<Product> getByType(String type) throws SQLException {
         ProductMapper productMapper = new ProductMapper();
         List<Product> products = productMapper.getByType(type);
