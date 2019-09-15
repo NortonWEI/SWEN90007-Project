@@ -14,6 +14,12 @@ public class ProductMapper {
     public Connection conn = new DataBaseConnection().getConnection();
     public PreparedStatement pstmt;
 
+    /**
+     * insert a new product into databse
+     * @param product with the product info
+     * @return if insert successfully return true
+     *         if insert failed return false
+     * */
     public boolean insert(Product product) throws SQLException {
         String sql = "INSERT INTO product(name,photo,description,price,createDate,state,type,vender_id,inventory) VALUES (?,?,?,?,?,?,?,?,?)" ;
         pstmt = conn.prepareStatement(sql) ;
@@ -29,6 +35,12 @@ public class ProductMapper {
         return pstmt.executeUpdate() > 0;
     }
 
+    /**
+     * find products in database by venderId
+     *
+     * @param venderId
+     * @return return a list of products from database that published by the vender
+     * */
     public List<Product> findByVenderID(Long venderId) throws SQLException {
         String sql = "SELECT id,name,photo,description,price,createDate,state,type,vender_id,inventory FROM product WHERE vender_id=?";
         pstmt = conn.prepareStatement(sql) ;
@@ -52,6 +64,13 @@ public class ProductMapper {
         return products;
     }
 
+    /**
+     * find products in database by productId
+     *
+     * @param productId
+     * @return if the product in database return the product
+     *         if not in database return null
+     * */
     public Product findByProductID(Long productId) throws SQLException {
         String sql = "SELECT id,name,photo,description,price,createDate,state,type,vender_id,inventory FROM product WHERE id=?";
         pstmt = conn.prepareStatement(sql) ;
@@ -74,6 +93,12 @@ public class ProductMapper {
         return product;
     }
 
+    /**
+     * delete product by productId
+     * @param product with productId info
+     * @return if delete successfully return true
+     *         if delete failed return false
+     * */
     public boolean deleteByProductId(Product product) throws SQLException {
         String sql = "DELETE FROM product WHERE id=?";
         pstmt = conn.prepareStatement(sql) ;
@@ -81,6 +106,13 @@ public class ProductMapper {
         return pstmt.executeUpdate() > 0;
     }
 
+
+    /**
+     * update product
+     * @param product with the new info need to update
+     * @return if update successfully return true
+     *         if update failed return false
+     * */
     public boolean updateProduct(Product product) throws SQLException {
         String sql = "UPDATE product SET name=?,photo=?,description=?,price=?,state=?,type=?,inventory=? WHERE id=?" ;
         pstmt = conn.prepareStatement(sql) ;
@@ -95,8 +127,13 @@ public class ProductMapper {
         return pstmt.executeUpdate() > 0 ;
     }
 
+    /**
+     * get all products that are on sale
+     *
+     * @return return a list of products that are on sale
+     * */
     public List<Product> getAllProduct() throws SQLException {
-        String sql = "SELECT id,name,photo,description,price,createDate,state,type,vender_id,inventory FROM product";
+        String sql = "SELECT id,name,photo,description,price,createDate,state,type,vender_id,inventory FROM product WHERE state=1";
         pstmt = conn.prepareStatement(sql) ;
         ResultSet rs = pstmt.executeQuery();
         List<Product> products = new ArrayList<Product>();
@@ -117,8 +154,13 @@ public class ProductMapper {
         return products;
     }
 
+    /**
+     * get products by type
+     * @param type the type of products
+     * @return a list of that type of products
+     * */
     public List<Product> getByType(String type) throws SQLException {
-        String sql = "SELECT id,name,photo,description,price,createDate,state,type,vender_id,inventory FROM product WHERE type=?";
+        String sql = "SELECT id,name,photo,description,price,createDate,state,type,vender_id,inventory FROM product WHERE type=? AND state=1";
         pstmt = conn.prepareStatement(sql) ;
         pstmt.setString(1, type);
         ResultSet rs = pstmt.executeQuery();

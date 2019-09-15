@@ -2,6 +2,10 @@ package com.freshmel.model;
 
 import java.util.List;
 
+/**
+ * a customer extend User class
+ * and have carts that contain product and quantity
+ * */
 public class Customer extends User {
     private Address addresses;
     private List<Cart> carts;

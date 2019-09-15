@@ -15,6 +15,12 @@ public class VenderMapper {
     public Connection conn = new DataBaseConnection().getConnection();
     public PreparedStatement pstmt;
 
+    /**
+     * find vender by email and password
+     * @param vender with email an d password.
+     * @return if vender in database return the vender
+     *         if vender not in database return null
+     * */
     public Vender findByEmailANDPassword(Vender vender) throws SQLException {
         Vender result = null;
         String sql = "SELECT id,password,photo,email,phoneNumber,registerDate,lastLoginDate,firstname,lastname FROM vender WHERE email=? AND password=?";
@@ -41,6 +47,12 @@ public class VenderMapper {
         return result;
     }
 
+    /**
+     * insert vender to database
+     * @param vender with vender information
+     * @return if insert successfully return true
+     *         if insert failed return false
+     * */
     public boolean insert(Vender vender) throws SQLException {
         String sql = "INSERT INTO vender(password,photo,email,phoneNumber,registerDate,firstname,lastname) VALUES (?,?,?,?,?,?,?)" ;
         pstmt = conn.prepareStatement(sql) ;
@@ -54,6 +66,12 @@ public class VenderMapper {
         return pstmt.executeUpdate() > 0;
     }
 
+    /**
+     * update vender photo
+     * @param vender with the new photo info
+     * @return if update successfully return true
+     *         if update failed return false
+     * */
     public boolean updatePhoto(Vender vender) throws SQLException {
         String sql = "UPDATE vender SET photo=? WHERE email=?" ;
         pstmt = conn.prepareStatement(sql) ;
@@ -62,6 +80,12 @@ public class VenderMapper {
         return pstmt.executeUpdate() > 0 ;
     }
 
+    /**
+     * update vender basic info
+     * @param vender with the new basic info
+     * @return if update successfully return true
+     *         if update failed return flase
+     * */
     public boolean updateInfo(Vender vender) throws SQLException {
         String sql = "UPDATE vender SET firstname=?,lastname=?,phoneNumber=? WHERE email=?" ;
         pstmt = conn.prepareStatement(sql) ;
