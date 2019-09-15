@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * This class is responsible to get connection with MySQL database.
+ * */
 public class DataBaseConnection {
     private static final String DBDRIVER="com.mysql.jdbc.Driver";
     private static final String DBURL="jdbc:mysql://47.74.65.131:3306/freshmel?autoReconnect=true";
