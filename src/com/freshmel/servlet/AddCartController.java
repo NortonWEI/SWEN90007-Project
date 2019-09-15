@@ -23,20 +23,19 @@ public class AddCartController extends HttpServlet {
         Customer customer = (Customer) session.getAttribute("customer");
         Product product = new Product();
         product.setId(productId);
-//        if (Customer.ADD_CART == 0) {
-//            CartUOW.newCurrent();
-//        }
+
         CartUOW.newCurrent();
         Cart cart = new Cart();
         cart.setProduct(product);
         cart.setQuantity(quantity);
         cart.setCustomerId(customer.getId());
+        customer.getCarts().add(cart);
+        CustomerService customerService = new CustomerService();
         try {
-            CartUOW.getCurrent().commit();
+            customerService.addToCart();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-//        CustomerService customerService = new CustomerService();
 //        try {
 //            if (customerService.addToCart(cart)){
         resp.sendRedirect("/shop");

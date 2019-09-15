@@ -49,14 +49,7 @@ public class CustomerService {
     }
 
     public boolean addToCart() throws SQLException {
-//        boolean result;
-//        if (Customer.ADD_CART == 0) {
-//            result = true;
-//        } else {
-//            result = CartUOW.getCurrent().commit();
-//        }
-//        return result;
-        return true;
+        return CartUOW.getCurrent().commit();
     }
 
     public List<Cart> getCarts(Long customerId) throws SQLException {
