@@ -79,15 +79,14 @@ public class CustomerService {
         return  customerMapper.updateAddress(customer);
     }
 
+    /**
+     * commit the UOW lists (new, dirty, deleted) result into the database
+     * @return if commit successfully then return true
+     *          if failed return false
+     * @throws SQLException
+     */
     public boolean addToCart() throws SQLException {
-//        boolean result;
-//        if (Customer.ADD_CART == 0) {
-//            result = true;
-//        } else {
-//            result = CartUOW.getCurrent().commit();
-//        }
-//        return result;
-        return true;
+        return CartUOW.getCurrent().commit();
     }
 
     /**
