@@ -10,6 +10,8 @@ public class Customer extends User {
     private Address addresses;
     private List<Cart> carts;
 
+    public static int ADD_CART = 0;
+
     public List<Cart> getCarts() {
         return carts;
     }

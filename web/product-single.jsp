@@ -20,10 +20,10 @@
 			carts = customer.getCarts();
 		}
 	}
-
-	for (Cart cart : carts) {
-		products.add(cart.getProduct());
-	}
+//
+//	for (Cart cart : carts) {
+//		products.add(cart.getProduct());
+//	}
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -344,17 +344,20 @@
 
 		document.getElementById('add_cart').onclick = function () {
 		    var quantity = document.getElementById("quantity").value;
-		    var cookies = document.cookie.split(';');
-            <%--window.location.href="/addCart?productId=<%=product.getId()%>&quantity="+quantity--%>
+		    // var cookies = document.cookie.split(';');
+<%--			<%--%>
+<%--			Customer.ADD_CART = 1;--%>
+<%--			%>--%>
 
-			var products = <%=products%>;
+            window.location.href="/addCart?productId=<%=product.getId()%>&quantity="+quantity
 
-			if (!products.includes(<%=product%>)) {
-				quantity++;
-			}
-			document.cookie = "cart_quantity=" + value;
+			<%--var products = <%=products%>;--%>
 
-			window.location.href = "/shop";
+			<%--if (!products.includes(<%=product%>)) {--%>
+			<%--	quantity++;--%>
+			<%--}--%>
+
+			// window.location.href = "/shop";
 		}
 	</script>
     

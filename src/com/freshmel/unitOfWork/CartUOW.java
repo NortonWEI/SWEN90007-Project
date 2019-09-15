@@ -1,17 +1,19 @@
 package com.freshmel.unitOfWork;
 
-import com.freshmel.model.Product;
+import com.freshmel.dataMapper.CartMapper;
+import com.freshmel.model.Cart;
 import org.junit.Assert;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CartUOW {
     private static ThreadLocal current = new ThreadLocal();
 
-    private List<Product> newProducts = new ArrayList<Product>();
-    private List<Product> dirtyProducts = new ArrayList<Product>();
-    private List<Product> deletedProducts = new ArrayList<Product>();
+    private List<Cart> newCarts = new ArrayList<Cart>();
+    private List<Cart> dirtyCarts = new ArrayList<Cart>();
+    private List<Cart> deletedCarts = new ArrayList<Cart>();
 
     public static void newCurrent() {
         setCurrent(new CartUOW());
@@ -25,45 +27,53 @@ public class CartUOW {
         return (CartUOW) current.get();
     }
 
-    public void registerNew(Product product) {
-        Assert.assertNotNull ("id is null", product.getId());
-        Assert.assertFalse("object is dirty", dirtyProducts.contains(product));
-        Assert.assertFalse("object is deleted", deletedProducts.contains(product));
-        Assert.assertFalse("object is new", newProducts.contains(product));
-        newProducts.add(product);
+    public void registerNew(Cart cart) {
+//        Assert.assertNotNull ("id is null", cart.getCustomerId());
+        Assert.assertFalse("object is dirty", dirtyCarts.contains(cart));
+        Assert.assertFalse("object is deleted", deletedCarts.contains(cart));
+        Assert.assertFalse("object is new", newCarts.contains(cart));
+        newCarts.add(cart);
     }
 
-    public void registerDirty(Product product) {
-        Assert.assertNotNull("id is null", product.getId());
+    public void registerDirty(Cart cart) {
+//        Assert.assertNotNull("id is null", cart.getCustomerId());
 
-        Assert.assertFalse("object is deleted", deletedProducts.contains(product));
-        if (!dirtyProducts.contains(product) && !newProducts.contains(product)) {
-            dirtyProducts.add(product);
-        }
-    }
-
-    public void registerDeleted(Product product) {
-        Assert.assertNotNull("id is null", product.getId());
-        if (newProducts.remove(product)) return;
-        dirtyProducts.remove(product);
-        if (!deletedProducts.contains(product)) {
-            deletedProducts.add(product);
+        Assert.assertFalse("object is deleted", deletedCarts.contains(cart));
+        if (!dirtyCarts.contains(cart) && !newCarts.contains(cart)) {
+            dirtyCarts.add(cart);
         }
     }
 
-    public void registerClean(Product product) {
-        Assert.assertNotNull("id is null", product.getId());
+    public void registerDeleted(Cart cart) {
+//        Assert.assertNotNull("id is null", cart.getCustomerId());
+        if (newCarts.remove(cart)) return;
+        dirtyCarts.remove(cart);
+        if (!deletedCarts.contains(cart)) {
+            deletedCarts.add(cart);
+        }
     }
 
-    public void commit() {
-        for (Product product : newProducts) {
-//            DataMapper.getMapper(obj.getClass()).insert(obj);
+    public void registerClean(Cart cart) {
+        Assert.assertNotNull("id is null", cart.getCustomerId());
+    }
+
+    public boolean commit() throws SQLException {
+        boolean success = true;
+        for (Cart cart : newCarts) {
+            CartMapper cartMapper = new CartMapper();
+            success = cartMapper.safeInsert(cart);
+            if (!success) return success;
         }
-        for (Product product : dirtyProducts) {
-//            DataMapper.getMapper(obj.getClass()).update(obj);
+        for (Cart cart : dirtyCarts) {
+            CartMapper cartMapper = new CartMapper();
+            success = cartMapper.safeInsert(cart);
+            if (!success) return success;
         }
-        for (Product product : deletedProducts) {
-//            DataMapper.getMapper(obj.getClass()).delete(obj);
+        for (Cart cart : deletedCarts) {
+            CartMapper cartMapper = new CartMapper();
+            success = cartMapper.deleteByProductIdAndCustomerId(cart.getProduct().getId(), cart.getCustomerId());
+            if (!success) return success;
         }
+        return success;
     }
 }

@@ -5,10 +5,7 @@ import com.freshmel.service.CustomerService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -20,9 +17,16 @@ public class CartController extends HttpServlet {
         Customer customer = (Customer) session.getAttribute("customer");
         CustomerService customerService = new CustomerService();
         try {
-            customer.setCarts(customerService.getCarts(customer.getId()));
-            req.setAttribute("carts", customer.getCarts());
-            req.getRequestDispatcher("cart.jsp").forward(req, resp);
+            if (customerService.addToCart()){
+                customer.setCarts(customerService.getCarts(customer.getId()));
+                req.setAttribute("carts", customer.getCarts());
+                req.getRequestDispatcher("cart.jsp").forward(req, resp);
+                Customer.ADD_CART = 0;
+            } else {
+                req.setAttribute("info", "access cart fail");
+                req.setAttribute("redirectURL", "/shop");
+                req.getRequestDispatcher("redirect.jsp").forward(req, resp);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
             req.setAttribute("info", "Database error!");

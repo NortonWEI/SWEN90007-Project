@@ -5,6 +5,7 @@ import com.freshmel.dataMapper.CustomerMapper;
 import com.freshmel.model.Address;
 import com.freshmel.model.Cart;
 import com.freshmel.model.Customer;
+import com.freshmel.unitOfWork.CartUOW;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -47,9 +48,15 @@ public class CustomerService {
         return  customerMapper.updateAddress(customer);
     }
 
-    public boolean addToCart (Cart cart) throws SQLException {
-        CartMapper cartMapper = new CartMapper();
-        return cartMapper.safeInsert(cart);
+    public boolean addToCart() throws SQLException {
+//        boolean result;
+//        if (Customer.ADD_CART == 0) {
+//            result = true;
+//        } else {
+//            result = CartUOW.getCurrent().commit();
+//        }
+//        return result;
+        return true;
     }
 
     public List<Cart> getCarts(Long customerId) throws SQLException {
