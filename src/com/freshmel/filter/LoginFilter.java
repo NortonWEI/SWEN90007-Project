@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * Login Filter to block visitors to go places that need to login before
+ * */
 
 @WebFilter(filterName="LoginFilter",urlPatterns={"/cart","/addCart","/addProduct","/deleteItemInCart","/deleteProduct","/logout","/productPhotoUpload","/updateAddress","/updateInfo","/updatePhoto","/updateProduct","/product.jsp","/cart.jsp","/profile.jsp"})
 public class LoginFilter implements Filter {
