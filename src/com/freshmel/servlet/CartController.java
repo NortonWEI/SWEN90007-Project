@@ -18,6 +18,11 @@ public class CartController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         Customer customer = (Customer) session.getAttribute("customer");
+        if (customer == null ){
+            req.setAttribute("info", "you are a vender cannot add cart, please use customer account!!!");
+            req.setAttribute("redirectURL", "/shop");
+            req.getRequestDispatcher("redirect.jsp").forward(req, resp);
+        }
         CustomerService customerService = new CustomerService();
         try {
             customer.setCarts(customerService.getCarts(customer.getId()));

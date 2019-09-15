@@ -25,6 +25,11 @@ public class AddCartController extends HttpServlet {
         Integer quantity = Integer.parseInt(quantityString);
         HttpSession session = req.getSession();
         Customer customer = (Customer) session.getAttribute("customer");
+        if (customer == null){
+            req.setAttribute("info", "you are a vender cannot add cart, please use customer account!!!");
+            req.setAttribute("redirectURL", "/shop");
+            req.getRequestDispatcher("redirect.jsp").forward(req, resp);
+        }
         Product product = new Product();
         product.setId(productId);
 
