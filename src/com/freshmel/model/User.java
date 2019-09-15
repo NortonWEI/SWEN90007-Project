@@ -1,13 +1,16 @@
 package com.freshmel.model;
 
 import java.sql.Timestamp;
-
+/**
+ * User has basic info
+ * */
 public abstract class User {
     private Long id;
     private String email;
     private String password;
     private String firstName;
     private String lasteName;
+    // store photo url in database
     private String photo;
     private String phoneNumber;
     private Timestamp registerDate;

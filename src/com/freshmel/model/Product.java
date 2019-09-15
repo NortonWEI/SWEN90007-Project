@@ -2,8 +2,12 @@ package com.freshmel.model;
 
 import java.sql.Timestamp;
 
+/**
+ * a product class contain some product information
+ * */
 public class Product {
     private Long id;
+    // this is foreign key from Vender table
     private Long venderId;
     private String name;
     private String photo;

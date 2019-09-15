@@ -1,5 +1,8 @@
 package com.freshmel.model;
 
+/**
+ * a Address class contain the basic information of address
+ * */
 public class Address {
     private String line1;
     private String line2;
