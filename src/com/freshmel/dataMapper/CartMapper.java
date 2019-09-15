@@ -15,6 +15,12 @@ public class CartMapper {
     public Connection conn = new DataBaseConnection().getConnection();
     public PreparedStatement pstmt;
 
+    /**
+     * insert cart into database
+     * @param cart
+     * @return if insert successfully return true
+     *         if failed return false
+     * */
     public boolean insert(Cart cart) throws SQLException {
         String sql = "INSERT INTO cart(product_id,customer_id,quantity) VALUES (?,?,?)" ;
         pstmt = conn.prepareStatement(sql) ;
@@ -24,6 +30,13 @@ public class CartMapper {
         return pstmt.executeUpdate() > 0;
     }
 
+    /**
+     * delete by productId and CustomerID
+     * @param productId
+     * @param customerId
+     * @return if delete successfully return true
+     *         if failed return false
+     * */
     public boolean deleteByProductIdAndCustomerId(Long productId, Long customerId) throws SQLException {
         String sql = "DELETE FROM cart WHERE product_id=? AND customer_id=?";
         pstmt = conn.prepareStatement(sql) ;
@@ -32,6 +45,11 @@ public class CartMapper {
         return pstmt.executeUpdate() > 0;
     }
 
+    /**
+     * find carts by customerId
+     * @param customerID
+     * @return a list of carts belongs the customer
+     * */
     public List<Cart> findByCustomerId(Long customerID) throws SQLException {
         String sql = "SELECT product_id,customer_id,quantity FROM cart WHERE customer_id=?";
         pstmt = conn.prepareStatement(sql) ;
@@ -54,18 +72,24 @@ public class CartMapper {
         return carts;
     }
 
-    public boolean updateQuantity(Cart cart) throws SQLException {
-        String sql = "UPDATE cart SET quantity=quantity+? WHERE product_id=? and customer_id=?" ;
-        pstmt = conn.prepareStatement(sql) ;
-        pstmt.setInt(1, cart.getQuantity());
-        pstmt.setLong(2, cart.getProduct().getId());
-        pstmt.setLong(3, cart.getCustomerId());
-        return pstmt.executeUpdate() > 0;
-    }
+//    public boolean updateQuantity(Cart cart) throws SQLException {
+//        String sql = "UPDATE cart SET quantity=quantity+? WHERE product_id=? and customer_id=?" ;
+//        pstmt = conn.prepareStatement(sql) ;
+//        pstmt.setInt(1, cart.getQuantity());
+//        pstmt.setLong(2, cart.getProduct().getId());
+//        pstmt.setLong(3, cart.getCustomerId());
+//        return pstmt.executeUpdate() > 0;
+//    }
 
+    /**
+     * safe insert: if productId and customerId in database just add quantity to that row
+     * @param cart
+     * @return if insert successfully return true
+     *         if failed return false
+     * */
     public boolean safeInsert(Cart cart) throws SQLException {
         String sql = "insert into cart (product_id,customer_id,quantity)  values(?,?,?) on  DUPLICATE key update quantity=quantity+values(quantity)" ;
-        pstmt = conn.prepareStatement(sql) ;
+        pstmt = conn.prepareStatement(sql);
         pstmt.setLong(1, cart.getProduct().getId());
         pstmt.setLong(2, cart.getCustomerId());
         pstmt.setInt(3, cart.getQuantity());

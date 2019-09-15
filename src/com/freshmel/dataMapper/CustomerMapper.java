@@ -3,7 +3,6 @@ package com.freshmel.dataMapper;
 import com.freshmel.dbc.DataBaseConnection;
 import com.freshmel.model.Address;
 import com.freshmel.model.Customer;
-import com.freshmel.model.Vender;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,25 +13,12 @@ public class CustomerMapper {
     public Connection conn = new DataBaseConnection().getConnection();
     public PreparedStatement pstmt;
 
-    public boolean insert(Customer customer) throws SQLException {
-        String sql = "INSERT INTO customer(password,photo,email,phoneNumber,registerDate,firstname,lastname,line1,line2,line3,suburb,state,postCode) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)" ;
-        pstmt = conn.prepareStatement(sql) ;
-        pstmt.setString(1, customer.getPassword());
-        pstmt.setString(2, customer.getPhoto());
-        pstmt.setString(3, customer.getEmail());
-        pstmt.setString(4, customer.getPhoneNumber());
-        pstmt.setTimestamp(5, customer.getRegisterDate());
-        pstmt.setString(6, customer.getFirstName());
-        pstmt.setString(7, customer.getLasteName());
-        pstmt.setString(8, customer.getAddresses().getLine1());
-        pstmt.setString(9, customer.getAddresses().getLine2());
-        pstmt.setString(10, customer.getAddresses().getLine3());
-        pstmt.setString(11, customer.getAddresses().getSuburb());
-        pstmt.setString(12, customer.getAddresses().getState());
-        pstmt.setString(13, customer.getAddresses().getPostCode());
-        return pstmt.executeUpdate() > 0;
-    }
-
+    /**
+     * find customer by email and password
+     * @param customer with email and password.
+     * @return if the customer in database return whole information of this customer
+     *         if the customer not in database return null
+     * */
     public Customer findByEmailANDPassword(Customer customer) throws SQLException {
         Customer result = null;
         String sql = "SELECT id,password,photo,email,phoneNumber,registerDate,lastLoginDate,firstname,lastname,line1,line2,line3,suburb,state,postCode FROM customer WHERE email=? AND password=?";
@@ -65,6 +51,37 @@ public class CustomerMapper {
         return result;
     }
 
+    /**
+     * insert a customer into database
+     * @param customer with the information want to insert
+     * @return if insert successfully return true
+     *         if insert fail return false
+     * */
+    public boolean insert(Customer customer) throws SQLException {
+        String sql = "INSERT INTO customer(password,photo,email,phoneNumber,registerDate,firstname,lastname,line1,line2,line3,suburb,state,postCode) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)" ;
+        pstmt = conn.prepareStatement(sql) ;
+        pstmt.setString(1, customer.getPassword());
+        pstmt.setString(2, customer.getPhoto());
+        pstmt.setString(3, customer.getEmail());
+        pstmt.setString(4, customer.getPhoneNumber());
+        pstmt.setTimestamp(5, customer.getRegisterDate());
+        pstmt.setString(6, customer.getFirstName());
+        pstmt.setString(7, customer.getLasteName());
+        pstmt.setString(8, customer.getAddresses().getLine1());
+        pstmt.setString(9, customer.getAddresses().getLine2());
+        pstmt.setString(10, customer.getAddresses().getLine3());
+        pstmt.setString(11, customer.getAddresses().getSuburb());
+        pstmt.setString(12, customer.getAddresses().getState());
+        pstmt.setString(13, customer.getAddresses().getPostCode());
+        return pstmt.executeUpdate() > 0;
+    }
+
+    /**
+     * update customer address
+     * @param customer with the new address info
+     * @return  if update successfully return true
+     *          if update failed return false
+     * */
     public boolean updateAddress(Customer customer) throws SQLException {
         String sql = "UPDATE customer SET line1=?,line2=?,line3=?,suburb=?,state=?,postCode=? WHERE id=?" ;
         pstmt = conn.prepareStatement(sql) ;
@@ -78,6 +95,13 @@ public class CustomerMapper {
         return pstmt.executeUpdate() > 0;
     }
 
+
+    /**
+     * update photo
+     * @param customer with the new photo info
+     * @return if update successfully return true
+     *         if update failed return flase
+     * */
     public boolean updatePhoto(Customer customer) throws SQLException {
         String sql = "UPDATE customer SET photo=? WHERE email=?" ;
         pstmt = conn.prepareStatement(sql) ;
@@ -86,6 +110,12 @@ public class CustomerMapper {
         return pstmt.executeUpdate() > 0 ;
     }
 
+    /**
+     * update customer basic info
+     * @param customer with the new basic customer info
+     * @return if update successfully return true
+     *         if update failed return false
+     * */
     public boolean updateInfo(Customer customer) throws SQLException {
         String sql = "UPDATE customer SET firstname=?,lastname=?,phoneNumber=? WHERE email=?" ;
         pstmt = conn.prepareStatement(sql) ;
