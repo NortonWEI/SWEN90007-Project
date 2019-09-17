@@ -138,7 +138,7 @@
 							<form action="/addProduct" method="post" class="bg-white p-5 product-form">
 								<div class="form-group avatar" align="center">
 									<figure class="figure">
-										<img class="img-rounded" id='show_img' src="https://www.w3schools.com/howto/img_avatar.png" alt="">
+										<img class="img-rounded" id='show_img' src="./upload/photo/defaultProduct.jpg" alt="">
 									</figure>
 									<div class="form-group">
 										<input type="file" id='pic_img' class="file-uploader pull-left">

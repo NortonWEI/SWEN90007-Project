@@ -22,6 +22,9 @@ public class AddProductController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String photo = req.getParameter("photo");
+        if(photo == null | photo.equals("")){
+            photo = "defaultProduct.jpg";
+        }
         String name = req.getParameter("name");
         String description = req.getParameter("description");
         String type = req.getParameter("type");
