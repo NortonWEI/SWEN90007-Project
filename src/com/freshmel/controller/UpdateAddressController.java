@@ -1,4 +1,4 @@
-package com.freshmel.pageController;
+package com.freshmel.controller;
 
 import com.freshmel.model.Customer;
 import com.freshmel.service.CustomerService;

@@ -1,4 +1,4 @@
-package com.freshmel.pageController;
+package com.freshmel.controller;
 
 import com.jspsmart.upload.SmartUpload;
 import com.jspsmart.upload.SmartUploadException;
