@@ -1,4 +1,4 @@
-package com.freshmel.servlet;
+package com.freshmel.pageController;
 
 import com.freshmel.model.Cart;
 import com.freshmel.model.Customer;

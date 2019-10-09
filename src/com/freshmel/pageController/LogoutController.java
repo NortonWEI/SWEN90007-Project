@@ -1,4 +1,4 @@
-package com.freshmel.servlet;
+package com.freshmel.pageController;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
