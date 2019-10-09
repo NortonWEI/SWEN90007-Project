@@ -32,7 +32,7 @@ public class UpdateInfoController extends HttpServlet {
         if (type.equals("customer")){
             Customer customer = (Customer) session.getAttribute("customer");
             customer.setFirstName(firstName);
-            customer.setLasteName(lastName);
+            customer.setLastName(lastName);
             customer.setPhoneNumber(phoneNumber);
             CustomerService customerService = new CustomerService();
             try {
@@ -52,7 +52,7 @@ public class UpdateInfoController extends HttpServlet {
         }else if (type.equals("vender")){
             Vender vender = (Vender) session.getAttribute("vender");
             vender.setFirstName(firstName);
-            vender.setLasteName(lastName);
+            vender.setLastName(lastName);
             vender.setPhoneNumber(phoneNumber);
             VenderService venderService = new VenderService();
             try {

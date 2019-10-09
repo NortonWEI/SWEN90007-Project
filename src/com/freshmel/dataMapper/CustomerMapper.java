@@ -36,7 +36,7 @@ public class CustomerMapper {
             result.setRegisterDate(rs.getTimestamp(6));
             result.setLastLoginDate(rs.getTimestamp(7));
             result.setFirstName(rs.getString(8));
-            result.setLasteName(rs.getString(9));
+            result.setLastName(rs.getString(9));
             Address address = new Address();
             address.setLine1(rs.getString(10));
             address.setLine2(rs.getString(11));
@@ -66,7 +66,7 @@ public class CustomerMapper {
         pstmt.setString(4, customer.getPhoneNumber());
         pstmt.setTimestamp(5, customer.getRegisterDate());
         pstmt.setString(6, customer.getFirstName());
-        pstmt.setString(7, customer.getLasteName());
+        pstmt.setString(7, customer.getLastName());
         pstmt.setString(8, customer.getAddresses().getLine1());
         pstmt.setString(9, customer.getAddresses().getLine2());
         pstmt.setString(10, customer.getAddresses().getLine3());
@@ -120,7 +120,7 @@ public class CustomerMapper {
         String sql = "UPDATE customer SET firstname=?,lastname=?,phoneNumber=? WHERE email=?" ;
         pstmt = conn.prepareStatement(sql) ;
         pstmt.setString(1, customer.getFirstName());
-        pstmt.setString(2, customer.getLasteName());
+        pstmt.setString(2, customer.getLastName());
         pstmt.setString(3, customer.getPhoneNumber());
         pstmt.setString(4, customer.getEmail());
         return pstmt.executeUpdate() > 0;

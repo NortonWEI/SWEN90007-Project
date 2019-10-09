@@ -1,7 +1,6 @@
 package com.freshmel.dataMapper;
 
 import com.freshmel.dbc.DataBaseConnection;
-import com.freshmel.model.Customer;
 import com.freshmel.model.Product;
 import com.freshmel.model.Vender;
 
@@ -38,7 +37,7 @@ public class VenderMapper {
             result.setRegisterDate(rs.getTimestamp(6));
             result.setLastLoginDate(rs.getTimestamp(7));
             result.setFirstName(rs.getString(8));
-            result.setLasteName(rs.getString(9));
+            result.setLastName(rs.getString(9));
 
             ProductMapper productMapper = new ProductMapper();
             List<Product> products = productMapper.findByVenderID(result.getId());
@@ -62,7 +61,7 @@ public class VenderMapper {
         pstmt.setString(4, vender.getPhoneNumber());
         pstmt.setTimestamp(5, vender.getRegisterDate());
         pstmt.setString(6, vender.getFirstName());
-        pstmt.setString(7, vender.getLasteName());
+        pstmt.setString(7, vender.getLastName());
         return pstmt.executeUpdate() > 0;
     }
 

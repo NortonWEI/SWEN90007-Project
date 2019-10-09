@@ -80,7 +80,7 @@
                     <div class="user-info">
                         <img class="img-profile img-circle img-responsive center-block" src="/upload/photo/<%= user.getPhoto()%>" alt="">
                         <ul class="meta list list-unstyled">
-                            <li class="name"><%= user.getFirstName()%> <%= user.getLasteName()%></li>
+                            <li class="name"><%= user.getFirstName()%> <%= user.getLastName()%></li>
                             <li class="email"></i><%= user.getEmail()%></li>
                             <%--<li class="activity"><%= user.getLastLoginDate()%></li>--%>
                         </ul>
@@ -129,7 +129,7 @@
                                 <div class="form-group">
                                     <label class="col-md-2 col-sm-3 col-xs-12 control-label">Last Name</label>
                                     <div class="col-md-10 col-sm-9 col-xs-12">
-                                        <input name="lastName" type="text" class="form-control" value="<%= user.getLasteName()%>" required>
+                                        <input name="lastName" type="text" class="form-control" value="<%= user.getLastName()%>" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
