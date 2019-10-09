@@ -19,7 +19,7 @@ public class VenderService {
         vender.setPhoto("default.png");
         vender.setPhoneNumber(" ");
         vender.setFirstName(" ");
-        vender.setLasteName(" ");
+        vender.setLastName(" ");
         VenderMapper venderMapper = new VenderMapper();
         return venderMapper.insert(vender);
     }

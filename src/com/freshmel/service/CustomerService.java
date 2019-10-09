@@ -21,7 +21,7 @@ public class CustomerService {
         customer.setPhoto("default.png");
         customer.setPhoneNumber(" ");
         customer.setFirstName(" ");
-        customer.setLasteName(" ");
+        customer.setLastName(" ");
         Address address = new Address();
         address.setLine1(" ");
         address.setLine2(" ");

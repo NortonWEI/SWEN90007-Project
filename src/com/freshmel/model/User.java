@@ -9,7 +9,7 @@ public abstract class User {
     private String email;
     private String password;
     private String firstName;
-    private String lasteName;
+    private String lastName;
     // store photo url in database
     private String photo;
     private String phoneNumber;
@@ -73,12 +73,12 @@ public abstract class User {
         this.firstName = firstName;
     }
 
-    public String getLasteName() {
-        return lasteName;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLasteName(String lasteName) {
-        this.lasteName = lasteName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public Timestamp getLastLoginDate() {
