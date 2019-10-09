@@ -47,7 +47,7 @@
                     if (type == "vender"){
                         if (currPage.equals("shop.jsp")) {
                 %>
-                <li class="nav-item active"><a href="/shop" class="nav-link">My Products</a></li>
+                <li class="nav-item active"><a href="product.jsp" class="nav-link">My Products</a></li>
                 <%
                         } else {
                 %>
