@@ -45,6 +45,20 @@ public class CartMapper {
         return pstmt.executeUpdate() > 0;
     }
 
+
+    /**
+     * delete by CustomerID
+     * @param customerId
+     * @return if delete successfully return true
+     *         if failed return false
+     * */
+    public boolean deleteByCustomerId(Long customerId) throws SQLException {
+        String sql = "DELETE FROM cart WHERE customer_id=?";
+        pstmt = conn.prepareStatement(sql) ;
+        pstmt.setLong(1, customerId);
+        return pstmt.executeUpdate() > 0;
+    }
+
     /**
      * find carts by customerId
      * @param customerID

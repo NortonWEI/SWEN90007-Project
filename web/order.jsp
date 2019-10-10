@@ -44,339 +44,333 @@
     </div>
 </div>
 
-<br>
-<br>
-<h1>Coming soon, Next Feature...</h1>
-<br>
-<br>
-<br>
-<%--<section class="ftco-section ftco-cart">--%>
-    <%--<div class="container">--%>
-        <%--<div class="row">--%>
-            <%--<div class="col-md-12 ftco-animate">--%>
-                <%--<div class="cart-list">--%>
-                    <%--<table class="table">--%>
-                        <%--<thead class="thead-primary">--%>
-                        <%--<tr class="text-center">--%>
-                            <%--<th>&nbsp;</th>--%>
-                            <%--<th> </th>--%>
-                            <%--<th>Product List</th>--%>
-                            <%--<th>Price</th>--%>
-                            <%--<th>Quantity</th>--%>
-                            <%--<th>Delivery Date</th>--%>
-                        <%--</tr>--%>
-                        <%--</thead>--%>
-                        <%--<tbody>--%>
-                        <%--<tr class="text-left">--%>
-                            <%--<td class="product-remove">--%>
-                                <%--<span class="form-group"><a href="#"><i class="fa fa-info"></i></a> Order 1</span>--%>
-                            <%--</td>--%>
-                        <%--</tr>--%>
-                        <%--<tr class="text-center">--%>
-                            <%--<td class="product-remove">--%>
-                                <%--<a href="#">--%>
-                                    <%--<span class="fa fa-trash"></span>--%>
-                                <%--</a>--%>
-                            <%--</td>--%>
+<section class="ftco-section ftco-cart">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 ftco-animate">
+                <div class="cart-list">
+                    <table class="table">
+                        <thead class="thead-primary">
+                        <tr class="text-center">
+                            <th>&nbsp;</th>
+                            <th> </th>
+                            <th>Product List</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Delivery Date</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="text-left">
+                            <td class="product-remove">
+                                <span class="form-group"><a href="#"><i class="fa fa-info"></i></a> Order 1</span>
+                            </td>
+                        </tr>
+                        <tr class="text-center">
+                            <td class="product-remove">
+                                <a href="#">
+                                    <span class="fa fa-trash"></span>
+                                </a>
+                            </td>
 
-                            <%--<td class="image-prod"><div class="img" style="background-image:url(images/product-1.jpg);"></div></td>--%>
+                            <td class="image-prod"><div class="img" style="background-image:url(images/product-1.jpg);"></div></td>
 
-                            <%--<td class="product-name">--%>
-                                <%--<h3>Bell Pepper</h3>--%>
-                                <%--<p>Far far away, behind the word mountains, far from the countries</p>--%>
-                            <%--</td>--%>
+                            <td class="product-name">
+                                <h3>Bell Pepper</h3>
+                                <p>Far far away, behind the word mountains, far from the countries</p>
+                            </td>
 
-                            <%--<td class="price">$4.90</td>--%>
+                            <td class="price">$4.90</td>
 
-                            <%--<td class="quantity">100</td>--%>
+                            <td class="quantity">100</td>
 
-                            <%--<td class="state">10-09-2019</td>--%>
-                        <%--</tr><!-- END TR-->--%>
+                            <td class="state">10-09-2019</td>
+                        </tr><!-- END TR-->
 
-                        <%--<tr class="text-center">--%>
-                            <%--<td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>--%>
+                        <tr class="text-center">
+                            <td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
 
-                            <%--<td class="image-prod"><div class="img" style="background-image:url(images/product-2.jpg);"></div></td>--%>
+                            <td class="image-prod"><div class="img" style="background-image:url(images/product-2.jpg);"></div></td>
 
-                            <%--<td class="product-name">--%>
-                                <%--<h3>Bell Pepper</h3>--%>
-                                <%--<p>Far far away, behind the word mountains, far from the countries</p>--%>
-                            <%--</td>--%>
+                            <td class="product-name">
+                                <h3>Bell Pepper</h3>
+                                <p>Far far away, behind the word mountains, far from the countries</p>
+                            </td>
 
-                            <%--<td class="price">$15.70</td>--%>
+                            <td class="price">$15.70</td>
 
-                            <%--<td class="quantity">--%>
-                                <%--<div class="input-group mb-3">--%>
-                                    <%--<input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">--%>
-                                <%--</div>--%>
-                            <%--</td>--%>
+                            <td class="quantity">
+                                <div class="input-group mb-3">
+                                    <input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
+                                </div>
+                            </td>
 
-                            <%--<td class="total">$15.70</td>--%>
-                        <%--</tr><!-- END TR-->--%>
+                            <td class="total">$15.70</td>
+                        </tr><!-- END TR-->
 
-                        <%--<tr class="text-center">--%>
-                            <%--<td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>--%>
+                        <tr class="text-center">
+                            <td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
 
-                            <%--<td class="image-prod"><div class="img" style="background-image:url(images/product-3.jpg);"></div></td>--%>
+                            <td class="image-prod"><div class="img" style="background-image:url(images/product-3.jpg);"></div></td>
 
-                            <%--<td class="product-name">--%>
-                                <%--<h3>Bell Pepper</h3>--%>
-                                <%--<p>Far far away, behind the word mountains, far from the countries</p>--%>
-                            <%--</td>--%>
+                            <td class="product-name">
+                                <h3>Bell Pepper</h3>
+                                <p>Far far away, behind the word mountains, far from the countries</p>
+                            </td>
 
-                            <%--<td class="price">$15.70</td>--%>
+                            <td class="price">$15.70</td>
 
-                            <%--<td class="quantity">--%>
-                                <%--<div class="input-group mb-3">--%>
-                                    <%--<input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">--%>
-                                <%--</div>--%>
-                            <%--</td>--%>
+                            <td class="quantity">
+                                <div class="input-group mb-3">
+                                    <input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
+                                </div>
+                            </td>
 
-                            <%--<td class="total">$15.70</td>--%>
-                        <%--</tr><!-- END TR-->--%>
-                        <%--</tbody>--%>
-                        <%--<tbody>--%>
-                        <%--<tr class="text-left">--%>
-                            <%--<td class="product-remove">--%>
-                                <%--<span class="form-group"><a href="#"><i class="fa fa-info"></i></a> Order 2</span>--%>
-                            <%--</td>--%>
-                        <%--</tr>--%>
-                        <%--<tr class="text-center">--%>
-                            <%--<td class="product-remove">--%>
-                                <%--<a href="#">--%>
-                                    <%--<span class="fa fa-trash"></span>--%>
-                                <%--</a>--%>
-                                <%--<a href="#" data-toggle="modal" data-target="#prodModal">--%>
-                                    <%--<span class="fa fa-edit"></span>--%>
-                                <%--</a>--%>
-                            <%--</td>--%>
+                            <td class="total">$15.70</td>
+                        </tr><!-- END TR-->
+                        </tbody>
+                        <tbody>
+                        <tr class="text-left">
+                            <td class="product-remove">
+                                <span class="form-group"><a href="#"><i class="fa fa-info"></i></a> Order 2</span>
+                            </td>
+                        </tr>
+                        <tr class="text-center">
+                            <td class="product-remove">
+                                <a href="#">
+                                    <span class="fa fa-trash"></span>
+                                </a>
+                                <a href="#" data-toggle="modal" data-target="#prodModal">
+                                    <span class="fa fa-edit"></span>
+                                </a>
+                            </td>
 
-                            <%--<td class="image-prod"><div class="img" style="background-image:url(images/product-1.jpg);"></div></td>--%>
+                            <td class="image-prod"><div class="img" style="background-image:url(images/product-1.jpg);"></div></td>
 
-                            <%--<td class="product-name">--%>
-                                <%--<h3>Bell Pepper</h3>--%>
-                                <%--<p>Far far away, behind the word mountains, far from the countries</p>--%>
-                            <%--</td>--%>
+                            <td class="product-name">
+                                <h3>Bell Pepper</h3>
+                                <p>Far far away, behind the word mountains, far from the countries</p>
+                            </td>
 
-                            <%--<td class="price">$4.90</td>--%>
+                            <td class="price">$4.90</td>
 
-                            <%--<td class="inventory">100</td>--%>
+                            <td class="inventory">100</td>
 
-                            <%--<td class="state">On Sale</td>--%>
-                        <%--</tr><!-- END TR-->--%>
+                            <td class="state">On Sale</td>
+                        </tr><!-- END TR-->
 
-                        <%--<tr class="text-center">--%>
-                            <%--<td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>--%>
+                        <tr class="text-center">
+                            <td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
 
-                            <%--<td class="image-prod"><div class="img" style="background-image:url(images/product-2.jpg);"></div></td>--%>
+                            <td class="image-prod"><div class="img" style="background-image:url(images/product-2.jpg);"></div></td>
 
-                            <%--<td class="product-name">--%>
-                                <%--<h3>Bell Pepper</h3>--%>
-                                <%--<p>Far far away, behind the word mountains, far from the countries</p>--%>
-                            <%--</td>--%>
+                            <td class="product-name">
+                                <h3>Bell Pepper</h3>
+                                <p>Far far away, behind the word mountains, far from the countries</p>
+                            </td>
 
-                            <%--<td class="price">$15.70</td>--%>
+                            <td class="price">$15.70</td>
 
-                            <%--<td class="quantity">--%>
-                                <%--<div class="input-group mb-3">--%>
-                                    <%--<input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">--%>
-                                <%--</div>--%>
-                            <%--</td>--%>
+                            <td class="quantity">
+                                <div class="input-group mb-3">
+                                    <input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
+                                </div>
+                            </td>
 
-                            <%--<td class="total">$15.70</td>--%>
-                        <%--</tr><!-- END TR-->--%>
+                            <td class="total">$15.70</td>
+                        </tr><!-- END TR-->
 
-                        <%--<tr class="text-center">--%>
-                            <%--<td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>--%>
+                        <tr class="text-center">
+                            <td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
 
-                            <%--<td class="image-prod"><div class="img" style="background-image:url(images/product-3.jpg);"></div></td>--%>
+                            <td class="image-prod"><div class="img" style="background-image:url(images/product-3.jpg);"></div></td>
 
-                            <%--<td class="product-name">--%>
-                                <%--<h3>Bell Pepper</h3>--%>
-                                <%--<p>Far far away, behind the word mountains, far from the countries</p>--%>
-                            <%--</td>--%>
+                            <td class="product-name">
+                                <h3>Bell Pepper</h3>
+                                <p>Far far away, behind the word mountains, far from the countries</p>
+                            </td>
 
-                            <%--<td class="price">$15.70</td>--%>
+                            <td class="price">$15.70</td>
 
-                            <%--<td class="quantity">--%>
-                                <%--<div class="input-group mb-3">--%>
-                                    <%--<input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">--%>
-                                <%--</div>--%>
-                            <%--</td>--%>
+                            <td class="quantity">
+                                <div class="input-group mb-3">
+                                    <input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
+                                </div>
+                            </td>
 
-                            <%--<td class="total">$15.70</td>--%>
-                        <%--</tr><!-- END TR-->--%>
+                            <td class="total">$15.70</td>
+                        </tr><!-- END TR-->
 
-                        <%--<tr class="text-center">--%>
-                            <%--<td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>--%>
+                        <tr class="text-center">
+                            <td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
 
-                            <%--<td class="image-prod"><div class="img" style="background-image:url(images/product-4.jpg);"></div></td>--%>
+                            <td class="image-prod"><div class="img" style="background-image:url(images/product-4.jpg);"></div></td>
 
-                            <%--<td class="product-name">--%>
-                                <%--<h3>Bell Pepper</h3>--%>
-                                <%--<p>Far far away, behind the word mountains, far from the countries</p>--%>
-                            <%--</td>--%>
+                            <td class="product-name">
+                                <h3>Bell Pepper</h3>
+                                <p>Far far away, behind the word mountains, far from the countries</p>
+                            </td>
 
-                            <%--<td class="price">$15.70</td>--%>
+                            <td class="price">$15.70</td>
 
-                            <%--<td class="quantity">--%>
-                                <%--<div class="input-group mb-3">--%>
-                                    <%--<input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">--%>
-                                <%--</div>--%>
-                            <%--</td>--%>
+                            <td class="quantity">
+                                <div class="input-group mb-3">
+                                    <input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
+                                </div>
+                            </td>
 
-                            <%--<td class="total">$15.70</td>--%>
-                        <%--</tr><!-- END TR-->--%>
+                            <td class="total">$15.70</td>
+                        </tr><!-- END TR-->
 
-                        <%--<tr class="text-center">--%>
-                            <%--<td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>--%>
+                        <tr class="text-center">
+                            <td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
 
-                            <%--<td class="image-prod"><div class="img" style="background-image:url(images/product-5.jpg);"></div></td>--%>
+                            <td class="image-prod"><div class="img" style="background-image:url(images/product-5.jpg);"></div></td>
 
-                            <%--<td class="product-name">--%>
-                                <%--<h3>Bell Pepper</h3>--%>
-                                <%--<p>Far far away, behind the word mountains, far from the countries</p>--%>
-                            <%--</td>--%>
+                            <td class="product-name">
+                                <h3>Bell Pepper</h3>
+                                <p>Far far away, behind the word mountains, far from the countries</p>
+                            </td>
 
-                            <%--<td class="price">$15.70</td>--%>
+                            <td class="price">$15.70</td>
 
-                            <%--<td class="quantity">--%>
-                                <%--<div class="input-group mb-3">--%>
-                                    <%--<input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">--%>
-                                <%--</div>--%>
-                            <%--</td>--%>
+                            <td class="quantity">
+                                <div class="input-group mb-3">
+                                    <input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
+                                </div>
+                            </td>
 
-                            <%--<td class="total">$15.70</td>--%>
-                        <%--</tr><!-- END TR-->--%>
+                            <td class="total">$15.70</td>
+                        </tr><!-- END TR-->
 
-                        <%--<tr class="text-center">--%>
-                            <%--<td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>--%>
+                        <tr class="text-center">
+                            <td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
 
-                            <%--<td class="image-prod"><div class="img" style="background-image:url(images/product-6.jpg);"></div></td>--%>
+                            <td class="image-prod"><div class="img" style="background-image:url(images/product-6.jpg);"></div></td>
 
-                            <%--<td class="product-name">--%>
-                                <%--<h3>Bell Pepper</h3>--%>
-                                <%--<p>Far far away, behind the word mountains, far from the countries</p>--%>
-                            <%--</td>--%>
+                            <td class="product-name">
+                                <h3>Bell Pepper</h3>
+                                <p>Far far away, behind the word mountains, far from the countries</p>
+                            </td>
 
-                            <%--<td class="price">$15.70</td>--%>
+                            <td class="price">$15.70</td>
 
-                            <%--<td class="quantity">--%>
-                                <%--<div class="input-group mb-3">--%>
-                                    <%--<input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">--%>
-                                <%--</div>--%>
-                            <%--</td>--%>
+                            <td class="quantity">
+                                <div class="input-group mb-3">
+                                    <input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
+                                </div>
+                            </td>
 
-                            <%--<td class="total">$15.70</td>--%>
-                        <%--</tr><!-- END TR-->--%>
-                        <%--</tbody>--%>
-                    <%--</table>--%>
-                <%--</div>--%>
-            <%--</div>--%>
-        <%--</div>--%>
-        <%--<div class="row mt-5">--%>
-            <%--<div class="col text-center">--%>
-                <%--<div class="block-27">--%>
-                    <%--<ul>--%>
-                        <%--<li><a href="#">&lt;</a></li>--%>
-                        <%--<li class="active"><span>1</span></li>--%>
-                        <%--<li><a href="#">2</a></li>--%>
-                        <%--<li><a href="#">3</a></li>--%>
-                        <%--<li><a href="#">4</a></li>--%>
-                        <%--<li><a href="#">5</a></li>--%>
-                        <%--<li><a href="#">&gt;</a></li>--%>
-                    <%--</ul>--%>
-                <%--</div>--%>
-            <%--</div>--%>
-        <%--</div>--%>
-    <%--</div>--%>
-<%--</section>--%>
+                            <td class="total">$15.70</td>
+                        </tr><!-- END TR-->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col text-center">
+                <div class="block-27">
+                    <ul>
+                        <li><a href="#">&lt;</a></li>
+                        <li class="active"><span>1</span></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">&gt;</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-<%--<!-- Product Modal -->--%>
-<%--<div class="modal fade" id="prodModal" tabindex="-1" role="dialog" aria-labelledby="prodModalCenterTitle" aria-hidden="true">--%>
-    <%--<div class="modal-dialog modal-dialog-centered" role="document">--%>
-        <%--<div class="modal-content">--%>
-            <%--<div class="modal-header">--%>
-                <%--<h4 class="modal-title" id="prodModalLongTitle">Bell Pepper</h4>--%>
-                <%--<button type="button" class="close" data-dismiss="modal" aria-label="Close">--%>
-                    <%--<span aria-hidden="true">&times;</span>--%>
-                <%--</button>--%>
-            <%--</div>--%>
-            <%--<div class="modal-body">--%>
-                <%--<div class="col-md-12 order-md-last">--%>
-                    <%--<form action="#" class="bg-white p-5 product-form">--%>
-                        <%--<div class="form-group avatar" align="center">--%>
-                            <%--<figure class="figure">--%>
-                                <%--<img class="img-rounded" src="https://www.w3schools.com/howto/img_avatar.png" alt="">--%>
-                            <%--</figure>--%>
-                            <%--<div class="form-group">--%>
-                                <%--<input type="file" class="file-uploader pull-left">--%>
-                            <%--</div>--%>
-                            <%--<div class="form-group">--%>
-                                <%--<button type="button" class="btn btn-secondary">Update Image</button>--%>
-                            <%--</div>--%>
-                        <%--</div>--%>
-                        <%--<div class="form-group">--%>
-                            <%--<label class="control-label">Name</label>--%>
-                            <%--<input type="text" class="form-control" required>--%>
-                        <%--</div>--%>
-                        <%--<div class="form-group">--%>
-                            <%--<label class="control-label">Price</label>--%>
-                            <%--<input type="text" class="form-control" required>--%>
-                        <%--</div>--%>
-                        <%--<div class="form-group">--%>
-                            <%--<label class="control-label">Description</label>--%>
-                            <%--<textarea type="text" class="form-control" required></textarea>--%>
-                        <%--</div>--%>
-                        <%--<div class="form-group">--%>
-                            <%--<label class="form-group">Type</label>--%>
-                            <%--<select name="" id="" class="form-control">--%>
-                                <%--<option value="">Fruit</option>--%>
-                                <%--<option value="">Vegetable</option>--%>
-                                <%--<option value="">Poultry & Egg</option>--%>
-                                <%--<option value="">Seafood</option>--%>
-                                <%--<option value="">Dairy</option>--%>
-                            <%--</select>--%>
-                        <%--</div>--%>
-                        <%--<div class="form-group">--%>
-                            <%--<label class="form-group">State</label>--%>
-                            <%--<select name="" id="" class="form-control">--%>
-                                <%--<option value="">On Sale</option>--%>
-                                <%--<option value="">For Sale</option>--%>
-                                <%--<option value="">Sold Out</option>--%>
-                            <%--</select>--%>
-                        <%--</div>--%>
-                <%--</div>--%>
-            <%--</div>--%>
-            <%--<div class="modal-footer" align="end">--%>
-                <%--<div>--%>
-                    <%--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>--%>
-                    <%--<button type="submit" class="btn btn-primary">Confirm</button>--%>
-                <%--</div>--%>
-            <%--</div>--%>
-            <%--</form>--%>
-        <%--</div>--%>
-    <%--</div>--%>
-<%--</div>--%>
+<!-- Product Modal -->
+<div class="modal fade" id="prodModal" tabindex="-1" role="dialog" aria-labelledby="prodModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="prodModalLongTitle">Bell Pepper</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12 order-md-last">
+                    <form action="#" class="bg-white p-5 product-form">
+                        <div class="form-group avatar" align="center">
+                            <figure class="figure">
+                                <img class="img-rounded" src="https://www.w3schools.com/howto/img_avatar.png" alt="">
+                            </figure>
+                            <div class="form-group">
+                                <input type="file" class="file-uploader pull-left">
+                            </div>
+                            <div class="form-group">
+                                <button type="button" class="btn btn-secondary">Update Image</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Name</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Price</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Description</label>
+                            <textarea type="text" class="form-control" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group">Type</label>
+                            <select name="" id="" class="form-control">
+                                <option value="">Fruit</option>
+                                <option value="">Vegetable</option>
+                                <option value="">Poultry & Egg</option>
+                                <option value="">Seafood</option>
+                                <option value="">Dairy</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group">State</label>
+                            <select name="" id="" class="form-control">
+                                <option value="">On Sale</option>
+                                <option value="">For Sale</option>
+                                <option value="">Sold Out</option>
+                            </select>
+                        </div>
+                </div>
+            </div>
+            <div class="modal-footer" align="end">
+                <div>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Confirm</button>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
 
-<%--<section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">--%>
-    <%--<div class="container py-4">--%>
-        <%--<div class="row d-flex justify-content-center py-5">--%>
-            <%--<div class="col-md-6">--%>
-                <%--<h2 style="font-size: 22px;" class="mb-0">Subcribe to our Newsletter</h2>--%>
-                <%--<span>Get e-mail updates about our latest shops and special offers</span>--%>
-            <%--</div>--%>
-            <%--<div class="col-md-6 d-flex align-items-center">--%>
-                <%--<form action="#" class="subscribe-form">--%>
-                    <%--<div class="form-group d-flex">--%>
-                        <%--<input type="text" class="form-control" placeholder="Enter email address">--%>
-                        <%--<input type="submit" value="Subscribe" class="submit px-3">--%>
-                    <%--</div>--%>
-                <%--</form>--%>
-            <%--</div>--%>
-        <%--</div>--%>
-    <%--</div>--%>
-<%--</section>--%>
+<section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
+    <div class="container py-4">
+        <div class="row d-flex justify-content-center py-5">
+            <div class="col-md-6">
+                <h2 style="font-size: 22px;" class="mb-0">Subcribe to our Newsletter</h2>
+                <span>Get e-mail updates about our latest shops and special offers</span>
+            </div>
+            <div class="col-md-6 d-flex align-items-center">
+                <form action="#" class="subscribe-form">
+                    <div class="form-group d-flex">
+                        <input type="text" class="form-control" placeholder="Enter email address">
+                        <input type="submit" value="Subscribe" class="submit px-3">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 <jsp:include page="footer.jsp"></jsp:include>
 
 
