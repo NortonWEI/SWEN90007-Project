@@ -48,7 +48,7 @@
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-9 ftco-animate text-center">
                 <p class="breadcrumbs"><span class="mr-2"><a href="index.jsp">Home</a></span> <span>My Order</span></p>
-                <h1 class="mb-0 bread">Coming soon, Next Feature...</h1>
+                <h1 class="mb-0 bread">Your Orders</h1>
             </div>
         </div>
     </div>
@@ -66,21 +66,25 @@
                             <th>Product List</th>
                             <th>Price</th>
                             <th>Quantity</th>
-                            <th>Delivery Date</th>
+                            <th>State</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr class="text-md-center">
-                            <td class="product-remove">
-                                <span class="form-group"><a href="#"><i class="fa fa-paper-plane"></i></a>
+                        <tr class="text-md-center" style="background-color: #efefef" data-toggle="collapse" data-target=".accordion1">
+                            <td class="product-remove" style="padding-bottom: 0; padding-top: 10px;">
+                                <span class="form-group"><a href="#" ><i class="fa fa-paper-plane"></i></a>
                                     <ul class="meta list list-unstyled">
-                                        <li class="name" style="font-size: 20px;">Order 1</li>
+                                        <li class="name" style="font-size: 15px;">Order 1</li>
                                         <li class="email" style="font-size: 10px;"></i>20:45 10-10-2019</li>
                                     </ul>
                                 </span>
                             </td>
+                            <td class="product-remove">Click for Details</td>
+                            <td class="product-remove">$20.60</td>
+                            <td class="product-remove">150</td>
+                            <td class="product-remove">Click for Details</td>
                         </tr>
-                        <tr class="text-center">
+                        <tr class="text-center collapse accordion1">
 
                             <td class="image-prod"><div class="img" style="background-image:url(images/product-1.jpg);"></div></td>
 
@@ -93,10 +97,10 @@
 
                             <td class="quantity">100</td>
 
-                            <td class="state">10-09-2019</td>
+                            <td class="state">Pending</td>
                         </tr><!-- END TR-->
 
-                        <tr class="text-center">
+                        <tr class="text-center collapse accordion1">
 
                             <td class="image-prod"><div class="img" style="background-image:url(images/product-2.jpg);"></div></td>
 
@@ -107,31 +111,27 @@
 
                             <td class="price">$15.70</td>
 
-                            <td class="quantity">
-                                <div class="input-group mb-3">
-                                    <input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
-                                </div>
-                            </td>
+                            <td class="quantity">50</td>
 
-                            <td class="total">$15.70</td>
+                            <td class="state">Delivered</td>
                         </tr><!-- END TR-->
                         </tbody>
                         <tbody>
-                        <tr class="text-left">
-                            <td class="product-remove">
-                                <span class="form-group"><a href="#"><i class="fa fa-info"></i></a> Order 2</span>
+                        <tr class="text-md-center" style="background-color: #efefef;" data-toggle="collapse" data-target=".accordion2">
+                            <td class="product-remove" style="padding-bottom: 0; padding-top: 10px;">
+                                <span class="form-group"><a href="#" ><i class="fa fa-paper-plane"></i></a>
+                                    <ul class="meta list list-unstyled">
+                                        <li class="name" style="font-size: 15px;">Order 2</li>
+                                        <li class="email" style="font-size: 10px;"></i>20:45 10-05-2019</li>
+                                    </ul>
+                                </span>
                             </td>
+                            <td class="product-remove">Click for Details</td>
+                            <td class="product-remove">$4.90</td>
+                            <td class="product-remove">100</td>
+                            <td class="product-remove">Click for Details</td>
                         </tr>
-                        <tr class="text-center">
-<%--                            <td class="product-remove">--%>
-<%--                                <a href="#">--%>
-<%--                                    <span class="fa fa-trash"></span>--%>
-<%--                                </a>--%>
-<%--                                <a href="#" data-toggle="modal" data-target="#prodModal">--%>
-<%--                                    <span class="fa fa-edit"></span>--%>
-<%--                                </a>--%>
-<%--                            </td>--%>
-
+                        <tr class="text-center collapse accordion2">
                             <td class="image-prod"><div class="img" style="background-image:url(images/product-1.jpg);"></div></td>
 
                             <td class="product-name">
@@ -144,111 +144,6 @@
                             <td class="inventory">100</td>
 
                             <td class="state">On Sale</td>
-                        </tr><!-- END TR-->
-
-                        <tr class="text-center">
-                            <td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
-
-                            <td class="image-prod"><div class="img" style="background-image:url(images/product-2.jpg);"></div></td>
-
-                            <td class="product-name">
-                                <h3>Bell Pepper</h3>
-                                <p>Far far away, behind the word mountains, far from the countries</p>
-                            </td>
-
-                            <td class="price">$15.70</td>
-
-                            <td class="quantity">
-                                <div class="input-group mb-3">
-                                    <input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
-                                </div>
-                            </td>
-
-                            <td class="total">$15.70</td>
-                        </tr><!-- END TR-->
-
-                        <tr class="text-center">
-                            <td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
-
-                            <td class="image-prod"><div class="img" style="background-image:url(images/product-3.jpg);"></div></td>
-
-                            <td class="product-name">
-                                <h3>Bell Pepper</h3>
-                                <p>Far far away, behind the word mountains, far from the countries</p>
-                            </td>
-
-                            <td class="price">$15.70</td>
-
-                            <td class="quantity">
-                                <div class="input-group mb-3">
-                                    <input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
-                                </div>
-                            </td>
-
-                            <td class="total">$15.70</td>
-                        </tr><!-- END TR-->
-
-                        <tr class="text-center">
-                            <td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
-
-                            <td class="image-prod"><div class="img" style="background-image:url(images/product-4.jpg);"></div></td>
-
-                            <td class="product-name">
-                                <h3>Bell Pepper</h3>
-                                <p>Far far away, behind the word mountains, far from the countries</p>
-                            </td>
-
-                            <td class="price">$15.70</td>
-
-                            <td class="quantity">
-                                <div class="input-group mb-3">
-                                    <input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
-                                </div>
-                            </td>
-
-                            <td class="total">$15.70</td>
-                        </tr><!-- END TR-->
-
-                        <tr class="text-center">
-                            <td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
-
-                            <td class="image-prod"><div class="img" style="background-image:url(images/product-5.jpg);"></div></td>
-
-                            <td class="product-name">
-                                <h3>Bell Pepper</h3>
-                                <p>Far far away, behind the word mountains, far from the countries</p>
-                            </td>
-
-                            <td class="price">$15.70</td>
-
-                            <td class="quantity">
-                                <div class="input-group mb-3">
-                                    <input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
-                                </div>
-                            </td>
-
-                            <td class="total">$15.70</td>
-                        </tr><!-- END TR-->
-
-                        <tr class="text-center">
-                            <td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
-
-                            <td class="image-prod"><div class="img" style="background-image:url(images/product-6.jpg);"></div></td>
-
-                            <td class="product-name">
-                                <h3>Bell Pepper</h3>
-                                <p>Far far away, behind the word mountains, far from the countries</p>
-                            </td>
-
-                            <td class="price">$15.70</td>
-
-                            <td class="quantity">
-                                <div class="input-group mb-3">
-                                    <input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
-                                </div>
-                            </td>
-
-                            <td class="total">$15.70</td>
                         </tr><!-- END TR-->
                         </tbody>
                     </table>
