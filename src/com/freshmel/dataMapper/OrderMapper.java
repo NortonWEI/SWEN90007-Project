@@ -4,6 +4,7 @@ import com.freshmel.dbc.DataBaseConnection;
 import com.freshmel.model.Address;
 import com.freshmel.model.Order;
 import com.freshmel.model.OrderItem;
+import com.freshmel.model.Product;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -119,5 +120,19 @@ public class OrderMapper {
             address.setPostCode(rs.getString(6));
         }
         return address;
+    }
+
+    /**
+     * update order state
+     * @param order
+     * @return if update successfully return true
+     *         if update failed return false
+     * */
+    public boolean updateOrderState(Order order) throws SQLException {
+        String sql = "UPDATE `order` SET state=? WHERE id=?" ;
+        pstmt = conn.prepareStatement(sql) ;
+        pstmt.setInt(1, order.getState());
+        pstmt.setLong(2, order.getId());
+        return pstmt.executeUpdate() > 0 ;
     }
 }
