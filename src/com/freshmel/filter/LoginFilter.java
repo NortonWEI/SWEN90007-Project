@@ -26,7 +26,7 @@ public class LoginFilter implements Filter {
         HttpServletRequest httpRequest = (HttpServletRequest) servletRequest;
         HttpServletResponse httpResponse = (HttpServletResponse) servletResponse;
         HttpSession session = httpRequest.getSession();
-        Vender vender = (Vender)session.getAttribute("vender");
+        Vender vender = (Vender) session.getAttribute("vender");
         Customer customer = (Customer) session.getAttribute("customer");
         if((vender == null) && (customer == null)) {
             httpRequest.setAttribute("info", "Please log in first!");
