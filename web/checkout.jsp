@@ -1,4 +1,10 @@
+<%@ page import="com.freshmel.model.Cart" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.freshmel.model.Customer" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+	Customer customer = (Customer) session.getAttribute("customer");
+%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -53,79 +59,78 @@
 	          	<div class="row align-items-end">
 	          		<div class="col-md-6">
 	                <div class="form-group">
-	                	<label for="firstname">Firt Name</label>
-	                  <input type="text" class="form-control" placeholder="" required>
+	                	<label>Firt Name</label>
+	                  <input type="text" class="form-control" placeholder="" value="<%=customer.getFirstName()%>" required readonly>
 	                </div>
 	              </div>
 	              <div class="col-md-6">
 	                <div class="form-group">
-	                	<label for="lastname">Last Name</label>
-	                  <input type="text" class="form-control" placeholder="" required>
+	                	<label>Last Name</label>
+	                  <input type="text" class="form-control" placeholder="" value="<%=customer.getLastName()%>" required readonly>
 	                </div>
                 </div>
                 <div class="w-100"></div>
 		            <div class="col-md-12">
 		            	<div class="form-group">
-		            		<label for="country">State / Country</label>
+		            		<label>State</label>
 		            		<div class="select-wrap">
-		                  <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-		                  <select name="" id="" class="form-control">
-		                  	<option value="">France</option>
-		                    <option value="">Italy</option>
-		                    <option value="">Philippines</option>
-		                    <option value="">South Korea</option>
-		                    <option value="">Hongkong</option>
-		                    <option value="">Japan</option>
-		                  </select>
+								<input type="text" class="form-control" placeholder="" value="<%=customer.getAddresses().getState()%>" required readonly>
 		                </div>
 		            	</div>
 		            </div>
 		            <div class="w-100"></div>
-		            <div class="col-md-6">
+		            <div class="col-md-4">
 		            	<div class="form-group">
-	                	<label for="streetaddress">Street Address</label>
-	                  <input type="text" class="form-control" placeholder="House number and street name" required>
+	                	<label>Street line 1</label>
+	                  <input type="text" class="form-control" value="<%=customer.getAddresses().getLine1()%>" required readonly>
 	                </div>
 		            </div>
-		            <div class="col-md-6">
+					<div class="col-md-4">
+						<div class="form-group">
+							<label>Street line 2</label>
+							<input type="text" class="form-control" value="<%=customer.getAddresses().getLine2()%>" required readonly>
+						</div>
+					</div>
+		            <div class="col-md-4">
 		            	<div class="form-group">
-	                  <input type="text" class="form-control" placeholder="Appartment, suite, unit etc: (optional)">
+							<label>Street line 3</label>
+							<input type="text" class="form-control" value="<%=customer.getAddresses().getLine3()%>" required readonly>
 	                </div>
 		            </div>
 		            <div class="w-100"></div>
 		            <div class="col-md-6">
 		            	<div class="form-group">
-	                	<label for="towncity">Town / City</label>
-	                  <input type="text" class="form-control" placeholder="" required>
+	                	<label>Suburb</label>
+	                  <input type="text" class="form-control" placeholder="" value="<%=customer.getAddresses().getSuburb()%>" required readonly>
 	                </div>
 		            </div>
 		            <div class="col-md-6">
 		            	<div class="form-group">
-		            		<label for="postcodezip">Postcode / ZIP *</label>
-	                  <input type="text" class="form-control" placeholder="" required>
+		            		<label>Postcode / ZIP *</label>
+	                  <input type="text" class="form-control" placeholder="" value="<%=customer.getAddresses().getPostCode()%>" required readonly>
 	                </div>
 		            </div>
 		            <div class="w-100"></div>
 		            <div class="col-md-6">
 	                <div class="form-group">
-	                	<label for="phone">Phone</label>
-	                  <input type="text" class="form-control" placeholder="" required>
+	                	<label>Phone</label>
+	                  <input type="text" class="form-control" placeholder="" value="<%=customer.getPhoneNumber()%>" required readonly>
 	                </div>
 	              </div>
 	              <div class="col-md-6">
 	                <div class="form-group">
-	                	<label for="emailaddress">Email Address</label>
-	                  <input type="text" class="form-control" placeholder="" pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$" title="Please input a valid email." required>
+	                	<label>Email Address</label>
+	                  <input type="text" class="form-control" placeholder="" pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$" title="Please input a valid email." value="<%=customer.getEmail()%>" required readonly>
 	                </div>
                 </div>
                 <div class="w-100"></div>
                 <div class="col-md-12">
-                	<div class="form-group mt-4">
-										<div class="radio">
-										  <label class="mr-3"><input type="radio" name="optradio"> Create an Account? </label>
-										  <label><input type="radio" name="optradio"> Ship to different address</label>
-										</div>
-									</div>
+                	<%--<div class="form-group mt-4">--%>
+										<%--<div class="radio">--%>
+										  <%--<label class="mr-3"><input type="radio" name="optradio"> Create an Account? </label>--%>
+										  <%--<label><input type="radio" name="optradio"> Ship to different address</label>--%>
+										<%--</div>--%>
+									<%--</div>--%>
                 </div>
 	            </div>
 	          </form><!-- END -->
@@ -135,22 +140,34 @@
 	          	<div class="col-md-12 d-flex mb-5">
 	          		<div class="cart-detail cart-total p-3 p-md-4">
 	          			<h3 class="billing-heading mb-4">Cart Total</h3>
-	          			<p class="d-flex">
-		    						<span>Subtotal</span>
-		    						<span>$20.60</span>
-		    					</p>
+						<%
+							List<Cart> carts = customer.getCarts();
+							Float totalPrice = (float)0;
+							System.out.println(carts.size());
+							for(int i=0;i<carts.size();i++){
+							    Cart cart = carts.get(i);
+								Float singleTotalPrice = cart.getQuantity()*cart.getProduct().getPrice();
+								totalPrice += singleTotalPrice;
+						%>
+						<p class="d-flex">
+							<span><%=cart.getProduct().getName()%> * <%=cart.getQuantity()%></span>
+							<span><%=singleTotalPrice%></span>
+						</p>
+						<%
+							}
+						%>
 		    					<p class="d-flex">
 		    						<span>Delivery</span>
 		    						<span>$0.00</span>
 		    					</p>
 		    					<p class="d-flex">
 		    						<span>Discount</span>
-		    						<span>$3.00</span>
+		    						<span>$0.00</span>
 		    					</p>
 		    					<hr>
 		    					<p class="d-flex total-price">
 		    						<span>Total</span>
-		    						<span>$17.60</span>
+		    						<span><%=totalPrice%></span>
 		    					</p>
 								</div>
 	          	</div>
@@ -167,7 +184,7 @@
 									<div class="form-group">
 										<div class="col-md-12">
 											<div class="radio">
-											   <label><input type="radio" name="optradio" class="mr-2"> Check Payment</label>
+											   <label><input type="radio" name="optradio" class="mr-2"> Alipay</label>
 											</div>
 										</div>
 									</div>
