@@ -63,7 +63,6 @@
                         <thead class="thead-primary">
                         <tr class="text-center">
                             <th>&nbsp;</th>
-                            <th> </th>
                             <th>Product List</th>
                             <th>Price</th>
                             <th>Quantity</th>
@@ -71,17 +70,17 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr class="text-left">
+                        <tr class="text-md-center">
                             <td class="product-remove">
-                                <span class="form-group"><a href="#"><i class="fa fa-info"></i></a> Order 1</span>
+                                <span class="form-group"><a href="#"><i class="fa fa-paper-plane"></i></a>
+                                    <ul class="meta list list-unstyled">
+                                        <li class="name" style="font-size: 20px;">Order 1</li>
+                                        <li class="email" style="font-size: 10px;"></i>20:45 10-10-2019</li>
+                                    </ul>
+                                </span>
                             </td>
                         </tr>
                         <tr class="text-center">
-                            <td class="product-remove">
-                                <a href="#">
-                                    <span class="fa fa-trash"></span>
-                                </a>
-                            </td>
 
                             <td class="image-prod"><div class="img" style="background-image:url(images/product-1.jpg);"></div></td>
 
@@ -98,30 +97,8 @@
                         </tr><!-- END TR-->
 
                         <tr class="text-center">
-                            <td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
 
                             <td class="image-prod"><div class="img" style="background-image:url(images/product-2.jpg);"></div></td>
-
-                            <td class="product-name">
-                                <h3>Bell Pepper</h3>
-                                <p>Far far away, behind the word mountains, far from the countries</p>
-                            </td>
-
-                            <td class="price">$15.70</td>
-
-                            <td class="quantity">
-                                <div class="input-group mb-3">
-                                    <input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
-                                </div>
-                            </td>
-
-                            <td class="total">$15.70</td>
-                        </tr><!-- END TR-->
-
-                        <tr class="text-center">
-                            <td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
-
-                            <td class="image-prod"><div class="img" style="background-image:url(images/product-3.jpg);"></div></td>
 
                             <td class="product-name">
                                 <h3>Bell Pepper</h3>
@@ -146,14 +123,14 @@
                             </td>
                         </tr>
                         <tr class="text-center">
-                            <td class="product-remove">
-                                <a href="#">
-                                    <span class="fa fa-trash"></span>
-                                </a>
-                                <a href="#" data-toggle="modal" data-target="#prodModal">
-                                    <span class="fa fa-edit"></span>
-                                </a>
-                            </td>
+<%--                            <td class="product-remove">--%>
+<%--                                <a href="#">--%>
+<%--                                    <span class="fa fa-trash"></span>--%>
+<%--                                </a>--%>
+<%--                                <a href="#" data-toggle="modal" data-target="#prodModal">--%>
+<%--                                    <span class="fa fa-edit"></span>--%>
+<%--                                </a>--%>
+<%--                            </td>--%>
 
                             <td class="image-prod"><div class="img" style="background-image:url(images/product-1.jpg);"></div></td>
 
