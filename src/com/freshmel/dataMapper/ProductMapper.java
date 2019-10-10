@@ -128,6 +128,20 @@ public class ProductMapper {
     }
 
     /**
+     * update product quantity
+     * @param product with the new info need to update
+     * @return if update successfully return true
+     *         if update failed return false
+     * */
+    public boolean updateProductQuantity(Product product) throws SQLException {
+        String sql = "UPDATE product SET inventory=? WHERE id=?" ;
+        pstmt = conn.prepareStatement(sql) ;
+        pstmt.setInt(1, product.getInventory());
+        pstmt.setLong(2, product.getId());
+        return pstmt.executeUpdate() > 0 ;
+    }
+
+    /**
      * get all products that are on sale
      *
      * @return return a list of products that are on sale
