@@ -95,13 +95,11 @@ public class AppRealm extends JdbcRealm {
             if (user == null) {
                 System.out.println("no account found for user with username" + username);
                 return null;
+            } else {
+                roles.add(AppSession.CUSTOMER_ROLE);
             }
-        }
-
-        if (user instanceof Vender) {
+        } else {
             roles.add(AppSession.VENDOR_ROLE);
-        } else if (user instanceof Customer) {
-            roles.add(AppSession.CUSTOMER_ROLE);
         }
 
         return new SimpleAuthorizationInfo(roles);
