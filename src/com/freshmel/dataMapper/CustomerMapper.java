@@ -14,7 +14,44 @@ public class CustomerMapper {
     public PreparedStatement pstmt;
 
     /**
-     * find customer by email and password
+     * find customer by email only
+     * @param email with email
+     * @return if the customer in database return whole information of this customer
+     *         if the customer not in database return null
+     * */
+    public Customer findByEmail(String email) throws SQLException {
+        Customer result = null;
+        String sql = "SELECT id,password,photo,email,phoneNumber,registerDate,lastLoginDate,firstname,lastname,line1,line2,line3,suburb,state,postCode FROM customer WHERE email=? AND password=?";
+        pstmt = conn.prepareStatement(sql) ;
+        pstmt.setString(1, email);
+        ResultSet rs = pstmt.executeQuery() ;
+        if (rs.next()) {
+            result = new Customer();
+            result.setId(rs.getLong(1));
+            result.setPassword(rs.getString(2));
+            result.setPhoto(rs.getString(3));
+            result.setEmail(rs.getString(4));
+            result.setPhoneNumber(rs.getString(5));
+            result.setRegisterDate(rs.getTimestamp(6));
+            result.setLastLoginDate(rs.getTimestamp(7));
+            result.setFirstName(rs.getString(8));
+            result.setLastName(rs.getString(9));
+            Address address = new Address();
+            address.setLine1(rs.getString(10));
+            address.setLine2(rs.getString(11));
+            address.setLine3(rs.getString(12));
+            address.setSuburb(rs.getString(13));
+            address.setState(rs.getString(14));
+            address.setPostCode(rs.getString(15));
+            result.setAddresses(address);
+            CartMapper cartMapper = new CartMapper();
+            result.setCarts(cartMapper.findByCustomerId(result.getId()));
+        }
+        return result;
+    }
+
+    /**
+     * find customer by email and password (authentication)
      * @param customer with email and password.
      * @return if the customer in database return whole information of this customer
      *         if the customer not in database return null

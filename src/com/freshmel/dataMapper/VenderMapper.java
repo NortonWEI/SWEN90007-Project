@@ -15,8 +15,39 @@ public class VenderMapper {
     public PreparedStatement pstmt;
 
     /**
-     * find vender by email and password
-     * @param vender with email an d password.
+     * find vender by email only
+     * @param email with email.
+     * @return if vender in database return the vender
+     *         if vender not in database return null
+     * */
+    public Vender findByEmail(String email) throws SQLException {
+        Vender result = null;
+        String sql = "SELECT id,password,photo,email,phoneNumber,registerDate,lastLoginDate,firstname,lastname FROM vender WHERE email=?";
+        pstmt = conn.prepareStatement(sql) ;
+        pstmt.setString(1, email);
+        ResultSet rs = pstmt.executeQuery() ;
+        if (rs.next()) {
+            result = new Vender();
+            result.setId(rs.getLong(1));
+            result.setPassword(rs.getString(2));
+            result.setPhoto(rs.getString(3));
+            result.setEmail(rs.getString(4));
+            result.setPhoneNumber(rs.getString(5));
+            result.setRegisterDate(rs.getTimestamp(6));
+            result.setLastLoginDate(rs.getTimestamp(7));
+            result.setFirstName(rs.getString(8));
+            result.setLastName(rs.getString(9));
+
+            ProductMapper productMapper = new ProductMapper();
+            List<Product> products = productMapper.findByVenderID(result.getId());
+            result.setProducts(products);
+        }
+        return result;
+    }
+
+    /**
+     * find vender by email and password (authentication)
+     * @param vender with email an a password.
      * @return if vender in database return the vender
      *         if vender not in database return null
      * */
