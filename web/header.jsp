@@ -193,7 +193,7 @@
 						Forgot
 					</span>
 
-                            <a href="#" class="txt2" data-dismiss="modal" data-toggle="modal" data-target="#resetModal">
+                            <a href="#" class="txt2" data-toggle="modal" data-target="#resetModal">
                                 Username / Password?
                             </a>
                         </div>
@@ -252,11 +252,11 @@
                             <label class="control-label">Retype Your Password</label>
                             <input name="password2" type="password" class="form-control" id="psw2-reg" placeholder="" required>
                         </div>
-                        <div class="text-center">
-					<span class="txt1">
-						An email will be sent to you after registration.
-					</span>
-                        </div>
+<%--                        <div class="text-center">--%>
+<%--					<span class="txt1">--%>
+<%--						An email will be sent to you after registration.--%>
+<%--					</span>--%>
+<%--                        </div>--%>
 
                 </div>
             </div>
@@ -309,21 +309,41 @@
                             <label class="control-label">Your Email</label>
                             <input name="email" type="text" class="form-control" placeholder="" pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$" title="Please input a valid email." required>
                         </div>
-                        <div class="text-center">
-					<span class="txt1">
-						An email will be sent to you as a guidance.
-					</span>
+                        <div class="form-group">
+                            <label class="control-label">Your Old Password</label>
+                            <input name="old_password" type="password" class="form-control" placeholder="" required>
                         </div>
-
+                        <div class="form-group">
+                            <label class="control-label">Your New Password</label>
+                            <input name="new_password" type="password" class="form-control" id="psw1-reset" placeholder="" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Retype Your New Password</label>
+                            <input name="new_password2" type="password" class="form-control" id="psw2-reset" placeholder="" required>
+                        </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <div>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Confirm</button>
+                    <button type="submit" class="btn btn-primary" id="checkReset">Confirm</button>
                 </div>
             </div>
             </form>
+            <%--            check password --%>
+            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+            <script>
+                document.getElementById("checkReset").onclick = function () {
+                    var psw1 = document.getElementById("psw1-reset").value;
+                    var psw2 = document.getElementById("psw2-reset").value;
+                    if (psw1 != psw2) {
+                        swal("Info", "Please ensure the 2 password are the same!").then((value) => {});
+                        document.getElementById("psw1-reset").value = "";
+                        document.getElementById("psw2-reset").value = "";
+                        return false;
+                    }
+                }
+            </script>
         </div>
     </div>
 </div>

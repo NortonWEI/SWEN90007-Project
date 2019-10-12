@@ -15,9 +15,6 @@ public abstract class User {
     private String phoneNumber;
     private Timestamp registerDate;
 
-    // Reset password value
-    public final static String RESET_PASSWORD = "000";
-
     public String getPhoto() {
         return photo;
     }

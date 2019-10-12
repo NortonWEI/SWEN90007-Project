@@ -119,11 +119,12 @@ public class CustomerMapper {
      * @return
      * @throws SQLException
      */
-    public boolean resetPassword (String email) throws SQLException {
-        String sql = "UPDATE customer SET password=? WHERE email=?" ;
+    public boolean resetPassword (String email, String oldPassword, String newPassword) throws SQLException {
+        String sql = "UPDATE customer SET password=? WHERE email=? AND password=?" ;
         pstmt = conn.prepareStatement(sql) ;
-        pstmt.setString(1, User.RESET_PASSWORD);
+        pstmt.setString(1, newPassword);
         pstmt.setString(2, email);
+        pstmt.setString(3, oldPassword);
         return pstmt.executeUpdate() > 0;
     }
 

@@ -1,7 +1,5 @@
 package com.freshmel.controller;
 
-import com.freshmel.model.Customer;
-import com.freshmel.model.Vender;
 import com.freshmel.service.CustomerService;
 import com.freshmel.service.VenderService;
 
@@ -22,7 +20,7 @@ import java.sql.SQLIntegrityConstraintViolationException;
 public class ResetPasswordController extends HttpServlet {
     @Override
     public void init() throws ServletException {
-        
+
     }
 
     @Override
@@ -35,6 +33,8 @@ public class ResetPasswordController extends HttpServlet {
         System.out.println("/reset");
         String type = req.getParameter("type");
         String email = req.getParameter("email");
+        String oldPassword = req.getParameter("old_password");
+        String newPassword = req.getParameter("new_password");
         System.out.println(type);
         System.out.println(email);
 
@@ -42,18 +42,18 @@ public class ResetPasswordController extends HttpServlet {
         if (type.equals("vender")){
             VenderService venderService = new VenderService();
             try {
-                if (venderService.resetPassword(email)){
+                if (venderService.resetPassword(email, oldPassword, newPassword)){
                     // reset success
-                    req.setAttribute("info", "Reset successfully! Please check your mailbox!");
+                    req.setAttribute("info", "Reset successfully! Please use the new password to login!");
                     req.setAttribute("redirectURL", "index.jsp");
                     req.getRequestDispatcher("redirect.jsp").forward(req, resp);
                 }else {
-                    req.setAttribute("info", "Reset failed: Email doesn't exist!");
+                    req.setAttribute("info", "Reset failed: Email doesn't exist or your old password is wrong!");
                     req.setAttribute("redirectURL", "index.jsp");
                     req.getRequestDispatcher("redirect.jsp").forward(req, resp);
                 }
             }catch (SQLIntegrityConstraintViolationException e){
-                req.setAttribute("info", "Reset failed: Email doesn't exist!");
+                req.setAttribute("info", "Reset failed: Email doesn't exist or your old password is wrong!");
                 req.setAttribute("redirectURL", "index.jsp");
                 req.getRequestDispatcher("redirect.jsp").forward(req, resp);
             }
@@ -70,18 +70,18 @@ public class ResetPasswordController extends HttpServlet {
         else if(type.equals("customer")) {
             CustomerService customerService = new CustomerService();
             try {
-                if (customerService.resetPassword(email)){
+                if (customerService.resetPassword(email, oldPassword, newPassword)){
                     // reset success
-                    req.setAttribute("info", "Reset successfully! Please check your mailbox!");
+                    req.setAttribute("info", "Reset successfully! Please use the new password to login!");
                     req.setAttribute("redirectURL", "index.jsp");
                     req.getRequestDispatcher("redirect.jsp").forward(req, resp);
                 }else {
-                    req.setAttribute("info", "Reset failed: Email doesn't exist!");
+                    req.setAttribute("info", "Reset failed: Email doesn't exist or your old password is wrong!");
                     req.setAttribute("redirectURL", "index.jsp");
                     req.getRequestDispatcher("redirect.jsp").forward(req, resp);
                 }
             }catch (SQLIntegrityConstraintViolationException e){
-                req.setAttribute("info", "Reset failed: Email doesn't exist!");
+                req.setAttribute("info", "Reset failed: Email doesn't exist or your old password is wrong!");
                 req.setAttribute("redirectURL", "index.jsp");
                 req.getRequestDispatcher("redirect.jsp").forward(req, resp);
             }

@@ -40,9 +40,9 @@ public class VenderService {
      * @return
      * @throws SQLException
      */
-    public boolean resetPassword(String email) throws SQLException {
+    public boolean resetPassword(String email, String oldPassword, String newPassword) throws SQLException {
         VenderMapper venderMapper = new VenderMapper();
-        return venderMapper.resetPassword(email);
+        return venderMapper.resetPassword(email, oldPassword, newPassword);
     }
 
     /**
@@ -79,7 +79,7 @@ public class VenderService {
     }
 
     /**
-     * uodate
+     * update
      * */
     public boolean updateProduct(Product product) throws SQLException {
         ProductMapper productMapper = new ProductMapper();

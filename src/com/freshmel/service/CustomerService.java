@@ -51,9 +51,9 @@ public class CustomerService {
      * @return
      * @throws SQLException
      */
-    public boolean resetPassword(String email) throws SQLException {
+    public boolean resetPassword(String email, String oldPassword, String newPassword) throws SQLException {
         CustomerMapper customerMapper = new CustomerMapper();
-        return customerMapper.resetPassword(email);
+        return customerMapper.resetPassword(email, oldPassword, newPassword);
     }
 
     /**
