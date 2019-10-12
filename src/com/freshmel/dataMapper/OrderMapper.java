@@ -23,7 +23,8 @@ public class OrderMapper {
     public boolean insert(Order order) throws SQLException {
 
         String sql = "INSERT INTO `order`(createDate,totalPrice,state,customer_id) VALUES (?,?,?,?)" ;
-        // close auto commit
+
+        // open transaction, close auto commit
         conn.setAutoCommit(false);
 
         pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS) ;
