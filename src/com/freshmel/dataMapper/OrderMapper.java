@@ -1,6 +1,7 @@
 package com.freshmel.dataMapper;
 
 import com.freshmel.dbc.DataBaseConnection;
+import com.freshmel.identityMap.ProductIdentityMap;
 import com.freshmel.model.Address;
 import com.freshmel.model.Order;
 import com.freshmel.model.OrderItem;
@@ -51,8 +52,26 @@ public class OrderMapper {
             pstmt.setInt(3, orderItem.getQuantity());
             pstmt.addBatch();
         }
-
         pstmt.executeBatch();
+
+        String updateProductInventory = "UPDATE product SET inventory=? WHERE id=?";
+        pstmt = conn.prepareStatement(updateProductInventory) ;
+        for (OrderItem orderItem:order.getOrderItems()){
+            if (orderItem.getProduct().getInventory()<0){
+                conn.rollback();
+            }
+            int newInventory = orderItem.getProduct().getInventory() - orderItem.getQuantity();
+            if (newInventory < 0){
+                conn.rollback();
+            }
+            orderItem.getProduct().setInventory(newInventory);
+            ProductIdentityMap.putProduct(orderItem.getProduct());
+            pstmt.setInt(1, newInventory);
+            pstmt.setLong(2, orderItem.getProduct().getId());
+            pstmt.addBatch();
+        }
+        pstmt.executeBatch();
+
         conn.commit();
         conn.close();
 
