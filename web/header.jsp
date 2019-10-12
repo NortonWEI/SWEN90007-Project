@@ -297,10 +297,17 @@
             </div>
             <div class="modal-body">
                 <div class="col-md-12 order-md-last">
-                    <form action="#" class="bg-white p-5 contact-form">
+                    <form action="/reset" method="post" class="bg-white p-5 contact-form">
+                        <div class="form-group">
+                            <label class="control-label">Your User Type</label>
+                            <select name="type" class="form-control">
+                                <option value="customer">Customer</option>
+                                <option value="vender">Vendor</option>
+                            </select>
+                        </div>
                         <div class="form-group">
                             <label class="control-label">Your Email</label>
-                            <input type="text" class="form-control" placeholder="" pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$" title="Please input a valid email." required>
+                            <input name="email" type="text" class="form-control" placeholder="" pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$" title="Please input a valid email." required>
                         </div>
                         <div class="text-center">
 					<span class="txt1">

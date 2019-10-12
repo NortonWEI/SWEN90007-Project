@@ -47,6 +47,16 @@ public class CustomerService {
     }
 
     /**
+     * @param email
+     * @return
+     * @throws SQLException
+     */
+    public boolean resetPassword(String email) throws SQLException {
+        CustomerMapper customerMapper = new CustomerMapper();
+        return customerMapper.resetPassword(email);
+    }
+
+    /**
      * update customer photo
      * @param customer with the new photo info
      * @return if update successfully return true

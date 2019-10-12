@@ -3,6 +3,7 @@ package com.freshmel.dataMapper;
 import com.freshmel.dbc.DataBaseConnection;
 import com.freshmel.model.Address;
 import com.freshmel.model.Customer;
+import com.freshmel.model.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -110,6 +111,19 @@ public class CustomerMapper {
         pstmt.setString(11, customer.getAddresses().getSuburb());
         pstmt.setString(12, customer.getAddresses().getState());
         pstmt.setString(13, customer.getAddresses().getPostCode());
+        return pstmt.executeUpdate() > 0;
+    }
+
+    /**
+     * @param email
+     * @return
+     * @throws SQLException
+     */
+    public boolean resetPassword (String email) throws SQLException {
+        String sql = "UPDATE customer SET password=? WHERE email=?" ;
+        pstmt = conn.prepareStatement(sql) ;
+        pstmt.setString(1, User.RESET_PASSWORD);
+        pstmt.setString(2, email);
         return pstmt.executeUpdate() > 0;
     }
 

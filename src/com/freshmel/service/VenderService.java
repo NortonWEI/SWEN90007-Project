@@ -36,6 +36,16 @@ public class VenderService {
     }
 
     /**
+     * @param email
+     * @return
+     * @throws SQLException
+     */
+    public boolean resetPassword(String email) throws SQLException {
+        VenderMapper venderMapper = new VenderMapper();
+        return venderMapper.resetPassword(email);
+    }
+
+    /**
      * update vender photo
      * @param vender with the new photo info
      * @return if update successfully return true

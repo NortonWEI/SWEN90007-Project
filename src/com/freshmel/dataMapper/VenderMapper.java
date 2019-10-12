@@ -2,6 +2,7 @@ package com.freshmel.dataMapper;
 
 import com.freshmel.dbc.DataBaseConnection;
 import com.freshmel.model.Product;
+import com.freshmel.model.User;
 import com.freshmel.model.Vender;
 
 import java.sql.Connection;
@@ -93,6 +94,19 @@ public class VenderMapper {
         pstmt.setTimestamp(5, vender.getRegisterDate());
         pstmt.setString(6, vender.getFirstName());
         pstmt.setString(7, vender.getLastName());
+        return pstmt.executeUpdate() > 0;
+    }
+
+    /**
+     * @param email
+     * @return
+     * @throws SQLException
+     */
+    public boolean resetPassword (String email) throws SQLException {
+        String sql = "UPDATE vender SET password=? WHERE email=?" ;
+        pstmt = conn.prepareStatement(sql) ;
+        pstmt.setString(1, User.RESET_PASSWORD);
+        pstmt.setString(2, email);
         return pstmt.executeUpdate() > 0;
     }
 
