@@ -62,7 +62,7 @@ public class OrderMapper {
             }
             int newInventory = orderItem.getProduct().getInventory() - orderItem.getQuantity();
             if (newInventory < 0){
-                conn.rollback();
+                throw new SQLException(orderItem.getProduct().getName() + " out of stock");
             }
             orderItem.getProduct().setInventory(newInventory);
             ProductIdentityMap.putProduct(orderItem.getProduct());
@@ -100,6 +100,34 @@ public class OrderMapper {
 
             order.setOrderItems(loadOrderItems(order.getId()));
             order.setAddress(loadAddress(customerId));
+            orders.add(order);
+        }
+
+        return orders;
+    }
+
+    /**
+     * find order by customer id
+     * @param customerId with email and password.
+     * @return if the customer in database return whole information of this customer
+     *         if the customer not in database return null
+     * */
+    public List<Order> findByVender(Long venderId) throws SQLException {
+        String sql = "SELECT id,createDate,totalPrice,state,customer_id FROM `order`";
+        pstmt = conn.prepareStatement(sql) ;
+        ResultSet rs = pstmt.executeQuery();
+        List<Order> orders = new ArrayList<Order>();
+        while (rs.next()){
+            Order order = new Order();
+            order.setId(rs.getLong(1));
+            order.setCreateDate(rs.getTimestamp(2));
+            order.setTotalPrice(rs.getFloat(3));
+            order.setState(rs.getInt(4));
+            order.setCustomerId(rs.getLong(5));
+
+            order.setOrderItems(loadOrderItems(order.getId()));
+
+            order.setAddress(loadAddress(order.getCustomerId()));
             orders.add(order);
         }
 

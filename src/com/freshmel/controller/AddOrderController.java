@@ -101,7 +101,7 @@ public class AddOrderController extends HttpServlet {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            req.setAttribute("info", "Database error!");
+            req.setAttribute("info", e.getMessage());
             req.setAttribute("redirectURL", "index.jsp");
             req.getRequestDispatcher("redirect.jsp").forward(req, resp);
         }
