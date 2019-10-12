@@ -1,14 +1,15 @@
-<%--<%@ page import="com.freshmel.dataMapper.OrderMapper" %>--%>
-<%--<%@ page import="java.util.List" %>--%>
-<%--<%@ page import="com.freshmel.model.Order" %>--%>
-<%--<%@ page import="com.freshmel.model.Customer" %>--%>
+<%@ page import="com.freshmel.dataMapper.OrderMapper" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.freshmel.model.Order" %>
+<%@ page import="com.freshmel.model.Customer" %>
+<%@ page import="com.freshmel.model.OrderItem" %>
+<%@ page import="com.freshmel.model.Product" %>
+<%@ page import="java.util.Date" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%--<%--%>
-    <%--Customer customer = (Customer) session.getAttribute("customer");--%>
-    <%--OrderMapper orderMapper = new OrderMapper();--%>
-    <%--List<Order> orders = orderMapper.findByCustomerId(customer.getId());--%>
-    <%--System.out.println(orders.size());--%>
-<%--%>--%>
+<%
+    List<Order> orders = (List<Order>) request.getAttribute("orders");
+    System.out.println(orders.size());
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,83 +70,99 @@
                             <th>State</th>
                         </tr>
                         </thead>
+                        <%
+                            int i =0;
+                            for (Order order : orders){
+                                i++;
+                                List<OrderItem> orderItems = order.getOrderItems();
+                                String state;
+                                if (order.getState() == 1){
+                                    state = "Paid";
+                                }else if (order.getState() == 2){
+                                    state = "Delivering";
+                                }else if (order.getState() == 3){
+                                    state = "Done";
+                                }else {
+                                    state = "Unkonw";
+                                }
+                        %>
                         <tbody>
-                        <tr class="text-md-center" style="background-color: #efefef" data-toggle="collapse" data-target=".accordion1">
+                        <tr class="text-md-center" style="background-color: #efefef" data-toggle="collapse" data-target=".accordion<%=i%>">
                             <td class="product-remove" style="padding-bottom: 0; padding-top: 10px;">
-                                <span class="form-group"><a href="#" ><i class="fa fa-paper-plane"></i></a>
-                                    <ul class="meta list list-unstyled">
-                                        <li class="name" style="font-size: 15px;">Order 1</li>
-                                        <li class="email" style="font-size: 10px;"></i>20:45 10-10-2019</li>
-                                    </ul>
+                                <%--<span class="form-group"><a href="#" ><i class="fa fa-paper-plane"></i></a>--%>
+                                <ul class="meta list list-unstyled">
+                                    <li class="name" style="font-size: 15px;">Order Num: # <%=order.getId()%></li>
+                                    <li class="email" style="font-size: 10px;"></i><%=order.getCreateDate().toString().split("\\.")[0]%></li>
+                                    <li class="email" style="font-size: 10px;"></i><%=order.getAddress().toString()%></li>
+                                </ul>
                                 </span>
                             </td>
-                            <td class="product-remove">Click for Details</td>
-                            <td class="product-remove">$20.60</td>
-                            <td class="product-remove">150</td>
-                            <td class="product-remove">Click for Details</td>
+                            <td class="product-remove">* Click for Details *</td>
+                            <td class="product-remove">$<%=order.getTotalPrice()%></td>
+                            <td class="product-remove">* Click for Details *</td>
+                            <td class="product-remove"><%=state%></td>
                         </tr>
-                        <tr class="text-center collapse accordion1">
+                        <%
+                            for (OrderItem orderItem : orderItems){
+                                Product product = orderItem.getProduct();
+                        %>
+                        <tr class="text-center collapse accordion<%=i%>">
 
-                            <td class="image-prod"><div class="img" style="background-image:url(images/product-1.jpg);"></div></td>
-
-                            <td class="product-name">
-                                <h3>Bell Pepper</h3>
-                                <p>Far far away, behind the word mountains, far from the countries</p>
-                            </td>
-
-                            <td class="price">$4.90</td>
-
-                            <td class="quantity">100</td>
-
-                            <td class="state">Pending</td>
-                        </tr><!-- END TR-->
-
-                        <tr class="text-center collapse accordion1">
-
-                            <td class="image-prod"><div class="img" style="background-image:url(images/product-2.jpg);"></div></td>
+                            <td class="image-prod"><div class="img" style="background-image:url(./upload/photo/<%=product.getPhoto()%>);"></div></td>
 
                             <td class="product-name">
-                                <h3>Bell Pepper</h3>
-                                <p>Far far away, behind the word mountains, far from the countries</p>
+                                <h3><a href="/singleProduct?id=<%=product.getId()%>"><%=product.getName()%></a></h3>
+                                <p><%=product.getDescription()%></p>
                             </td>
 
-                            <td class="price">$15.70</td>
+                            <td class="price">$<%=product.getPrice()%></td>
 
-                            <td class="quantity">50</td>
+                            <td class="quantity"><%=orderItem.getQuantity()%></td>
 
-                            <td class="state">Delivered</td>
+                            <td class="state"><%=state%></td>
                         </tr><!-- END TR-->
+
+                        <%
+                            }
+                        %>
+
                         </tbody>
-                        <tbody>
-                        <tr class="text-md-center" style="background-color: #efefef;" data-toggle="collapse" data-target=".accordion2">
-                            <td class="product-remove" style="padding-bottom: 0; padding-top: 10px;">
-                                <span class="form-group"><a href="#" ><i class="fa fa-paper-plane"></i></a>
-                                    <ul class="meta list list-unstyled">
-                                        <li class="name" style="font-size: 15px;">Order 2</li>
-                                        <li class="email" style="font-size: 10px;"></i>20:45 10-05-2019</li>
-                                    </ul>
-                                </span>
-                            </td>
-                            <td class="product-remove">Click for Details</td>
-                            <td class="product-remove">$4.90</td>
-                            <td class="product-remove">100</td>
-                            <td class="product-remove">Click for Details</td>
-                        </tr>
-                        <tr class="text-center collapse accordion2">
-                            <td class="image-prod"><div class="img" style="background-image:url(images/product-1.jpg);"></div></td>
 
-                            <td class="product-name">
-                                <h3>Bell Pepper</h3>
-                                <p>Far far away, behind the word mountains, far from the countries</p>
-                            </td>
+                        <%
+                            }
+                        %>
 
-                            <td class="price">$4.90</td>
+                        <%--<tbody>--%>
+                        <%--<tr class="text-md-center" style="background-color: #efefef;" data-toggle="collapse" data-target=".accordion2">--%>
+                            <%--<td class="product-remove" style="padding-bottom: 0; padding-top: 10px;">--%>
+                                <%--<span class="form-group"><a href="#" ><i class="fa fa-paper-plane"></i></a>--%>
+                                    <%--<ul class="meta list list-unstyled">--%>
+                                        <%--<li class="name" style="font-size: 15px;">Order 2</li>--%>
+                                        <%--<li class="email" style="font-size: 10px;"></i>20:45 10-05-2019</li>--%>
+                                    <%--</ul>--%>
+                                <%--</span>--%>
+                            <%--</td>--%>
+                            <%--<td class="product-remove">Click for Details</td>--%>
+                            <%--<td class="product-remove">$4.90</td>--%>
+                            <%--<td class="product-remove">100</td>--%>
+                            <%--<td class="product-remove">Click for Details</td>--%>
+                        <%--</tr>--%>
+                        <%--<tr class="text-center collapse accordion2">--%>
+                            <%--<td class="image-prod"><div class="img" style="background-image:url(images/product-1.jpg);"></div></td>--%>
 
-                            <td class="inventory">100</td>
+                            <%--<td class="product-name">--%>
+                                <%--<h3>Bell Pepper</h3>--%>
+                                <%--<p>Far far away, behind the word mountains, far from the countries</p>--%>
+                            <%--</td>--%>
 
-                            <td class="state">On Sale</td>
-                        </tr><!-- END TR-->
-                        </tbody>
+                            <%--<td class="price">$4.90</td>--%>
+
+                            <%--<td class="inventory">100</td>--%>
+
+                            <%--<td class="state">On Sale</td>--%>
+                        <%--</tr><!-- END TR-->--%>
+                        <%--</tbody>--%>
+
                     </table>
                 </div>
             </div>

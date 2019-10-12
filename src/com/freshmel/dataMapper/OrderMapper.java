@@ -1,6 +1,7 @@
 package com.freshmel.dataMapper;
 
 import com.freshmel.dbc.DataBaseConnection;
+import com.freshmel.identityMap.ProductIdentityMap;
 import com.freshmel.model.Address;
 import com.freshmel.model.Order;
 import com.freshmel.model.OrderItem;
@@ -23,7 +24,8 @@ public class OrderMapper {
     public boolean insert(Order order) throws SQLException {
 
         String sql = "INSERT INTO `order`(createDate,totalPrice,state,customer_id) VALUES (?,?,?,?)" ;
-        // close auto commit
+
+        // open transaction, close auto commit
         conn.setAutoCommit(false);
 
         pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS) ;
@@ -50,8 +52,26 @@ public class OrderMapper {
             pstmt.setInt(3, orderItem.getQuantity());
             pstmt.addBatch();
         }
-
         pstmt.executeBatch();
+
+        String updateProductInventory = "UPDATE product SET inventory=? WHERE id=?";
+        pstmt = conn.prepareStatement(updateProductInventory) ;
+        for (OrderItem orderItem:order.getOrderItems()){
+            if (orderItem.getProduct().getInventory()<0){
+                conn.rollback();
+            }
+            int newInventory = orderItem.getProduct().getInventory() - orderItem.getQuantity();
+            if (newInventory < 0){
+                throw new SQLException(orderItem.getProduct().getName() + " out of stock");
+            }
+            orderItem.getProduct().setInventory(newInventory);
+            ProductIdentityMap.putProduct(orderItem.getProduct());
+            pstmt.setInt(1, newInventory);
+            pstmt.setLong(2, orderItem.getProduct().getId());
+            pstmt.addBatch();
+        }
+        pstmt.executeBatch();
+
         conn.commit();
         conn.close();
 
@@ -80,6 +100,34 @@ public class OrderMapper {
 
             order.setOrderItems(loadOrderItems(order.getId()));
             order.setAddress(loadAddress(customerId));
+            orders.add(order);
+        }
+
+        return orders;
+    }
+
+    /**
+     * find order by customer id
+     * @param customerId with email and password.
+     * @return if the customer in database return whole information of this customer
+     *         if the customer not in database return null
+     * */
+    public List<Order> findByVender(Long venderId) throws SQLException {
+        String sql = "SELECT id,createDate,totalPrice,state,customer_id FROM `order`";
+        pstmt = conn.prepareStatement(sql) ;
+        ResultSet rs = pstmt.executeQuery();
+        List<Order> orders = new ArrayList<Order>();
+        while (rs.next()){
+            Order order = new Order();
+            order.setId(rs.getLong(1));
+            order.setCreateDate(rs.getTimestamp(2));
+            order.setTotalPrice(rs.getFloat(3));
+            order.setState(rs.getInt(4));
+            order.setCustomerId(rs.getLong(5));
+
+            order.setOrderItems(loadOrderItems(order.getId()));
+
+            order.setAddress(loadAddress(order.getCustomerId()));
             orders.add(order);
         }
 

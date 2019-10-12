@@ -81,19 +81,19 @@ public class AddOrderController extends HttpServlet {
         try {
             if (orderMapper.insert(order)){
                 // minus product quantity
-                ProductMapper productMapper = new ProductMapper();
-                for (Cart cart : carts){
-                    Product product = cart.getProduct();
-                    // * remember to deal with quantity num > inventory
-                    product.setInventory(product.getInventory() - cart.getQuantity());
-                    productMapper.updateProductQuantity(product);
-                }
+//                ProductMapper productMapper = new ProductMapper();
+//                for (Cart cart : carts){
+//                    Product product = cart.getProduct();
+//                    // * remember to deal with quantity num > inventory
+//                    product.setInventory(product.getInventory() - cart.getQuantity());
+//                    productMapper.updateProductQuantity(product);
+//                }
 
                 CartMapper cartMapper = new CartMapper();
                 //delete cart
                 cartMapper.deleteByCustomerId(customer.getId());
                 customer.getCarts().clear();
-                req.getRequestDispatcher("order.jsp").forward(req, resp);
+                req.getRequestDispatcher("/ListCustomerOrder").forward(req, resp);
             }else{
                 req.setAttribute("info", "check out fail");
                 req.setAttribute("redirectURL", "/cart");
@@ -101,7 +101,7 @@ public class AddOrderController extends HttpServlet {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            req.setAttribute("info", "Database error!");
+            req.setAttribute("info", e.getMessage());
             req.setAttribute("redirectURL", "index.jsp");
             req.getRequestDispatcher("redirect.jsp").forward(req, resp);
         }

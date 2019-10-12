@@ -59,4 +59,9 @@ public class Address {
     public void setPostCode(String postCode) {
         this.postCode = postCode;
     }
+
+    @Override
+    public String toString(){
+        return line1 + ", " + line2 + ", " + line3 + "\n" + suburb + ", " + state + ", " + postCode;
+    }
 }

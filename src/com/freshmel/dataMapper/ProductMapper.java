@@ -134,10 +134,11 @@ public class ProductMapper {
      *         if update failed return false
      * */
     public boolean updateProductQuantity(Product product) throws SQLException {
-        String sql = "UPDATE product SET inventory=? WHERE id=?" ;
+        String sql = "UPDATE product SET inventory=? WHERE id=? AND ?>0" ;
         pstmt = conn.prepareStatement(sql) ;
         pstmt.setInt(1, product.getInventory());
         pstmt.setLong(2, product.getId());
+        pstmt.setInt(3, product.getInventory());
         return pstmt.executeUpdate() > 0 ;
     }
 
