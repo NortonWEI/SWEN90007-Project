@@ -108,7 +108,7 @@ public class OrderMapper {
 
     /**
      * find order by customer id
-     * @param customerId with email and password.
+     * @param venderId with email and password.
      * @return if the customer in database return whole information of this customer
      *         if the customer not in database return null
      * */
@@ -127,8 +127,16 @@ public class OrderMapper {
 
             order.setOrderItems(loadOrderItems(order.getId()));
 
-            order.setAddress(loadAddress(order.getCustomerId()));
-            orders.add(order);
+            boolean flag = true;
+            for (OrderItem orderItem : order.getOrderItems()){
+                if (orderItem.getProduct().getVenderId() != venderId){
+                    flag = false;
+                }
+            }
+            if (flag){
+                order.setAddress(loadAddress(order.getCustomerId()));
+                orders.add(order);
+            }
         }
 
         return orders;
