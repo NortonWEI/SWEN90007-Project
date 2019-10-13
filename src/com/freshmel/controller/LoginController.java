@@ -49,6 +49,7 @@ public class LoginController extends HttpServlet {
                     HttpSession session = req.getSession();
                     session.setAttribute("vender", vender);
                     session.setAttribute("type", "vender");
+                    session.setMaxInactiveInterval(24*60*60);
                     req.getRequestDispatcher("index.jsp").forward(req, resp);
                 }else{
                     req.setAttribute("info", "email or password error!");
@@ -73,6 +74,7 @@ public class LoginController extends HttpServlet {
                     HttpSession session = req.getSession();
                     session.setAttribute("customer", customer);
                     session.setAttribute("type", "customer");
+                    session.setMaxInactiveInterval(24*60*60);
                     req.getRequestDispatcher("index.jsp").forward(req, resp);
                 }else{
                     req.setAttribute("info", "email or password error!");
