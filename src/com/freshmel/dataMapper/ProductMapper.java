@@ -10,9 +10,19 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductMapper {
+public class ProductMapper implements IProductMapper<Product> {
+
+    private static IProductMapper<Product> instance;
+
     public Connection conn = new DataBaseConnection().getConnection();
     public PreparedStatement pstmt;
+
+    public static IProductMapper getInstance(String sessionId) {
+        if(instance == null) {
+            instance = new ProductLockingMapper(new ProductMapper(),sessionId);
+        }
+        return instance;
+    }
 
     /**
      * insert a new product into databse
@@ -120,7 +130,7 @@ public class ProductMapper {
         pstmt.setString(2, product.getPhoto());
         pstmt.setString(3, product.getDescription());
         pstmt.setFloat(4, product.getPrice());
-        pstmt.setInt(5,product.getState());
+        pstmt.setInt(5, product.getState());
         pstmt.setString(6, product.getType());
         pstmt.setInt(7, product.getInventory());
         pstmt.setLong(8, product.getId());
