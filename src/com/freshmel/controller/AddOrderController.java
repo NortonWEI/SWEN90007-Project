@@ -58,6 +58,14 @@ public class AddOrderController extends HttpServlet {
         Customer customer = (Customer) session.getAttribute("customer");
         List<Cart> carts = customer.getCarts();
 
+        if (carts.size() == 0){
+            req.setAttribute("info", "cart is empty, please go to add products into cart!");
+            req.setAttribute("redirectURL", "/shop");
+            req.getRequestDispatcher("redirect.jsp").forward(req, resp);
+            System.out.println("--------");
+            return;
+        }
+
         Order order = new Order();
         Date date = new Date();
         order.setCreateDate(new Timestamp(date.getTime()));
