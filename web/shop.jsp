@@ -58,6 +58,10 @@
                         <span class="product-remove"><a href="javascript:void(0)" class="icon ion-ios-search" id="searchProd"></a></span>
                         <input type="text" class="form-control" placeholder="Search..." id="searchBar" required>
                     </div>
+                    <div class="form-group col-md-6">
+                        <a href="#" id="rank_price" class="btn btn-primary py-3 px-5">Rank by Price</a>
+                        <a href="#" id="rank_inv" class="btn btn-primary py-3 px-5">Rank by Inventory</a>
+                    </div>
                 </form>
                 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
                 <script>

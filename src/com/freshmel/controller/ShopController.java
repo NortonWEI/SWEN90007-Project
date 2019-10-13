@@ -19,12 +19,12 @@ public class ShopController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String type = req.getParameter("type");
-        String query = req.getParameter("query");
+//        String query = req.getParameter("query");
         ProductService productService = new ProductService();
 
-        if (query != null) {
-            req.getSession().setAttribute("searchQuery", query);
-        }
+//        if (query != null) {
+//            req.getSession().setAttribute("searchQuery", query);
+//        }
 
         if (type != null){
             try {
