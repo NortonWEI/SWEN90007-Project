@@ -67,45 +67,37 @@
                     <%
                         }
                     %>
-<%--                    <span class="product-remove"><a href="javascript:void(0)" type="submit" class="icon ion-ios-search" id="searchProd"></a></span>--%>
                     <button type="submit" class="btn icon ion-ios-search">
-<%--                        <i class=""></i>--%>
                     </button>
                 </div>
+            </form>
+            <br>
+            <form action="/shop" method="get" class="search-form" id="rank-form">
                 <div class="form-group col-md-6">
-                    <a href="#" id="rank_price" class="btn btn-primary py-3 px-5">Rank by Price</a>
-                    <a href="#" id="rank_inv" class="btn btn-primary py-3 px-5">Rank by Inventory</a>
+                    <a href="javascript:void(0)" id="rank_price" class="btn btn-primary py-3 px-5">Rank by Price</a>
+                    <a href="javascript:void(0)" id="rank_inv" class="btn btn-primary py-3 px-5">Rank by Inventory</a>
+                    <input id="rank-input" type="hidden" name="rank" value="">
                 </div>
             </form>
                 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
                 <script>
-                    document.getElementById("searchProd").onclick = function () {
-                        var searchBar = document.getElementById("searchBar");
-                        var url = document.URL;
+                    document.getElementById("rank_price").onclick = function () {
 
-                        if (searchBar.value == "") {
-                            swal("Info", "Please input your search query!").then((value) => {});
-                        } else {
-                            <%--if (url.toLocaleLowerCase().includes("query")) {--%>
-                            <%--    url = url.replace(<%=session.getAttribute("searchQuery")%>, searchBar.value);--%>
-                            <%--    window.location.href = url;--%>
-                            <%--} else {--%>
-                            <%--    if (url.toLocaleLowerCase().includes("?")) {--%>
-                            <%--        url += "&query=" + searchBar.value;--%>
-                            <%--        window.location.href = url;--%>
-                            <%--    } else {--%>
-                            <%--        url += "?query=" + searchBar.value;--%>
-                            <%--        window.location.href = url;--%>
-                            <%--    }--%>
-                            <%--}--%>
-                            // if (url.toLowerCase().includes("type")) {
-                            //
-                            // } else {
-                            //     url += "?query=" + searchBar.value;
-                            //     window.location.href = url;
-                            // }
-                        }
+                        var form = document.getElementById('rank-form');
+                        var input = document.getElementById('rank-input');
+
+                        input.value = 'price';
+                        form.submit();
                     }
+
+                    document.getElementById("rank_inv").onclick = function () {
+                        var form = document.getElementById('rank-form');
+                        var input = document.getElementById('rank-input');
+
+                        input.value = 'inv';
+                        form.submit();
+                    }
+
                 </script>
         </div>
         <div class="row justify-content-center">
@@ -224,7 +216,7 @@
         var anchor = window.location.href;
         var tab;
 
-        if (anchor.includes("=")) {
+        if (anchor.includes("type=")) {
             anchor = anchor.substring(anchor.indexOf("=")+1);
         } else {
             anchor = "All";

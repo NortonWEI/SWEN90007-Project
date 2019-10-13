@@ -229,5 +229,32 @@ public class ProductMapper implements IProductMapper<Product> {
         }
         return products;
     }
-    
+
+    public List<Product> getByRank(String rank) throws SQLException {
+        String sql = "";
+
+        if (rank.equals("price")) {
+            sql = "SELECT id,name,photo,description,price,createDate,state,type,vender_id,inventory FROM product ORDER BY price ASC";
+        } else if (rank.equals("inv")) {
+            sql = "SELECT id,name,photo,description,price,createDate,state,type,vender_id,inventory FROM product ORDER BY inventory ASC";
+        }
+        pstmt = conn.prepareStatement(sql) ;
+        ResultSet rs = pstmt.executeQuery();
+        List<Product> products = new ArrayList<Product>();
+        while (rs.next()){
+            Product product = new Product();
+            product.setId(rs.getLong(1));
+            product.setName(rs.getString(2));
+            product.setPhoto(rs.getString(3));
+            product.setDescription(rs.getString(4));
+            product.setPrice(rs.getFloat(5));
+            product.setCreatDate(rs.getTimestamp(6));
+            product.setState(rs.getInt(7));
+            product.setType(rs.getString(8));
+            product.setVenderId(rs.getLong(9));
+            product.setInventory(rs.getInt(10));
+            products.add(product);
+        }
+        return products;
+    }
 }

@@ -61,4 +61,13 @@ public class ProductService {
         }
         return products;
     }
+
+    public List<Product> getByRank(String rank) throws SQLException {
+        ProductMapper productMapper = new ProductMapper();
+        List<Product> products = productMapper.getByRank(rank);
+        for (int i =0;i<products.size();i++){
+            ProductIdentityMap.putProduct(products.get(i));
+        }
+        return products;
+    }
 }

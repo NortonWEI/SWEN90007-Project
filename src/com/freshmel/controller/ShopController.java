@@ -20,6 +20,7 @@ public class ShopController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String type = req.getParameter("type");
         String query = req.getParameter("query");
+        String rank = req.getParameter("rank");
         ProductService productService = new ProductService();
 
         if (type != null){
@@ -36,6 +37,17 @@ public class ShopController extends HttpServlet {
             try {
                 req.setAttribute("products", productService.getBySearch(query));
                 req.setAttribute("query", query);
+                req.getRequestDispatcher("shop.jsp").forward(req,resp);
+            } catch (SQLException e) {
+                e.printStackTrace();
+                req.setAttribute("info", "Database error!");
+                req.setAttribute("redirectURL", "index.jsp");
+                req.getRequestDispatcher("redirect.jsp").forward(req, resp);
+            }
+        } else if (rank != null) {
+            try {
+                System.out.println(rank);
+                req.setAttribute("products", productService.getByRank(rank));
                 req.getRequestDispatcher("shop.jsp").forward(req,resp);
             } catch (SQLException e) {
                 e.printStackTrace();
