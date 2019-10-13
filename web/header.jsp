@@ -71,11 +71,11 @@
                     if (type != null){
                         if (currPage.equals("order.jsp")) {
                 %>
-                <li class="nav-item active"><a href="order.jsp" class="nav-link">Order</a></li>
+                <li class="nav-item active"><a href="/ListCustomerOrder" class="nav-link">Order</a></li>
                 <%
                         } else {
                 %>
-                <li class="nav-item"><a href="order.jsp" class="nav-link">Order</a></li>
+                <li class="nav-item"><a href="/ListCustomerOrder" class="nav-link">Order</a></li>
                 <%
                         }
                     }

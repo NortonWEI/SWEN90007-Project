@@ -1,6 +1,7 @@
 <%@ page import="com.freshmel.service.ProductService" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.freshmel.model.Product" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
 	List<Product> products =  (List<Product>)request.getAttribute("products");
@@ -51,16 +52,62 @@
 
     <section class="ftco-section">
     	<div class="container">
+            <div class="sidebar-box" align="center">
+                <form action="#" class="search-form">
+                    <div class="form-group col-md-6">
+                        <span class="product-remove"><a href="javascript:void(0)" class="icon ion-ios-search" id="searchProd"></a></span>
+                        <input type="text" class="form-control" placeholder="Search..." id="searchBar" required>
+                    </div>
+                </form>
+                <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                <script>
+                    document.getElementById("searchProd").onclick = function () {
+                        var searchBar = document.getElementById("searchBar");
+                        var url = document.URL;
+
+                        if (searchBar.value == "") {
+                            swal("Info", "Please input your search query!").then((value) => {});
+                        } else {
+                            if (url.toLocaleLowerCase().includes("query")) {
+                                url = url.replace(<%=session.getAttribute("searchQuery")%>, searchBar.value);
+                                window.location.href = url;
+                            } else {
+                                if (url.toLocaleLowerCase().includes("?")) {
+                                    url += "&query=" + searchBar.value;
+                                    window.location.href = url;
+                                } else {
+                                    url += "?query=" + searchBar.value;
+                                    window.location.href = url;
+                                }
+                            }
+                        }
+                    }
+                </script>
+            </div>
     		<div class="row justify-content-center">
     			<div class="col-md-10 mb-5 text-center">
     				<ul class="product-category">
-    					<%--<li><a href="./shop" class="active">All</a></li>--%>
+                        <%
+                        if (session.getAttribute("searchQuery") == null || session.getAttribute("searchQuery") == "") {
+                        %>
 						<li><a href="./shop" id="All" name="tab">All</a></li>
     					<li><a href="./shop?type=Vegetable" id="Vegetable" name="tab">Vegetable</a></li>
     					<li><a href="./shop?type=Fruit" id="Fruit" name="tab">Fruit</a></li>
     					<li><a href="./shop?type=Seafood" id="Seafood" name="tab">Seafood</a></li>
     					<li><a href="./shop?type=Dairy" id="Dairy" name="tab">Dairy</a></li>
 						<li><a href="./shop?type=Poultry" id="Poultry" name="tab">Poultry</a></li>
+                        <%
+                        } else {
+                        %>
+                        <li><a href="./shop?query=<%=session.getAttribute("searchQuery")%>" id="All" name="tab">All</a></li>
+                        <li><a href="./shop?type=Vegetable&query=<%=session.getAttribute("searchQuery")%>" id="Vegetable" name="tab">Vegetable</a></li>
+                        <li><a href="./shop?type=Fruit&query=<%=session.getAttribute("searchQuery")%>" id="Fruit" name="tab">Fruit</a></li>
+                        <li><a href="./shop?type=Seafood&query=<%=session.getAttribute("searchQuery")%>" id="Seafood" name="tab">Seafood</a></li>
+                        <li><a href="./shop?type=Dairy&query=<%=session.getAttribute("searchQuery")%>" id="Dairy" name="tab">Dairy</a></li>
+                        <li><a href="./shop?type=Poultry&query=<%=session.getAttribute("searchQuery")%>" id="Poultry" name="tab">Poultry</a></li>
+                        <%
+                        }
+                        %>
     				</ul>
     			</div>
     		</div>
@@ -72,7 +119,6 @@
 				<div class="col-md-6 col-lg-3 ftco-animate">
 					<div class="product">
 						<a href="/singleProduct?id=<%=product.getId()%>" class="img-prod"><img class="img-fluid" src="./upload/photo/<%=product.getPhoto()%>" alt="Colorlib Template">
-							<%--<span class="status">10%</span>--%>
 							<div class="overlay"></div>
 						</a>
 						<div class="text py-3 pb-4 px-3 text-center">
