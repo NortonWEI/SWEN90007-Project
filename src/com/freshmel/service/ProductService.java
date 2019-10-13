@@ -52,4 +52,13 @@ public class ProductService {
         }
         return products;
     }
+
+    public List<Product> getBySearch(String query) throws SQLException {
+        ProductMapper productMapper = new ProductMapper();
+        List<Product> products = productMapper.getBySearch(query);
+        for (int i =0;i<products.size();i++){
+            ProductIdentityMap.putProduct(products.get(i));
+        }
+        return products;
+    }
 }

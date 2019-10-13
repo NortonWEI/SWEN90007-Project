@@ -19,12 +19,8 @@ public class ShopController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String type = req.getParameter("type");
-//        String query = req.getParameter("query");
+        String query = req.getParameter("query");
         ProductService productService = new ProductService();
-
-//        if (query != null) {
-//            req.getSession().setAttribute("searchQuery", query);
-//        }
 
         if (type != null){
             try {
@@ -36,7 +32,18 @@ public class ShopController extends HttpServlet {
                 req.setAttribute("redirectURL", "index.jsp");
                 req.getRequestDispatcher("redirect.jsp").forward(req, resp);
             }
-        }else{
+        } else if (query != null) {
+            try {
+                req.setAttribute("products", productService.getBySearch(query));
+                req.setAttribute("query", query);
+                req.getRequestDispatcher("shop.jsp").forward(req,resp);
+            } catch (SQLException e) {
+                e.printStackTrace();
+                req.setAttribute("info", "Database error!");
+                req.setAttribute("redirectURL", "index.jsp");
+                req.getRequestDispatcher("redirect.jsp").forward(req, resp);
+            }
+        } else{
             try {
                 req.setAttribute("products", productService.getAllProducts());
                 req.getRequestDispatcher("shop.jsp").forward(req,resp);
@@ -47,5 +54,7 @@ public class ShopController extends HttpServlet {
                 req.getRequestDispatcher("redirect.jsp").forward(req, resp);
             }
         }
+
+
     }
 }
